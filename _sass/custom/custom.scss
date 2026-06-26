@@ -1,0 +1,20 @@
+// =============================================================================
+// Workshop custom styles (just-the-docs imports _sass/custom/custom.scss last,
+// so rules here override the theme — works with remote_theme on GitHub Pages).
+// =============================================================================
+
+// --- "Outcome" callout: the STANDARD treatment for executive / business outcomes ---
+//
+// The callout itself is defined in _config.yml (`outcome`, blue, no title). This
+// rule makes its border thicker so an outcome reads as the most prominent box on
+// the page. Keep these two in sync — color lives in _config.yml, weight lives here.
+//
+// Where it's used:
+//   * Home (index.md): build_index.py auto-wraps every "Executive outcome …"
+//     paragraph in `{: .outcome }`.
+//   * Anywhere else: precede the outcome paragraph/blockquote with `{: .outcome }`.
+.outcome,
+blockquote.outcome {
+  border-width: 2px;        // up from the theme default of 1px
+  border-left-width: 6px;   // up from the theme default of 4px
+}

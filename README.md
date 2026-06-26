@@ -30,3 +30,6 @@ bundle exec jekyll serve
 - The lab commands reference the demo application repo
   ([DemoBot](https://github.com/mayeack/DemoBot)) — `scripts/demo/seed_governance_scenarios.py`,
   `scripts/demo/galileo_eval_prescription.py`, and the `/api/incident/*` endpoints.
+- **Outcomes** use the standard **`outcome` callout** — a blue, thick-bordered box (color in
+  `_config.yml`, border weight in `_sass/custom/custom.scss`). On Home it is applied
+  automatically by `build_index.py`; elsewhere precede the outcome with `{: .outcome }`.
