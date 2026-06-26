@@ -47,6 +47,10 @@ callouts:
   warning:
     title: Heads up
     color: red
+  # Executive-outcome highlight on the Home page (blue box, no title bar — the
+  # bold "Executive outcome — …" lead-in inside the text serves as the label).
+  outcome:
+    color: blue
 
 exclude:
   - Gemfile

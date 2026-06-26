@@ -58,5 +58,20 @@ if insert_at is None:
 else:
     body = "\n".join(lines[:insert_at]) + "\n" + BUTTONS + "\n".join(lines[insert_at:])
 
-OUT.write_text(FRONT + body, encoding="utf-8")
-print(f"wrote {OUT} from {narrative_path} ({OUT.stat().st_size} bytes)")
+# Workshop-specific presentation: wrap each "Executive outcome …" paragraph in a
+# just-the-docs `outcome` callout so it stands out on the Home page (the text is
+# unchanged — only blockquote/callout markup is added). Requires an `outcome`
+# callout defined in _config.yml.
+out_lines = []
+n_outcomes = 0
+for ln in (FRONT + body).split("\n"):
+    if ln.startswith("**Executive outcome"):
+        out_lines.append("{: .outcome }")
+        out_lines.append("> " + ln)
+        n_outcomes += 1
+    else:
+        out_lines.append(ln)
+
+OUT.write_text("\n".join(out_lines), encoding="utf-8")
+print(f"wrote {OUT} from {narrative_path} ({OUT.stat().st_size} bytes; "
+      f"{n_outcomes} executive-outcome callouts)")

@@ -75,7 +75,8 @@ None of these downstream pillars stand on their own, though — the foundation w
 
 **What One Cisco does.** Presents the entire governed AI estate in a single view, every KPI live, every governed turn traceable to its correlated record.
 
-**Executive outcome.** The leader sees the posture of the AI program at a glance — and knows that any number on the screen is one click from the evidence behind it.
+{: .outcome }
+> **Executive outcome.** The leader sees the posture of the AI program at a glance — and knows that any number on the screen is one click from the evidence behind it.
 
 ### Part 1 — Measure / Evaluate (Cisco Agent Observability): Define Good, Catch the Unknown Unknowns
 
@@ -83,7 +84,8 @@ None of these downstream pillars stand on their own, though — the foundation w
 
 **What One Cisco does.** Cisco Agent Observability evaluates the *whole agent trace* and scores each turn **baseline vs. poisoned**, using **Luna** — Cisco's small, purpose-built evaluator models — so continuous LLM-as-judge scoring is affordable instead of a frontier-model bill. It **surfaces token usage and cost** per arm, runs the custom metrics you defined, and flags the **unknown unknowns**: anomalous clusters, drift, and novel failure modes no rubric anticipated. The poisoned model's prescription overreach is caught here, quantified against the baseline, and handed to Part 2 to be enforced as a guardrail. Once the agent is live, those same signals and metrics keep running, turning quality into **consistent, continuous intelligence on the deployed agent** — not a one-time pre-ship check.
 
-**Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Poisoned behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
+{: .outcome }
+> **Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Poisoned behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
 
 ### Part 2 — Secure (Cisco AI Defense): From Blocked to Compliant
 
@@ -91,7 +93,8 @@ None of these downstream pillars stand on their own, though — the foundation w
 
 **What One Cisco does.** This is where the evaluation becomes enforcement. Cisco AI Defense applies runtime guardrails on the prompt and the response — *per direction*, since the model's output is its own risk surface — and the prescription-overreach finding from the Cisco Agent Observability evaluation in Part 1 is authored here as a **custom response-direction guardrail**, so the exact behavior the eval measured is what now gets blocked. In the workshop, the participants author and tune the governing policy *in real time*, then re-run — taking it from **not blocked → compliant** live.
 
-**Executive outcome — Trusted AI.** Non-compliant output never reaches the user, and policy is authored and tuned in real time, then re-validated immediately against the live app — governance you can watch happen, not a quarter-long change request.
+{: .outcome }
+> **Executive outcome — Trusted AI.** Non-compliant output never reaches the user, and policy is authored and tuned in real time, then re-validated immediately against the live app — governance you can watch happen, not a quarter-long change request.
 
 ### Part 3 — Observe (Splunk Observability Cloud): Trace the Bottleneck, Restore the SLO
 
@@ -99,7 +102,8 @@ None of these downstream pillars stand on their own, though — the foundation w
 
 **What One Cisco does.** Cisco Agent Observability already told us whether the agent *answered* well (Part 1); Splunk Observability Cloud tells us whether it *ran* well. The participant will first observe key metrics, tracing data, and tokenomics using the AI Agent Monitoring dashboards in Observability Cloud. Then, using the **Troubleshooting & Remediation Agent** in Splunk Observability Cloud, the participants trace the request end to end across the service and isolates the root-cause bottleneck. The participant applies the fix; the agent's role is to find the cause.
 
-**Executive outcome — Operational Excellence.** Reliable, cost-efficient AI — performance problems are found by tracing, not guessing.
+{: .outcome }
+> **Executive outcome — Operational Excellence.** Reliable, cost-efficient AI — performance problems are found by tracing, not guessing.
 
 ### Part 4 — Govern (Splunk Core / Enterprise Security): Audit, Surface, Escalate
 
@@ -107,7 +111,8 @@ None of these downstream pillars stand on their own, though — the foundation w
 
 **What One Cisco does.** The reviewer works the **immutable AI interaction logs**, reviews interactions blocked by policies in Cisco AI Defense, surfaces a prompt-injection attempt directly in the dashboard, and creates a correlation search to automatically escalate evidence-backed findings to Enterprise Security. Every governed turn is in the audit table.
 
-**Executive outcome — Accountability & Evidence.** End-to-end auditability and defensible evidence — the audit is a query, not a fire drill, and findings flow straight into the security workflow.
+{: .outcome }
+> **Executive outcome — Accountability & Evidence.** End-to-end auditability and defensible evidence — the audit is a query, not a fire drill, and findings flow straight into the security workflow.
 
 ---
 
