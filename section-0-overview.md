@@ -59,8 +59,10 @@ The KPI tiles are populated and the Govern table has rows. Over a rolling ~7–3
 | Avg latency | ~8s |
 
 <!-- exec-outcome:start -->
+
 {: .outcome }
 > **Executive outcome.** The leader sees the posture of the AI program at a glance — and knows that any number on the screen is one click from the evidence behind it.
+
 <!-- exec-outcome:end -->
 
 ---

@@ -62,8 +62,10 @@ During an audit, review immutable AI interaction logs, surface a prompt-injectio
 The injection turn is visible and flagged in the Recent AI Requests log; the `event_id` search returns the full correlated record; the prompt-injection panel shows the detection. The correlated record is then positioned as the evidence Enterprise Security ingests (the ES notable/incident promotion is the production architecture, not a wired step in this demo).
 
 <!-- exec-outcome:start -->
+
 {: .outcome }
 > **Executive outcome — Accountability & Evidence.** End-to-end auditability and defensible evidence — the audit is a query, not a fire drill, and findings flow straight into the security workflow.
+
 <!-- exec-outcome:end -->
 
 ---

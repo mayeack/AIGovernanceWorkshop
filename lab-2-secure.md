@@ -62,8 +62,10 @@ First run: response **blocked**, verdict visible in AI Defense, block visible in
 > If Lab 2 no longer shows a block, the policy was probably left in its tuned (permissive) state from a prior run. In AI Defense, revert the governing policy to its blocking state, then re-run the scenario.
 
 <!-- exec-outcome:start -->
+
 {: .outcome }
 > **Executive outcome — Trusted AI.** Non-compliant output never reaches the user, and policy is authored and tuned in real time, then re-validated immediately against the live app — governance you can watch happen, not a quarter-long change request.
+
 <!-- exec-outcome:end -->
 
 ---

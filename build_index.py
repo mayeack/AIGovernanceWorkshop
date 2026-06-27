@@ -113,7 +113,11 @@ for page_name, outcome in zip(OUTCOME_PAGES, outcomes):
     except ValueError:
         print(f"  skip {page_name}: missing exec-outcome markers")
         continue
-    block = [MARK_START, "{: .outcome }", "> " + outcome, MARK_END]
+    # Blank lines around the IAL/blockquote are required: kramdown only attaches the
+    # `{: .outcome }` class to the blockquote when a blank line precedes the IAL (otherwise
+    # it renders as a plain paragraph). Keep the blank line before MARK_END too so the end
+    # comment is its own block.
+    block = [MARK_START, "", "{: .outcome }", "> " + outcome, "", MARK_END]
     page_lines[s:e + 1] = block
     page.write_text("\n".join(page_lines), encoding="utf-8")
     synced += 1

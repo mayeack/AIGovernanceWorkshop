@@ -67,8 +67,10 @@ APM detectors breach during the ~90s incident; the trace view isolates the slow 
 > The incident is a controlled fault injection against the demo service — safe, time-boxed, and reversible. It does not affect any real workload.
 
 <!-- exec-outcome:start -->
+
 {: .outcome }
 > **Executive outcome — Operational Excellence.** Reliable, cost-efficient AI — performance problems are found by tracing, not guessing.
+
 <!-- exec-outcome:end -->
 
 ---

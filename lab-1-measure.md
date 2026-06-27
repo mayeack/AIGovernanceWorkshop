@@ -77,8 +77,10 @@ Cisco Agent Observability shows the baseline-vs-poisoned delta (baseline ~0 viol
 > If Cisco Agent Observability shows no traces, confirm `GALILEO_*` is set in `.env` (the app loads the corp CA on import). Splunk's `genai_scoring` Measure panels are the fallback.
 
 <!-- exec-outcome:start -->
+
 {: .outcome }
 > **Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Poisoned behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
+
 <!-- exec-outcome:end -->
 
 ---
