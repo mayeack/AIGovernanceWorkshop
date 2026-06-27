@@ -7,7 +7,10 @@ nav_order: 6
 # Lab 3 — OBSERVE (Splunk Observability Cloud)
 {: .no_toc }
 
-**Pillar:** Observe · **Tool:** Splunk Observability Cloud (APM) · **Timing:** 12–15 min · **Outcome:** Operational Excellence
+**Pillar:** Observe<br>
+**Tool:** Splunk Observability Cloud (APM)<br>
+**Timing:** 12–15 min<br>
+**Outcome:** Operational Excellence
 {: .fs-5 .fw-300 }
 
 1. TOC
@@ -21,7 +24,7 @@ The response is compliant, but latency has spiked beyond SLO. Use the Troublesho
 
 ## Step by step
 
-1. Show the **healthy baseline** first: in Section 0's Observe section ("Response latency avg / p90"), point out the steady-state — **avg latency ~8s**.
+1. Show the **healthy baseline** first: in the AI Governance Overview Dashboard's Observe section ("Response latency avg / p90"), point out the steady-state — **avg latency ~8s**.
 
 2. **Inject the incident** live (disruptive; auto-expires). The endpoint drives sustained authenticated load and forces latency/errors against `service=demobot-v3`:
 
@@ -48,7 +51,7 @@ The response is compliant, but latency has spiked beyond SLO. Use the Troublesho
 
    Check status any time with `GET /api/incident/status`.
 
-6. Confirm latency returns to baseline in the APM service view and in Section 0's Observe latency chart.
+6. Confirm latency returns to baseline in the APM service view and in the AI Governance Overview Dashboard's Observe latency chart.
 
 ## What this shows
 
@@ -58,10 +61,15 @@ The response is compliant, but latency has spiked beyond SLO. Use the Troublesho
 
 ## Expected result
 
-APM detectors breach during the ~90s incident; the trace view isolates the slow span; latency returns to ~8s baseline after stop/expiry. Section 0's Observe latency line shows the spike and recovery.
+APM detectors breach during the ~90s incident; the trace view isolates the slow span; latency returns to ~8s baseline after stop/expiry. The AI Governance Overview Dashboard's Observe latency line shows the spike and recovery.
 
 {: .note }
 > The incident is a controlled fault injection against the demo service — safe, time-boxed, and reversible. It does not affect any real workload.
+
+<!-- exec-outcome:start -->
+{: .outcome }
+> **Executive outcome — Operational Excellence.** Reliable, cost-efficient AI — performance problems are found by tracing, not guessing.
+<!-- exec-outcome:end -->
 
 ---
 

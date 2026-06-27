@@ -76,7 +76,7 @@ Every turn is **server-assigned** a shared `request_id` / `trace_id` / `gen_ai.e
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| Section 0 KPI tiles all read 0 / empty audit table | No demo data in window, or wrong time range | Set dashboard to **Last 7 days**; run `seed_governance_scenarios.py` and wait a few seconds |
+| AI Governance Overview Dashboard KPI tiles all read 0 / empty audit table | No demo data in window, or wrong time range | Set dashboard to **Last 7 days**; run `seed_governance_scenarios.py` and wait a few seconds |
 | App returns 401 on every request | Access gate — missing/invalid key | Use `curl -u x:$ACCESS_KEY`; in the browser log in at `/login`. `ACCESS_KEY` is in `.env` |
 | Lab 1 baseline-vs-poisoned eval shows nothing | The eval is the offline script, not the seeder | Run `scripts/demo/galileo_eval_prescription.py` directly (app up, `GALILEO_*` set); or pre-capture the Cisco Agent Observability console |
 | Observe / APM latency charts flat or stale; no new spans in Splunk | **Collector is down** (it dies when the laptop sleeps) | Restart it: `./run-collector.sh`. Restarting the app alone does **not** fix this — both processes must run |
@@ -86,7 +86,7 @@ Every turn is **server-assigned** a shared `request_id` / `trace_id` / `gen_ai.e
 | Lab 2 no longer shows a block | Policy left in its tuned (permissive) state from a prior run | In AI Defense, revert the governing policy to its blocking state, then re-run the scenario |
 | Cisco Agent Observability shows no traces | `GALILEO_API_KEY` unset, or SDK CA issue | Confirm `GALILEO_*` in `.env`; the app loads the corp CA on import. Splunk's `genai_scoring` Measure panels are the fallback |
 | Cost KPI shows $0 | Splunk's server-side pricing lookup doesn't price the current models in this org | **Not a bug.** Use the **Tokens** tile as the cost proxy; it auto-populates if/when the model is priced |
-| Section 0 dashboard not found / empty | AI Governance TA not visible to this user, or wrong time range | Confirm `TA-gen_ai_cim` is enabled and shared to your role; open `/app/TA-gen_ai_cim/ai_governance_overview` and set **Last 7 days** |
+| AI Governance Overview Dashboard not found / empty | AI Governance TA not visible to this user, or wrong time range | Confirm `TA-gen_ai_cim` is enabled and shared to your role; open `/app/TA-gen_ai_cim/ai_governance_overview` and set **Last 7 days** |
 | Correlated-record pivot returns nothing | `event_id` empty on that row, or wrong time range | Pick a row with flags, copy its `event_id`, and run `search index=gen_ai_log "<event_id>"` (Last 7 days) |
 
 ---

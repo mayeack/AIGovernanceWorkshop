@@ -7,7 +7,10 @@ nav_order: 7
 # Lab 4 — GOVERN (Splunk Core / Enterprise Security)
 {: .no_toc }
 
-**Pillar:** Govern · **Tool:** Splunk Core / Enterprise Security · **Timing:** 12–15 min · **Outcome:** Accountability & Evidence
+**Pillar:** Govern<br>
+**Tool:** Splunk Core / Enterprise Security<br>
+**Timing:** 12–15 min<br>
+**Outcome:** Accountability & Evidence
 {: .fs-5 .fw-300 }
 
 1. TOC
@@ -31,7 +34,7 @@ During an audit, review immutable AI interaction logs, surface a prompt-injectio
 
 2. Frame the scenario: *"We're in an audit. Show me what the AI did, and prove it."*
 
-3. In Section 0's **Recent AI Requests (Detailed Log)** table, find the flagged turn (look for the `BLOCKED` / `TOXIC` / `PII` flags), copy its `event_id`, and run the search below — it pivots to the **full correlated record** for that `event_id`:
+3. In the AI Governance Overview Dashboard's **Recent AI Requests (Detailed Log)** table, find the flagged turn (look for the `BLOCKED` / `TOXIC` / `PII` flags), copy its `event_id`, and run the search below — it pivots to the **full correlated record** for that `event_id`:
 
    ```spl
    search index=gen_ai_log "<event_id>"
@@ -39,7 +42,7 @@ During an audit, review immutable AI interaction logs, surface a prompt-injectio
 
    This single search returns the governance turn (`medadvice3:json`) **plus** the Cisco Agent Observability quality score, the AI Defense verdict, and the PII/injection/hallucination ML scores — all on one identifier.
 
-4. Show the **prompt-injection detection** in the Section 0 Secure panel ("Prompt-injection attempts detected over time", from `ai_cim:prompt_injection:ml_scoring`).
+4. Show the **prompt-injection detection** in the AI Governance Overview Dashboard's Secure panel ("Prompt-injection attempts detected over time", from `ai_cim:prompt_injection:ml_scoring`).
 
 5. Open the **per-session audit** in the app (`/governance-ui`) to show the same turn with full governance metadata at the session level — the operator's view of the same record.
 
@@ -57,6 +60,11 @@ During an audit, review immutable AI interaction logs, surface a prompt-injectio
 ## Expected result
 
 The injection turn is visible and flagged in the Recent AI Requests log; the `event_id` search returns the full correlated record; the prompt-injection panel shows the detection. The correlated record is then positioned as the evidence Enterprise Security ingests (the ES notable/incident promotion is the production architecture, not a wired step in this demo).
+
+<!-- exec-outcome:start -->
+{: .outcome }
+> **Executive outcome — Accountability & Evidence.** End-to-end auditability and defensible evidence — the audit is a query, not a fire drill, and findings flow straight into the security workflow.
+<!-- exec-outcome:end -->
 
 ---
 

@@ -7,7 +7,7 @@ nav_order: 8
 # Wrap-Up & Outcomes
 {: .no_toc }
 
-**Timing:** 5 min · Return to the Section 0 dashboard and close the loop.
+**Timing:** 5 min · Return to the AI Governance Overview Dashboard and close the loop.
 {: .fs-5 .fw-300 }
 
 1. TOC
@@ -17,17 +17,17 @@ nav_order: 8
 
 ## Close the loop
 
-Return to the **Section 0 dashboard**. Everything covered — the measurement, the block, the latency spike, the injection — is on **one screen**, on the **same turns**, joined on `gen_ai.event.id` / `trace_id`. The same pattern generalizes: this engine re-skins to six verticals (medical, tax, benefits, legal, finance, telecom).
+Return to the **AI Governance Overview Dashboard**. Everything covered — the measurement, the block, the latency spike, the injection — is on **one screen**, on the **same turns**, joined on `gen_ai.event.id` / `trace_id`. The same pattern generalizes: this engine re-skins to six verticals (medical, tax, benefits, legal, finance, telecom).
 
 ## The five outcomes
 
 | Outcome | Pillar | Grounded in |
 |---|---|---|
-| **Unified Visibility & Control** | Overview | the single pane (Section 0) |
-| **Improved Outcomes** | Measure | evaluation, signals & continuous metrics ([Lab 1](lab-1-measure.html)) |
-| **Trusted AI** | Secure | exposed → compliant live ([Lab 2](lab-2-secure.html)) |
+| **Unified Visibility & Control** | Overview | The single pane (AI Governance Overview Dashboard) |
+| **Improved Outcomes** | Measure | Evaluation, signals & continuous metrics ([Lab 1](lab-1-measure.html)) |
+| **Trusted AI** | Secure | Exposed → compliant live ([Lab 2](lab-2-secure.html)) |
 | **Operational Excellence** | Observe | APM trace-to-root-cause ([Lab 3](lab-3-observe.html)) |
-| **Accountability & Evidence** | Govern | immutable audit trail for every event ([Lab 4](lab-4-govern.html)) |
+| **Accountability & Evidence** | Govern | Immutable audit trail for every event ([Lab 4](lab-4-govern.html)) |
 
 ---
 
@@ -54,7 +54,7 @@ This opens a session with an emergency presentation (e.g. crushing chest pain ra
    venv/bin/python scripts/demo/seed_governance_scenarios.py
    ```
 3. In the AI Defense console, **revert the Lab 2 policy** to its pre-tuned (blocking) state so the blocked → compliant moment works again.
-4. Reset the Section 0 dashboard time range to **Last 7 days** and refresh.
+4. Reset the AI Governance Overview Dashboard time range to **Last 7 days** and refresh.
 
 See the [Reference page](reference.html#reset--teardown) for full teardown.
 

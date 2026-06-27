@@ -69,7 +69,7 @@ Splunk Core (Part 4) is where all of it comes to rest — the immutable audit tr
 
 None of these downstream pillars stand on their own, though — the foundation was laid in by **Cisco Agent Observability** (Part 1). The baseline-vs-poisoned evaluation is what defined "good" in the first place: the metrics, the thresholds, and the failure modes worth governing. AI Defense enforces that definition, Observability Cloud confirms the agent honors it under load, and Splunk Core proves it held — every pillar that follows is measuring against the baseline the evaluation set.
 
-### Section 0 — AI Governance Overview: The Single Pane of Glass
+### AI Governance Overview Dashboard: The Single Pane of Glass
 
 **Scenario.** The exec opens the AI Governance Overview dashboard. Governed turns, policy blocks, injections, hallucinations, PII hits, and token cost are all on one screen.
 
@@ -133,11 +133,11 @@ One turn. Four pillars. One thread. The data scientist, the security analyst, th
 
 | Outcome | What it means | Grounded in |
 | --- | --- | --- |
-| **Unified Visibility & Control** | The whole AI program on one screen; every KPI live, every number one click from its evidence | single pane of glass (Section 0) |
-| **Improved Outcomes** | Measurable quality, cost, and risk; optimized agent behavior, unknown unknowns surfaced | evaluation, signals & continuous metrics (Part 1) |
-| **Trusted AI** | Safe, compliant responses; non-compliant output blocked at runtime | exposed→compliant live (Part 2) |
+| **Unified Visibility & Control** | The whole AI program on one screen; every KPI live, every number one click from its evidence | Single pane of glass (AI Governance Overview Dashboard) |
+| **Improved Outcomes** | Measurable quality, cost, and risk; optimized agent behavior, unknown unknowns surfaced | Evaluation, signals & continuous metrics (Part 1) |
+| **Trusted AI** | Safe, compliant responses; non-compliant output blocked at runtime | Exposed→compliant live (Part 2) |
 | **Operational Excellence** | Reliable, cost-efficient AI; trace, don't guess | APM trace-to-root-cause (Part 3) |
-| **Accountability & Evidence** | End-to-end auditability; defensible, correlated evidence | immutable audit trail for every event (Part 4) |
+| **Accountability & Evidence** | End-to-end auditability; defensible, correlated evidence | Immutable audit trail for every event (Part 4) |
 
 ---
 

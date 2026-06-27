@@ -1,13 +1,16 @@
 ---
 layout: default
-title: Section 0 — Overview
+title: AI Governance Overview Dashboard
 nav_order: 3
 ---
 
-# Section 0 — Overview: The Single Pane of Glass
+# AI Governance Overview Dashboard: The Single Pane of Glass
 {: .no_toc }
 
-**Pillar:** Overview · **Tool:** Splunk — AI Governance Overview dashboard · **Timing:** 8–10 min
+**Pillar:** Overview<br>
+**Tool:** Splunk — AI Governance Overview dashboard<br>
+**Timing:** 8–10 min<br>
+**Outcome:** Unified Visibility & Control
 {: .fs-5 .fw-300 }
 
 1. TOC
@@ -54,6 +57,11 @@ The KPI tiles are populated and the Govern table has rows. Over a rolling ~7–3
 | Toxic hits | ~56 |
 | Tokens | ~120K |
 | Avg latency | ~8s |
+
+<!-- exec-outcome:start -->
+{: .outcome }
+> **Executive outcome.** The leader sees the posture of the AI program at a glance — and knows that any number on the screen is one click from the evidence behind it.
+<!-- exec-outcome:end -->
 
 ---
 

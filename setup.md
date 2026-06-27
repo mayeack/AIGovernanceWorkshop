@@ -84,12 +84,12 @@ Log in once at `/login` with the access key; the session covers all UIs.
 | Tab | URL | Used in |
 |---|---|---|
 | Chat | `http://localhost:8001/app` | Labs 1–4 |
-| Governance dashboard | `http://localhost:8001/admin-ui` | Section 0, Lab 4 |
+| Governance dashboard | `http://localhost:8001/admin-ui` | AI Governance Overview Dashboard, Lab 4 |
 | Per-session audit | `http://localhost:8001/governance-ui` | Lab 4 |
 | Settings (HEC + demo toggles) | `http://localhost:8001/settings-ui` | Pre-flight, troubleshooting |
 | Login | `http://localhost:8001/login` | Access gate |
 
-### 3. Open the Section 0 dashboard (AI Governance TA)
+### 3. Open the AI Governance Overview Dashboard (AI Governance TA)
 
 The single pane of glass is **already installed** — no dashboard to build.
 
@@ -120,4 +120,4 @@ Each turn flows through the full pipeline (policy → AI Defense → domain → 
 {: .note }
 > Leave the Observe / APM incident for the live moment in [Lab 3](lab-3-observe.html) — it is disruptive and auto-expires, so don't pre-stage it.
 
-**Quick smoke test:** open the Section 0 dashboard, set Last 7 days, and confirm the KPI tiles are non-zero and the Recent AI Requests log has rows. If they're empty, see [Troubleshooting](reference.html#troubleshooting).
+**Quick smoke test:** open the AI Governance Overview Dashboard, set Last 7 days, and confirm the KPI tiles are non-zero and the Recent AI Requests log has rows. If they're empty, see [Troubleshooting](reference.html#troubleshooting).

@@ -7,7 +7,10 @@ nav_order: 5
 # Lab 2 — SECURE (Cisco AI Defense)
 {: .no_toc }
 
-**Pillar:** Secure · **Tool:** Cisco AI Defense + MedAdvice chat · **Timing:** 12–15 min · **Outcome:** Trusted AI
+**Pillar:** Secure<br>
+**Tool:** Cisco AI Defense + MedAdvice chat<br>
+**Timing:** 12–15 min<br>
+**Outcome:** Trusted AI
 {: .fs-5 .fw-300 }
 
 1. TOC
@@ -42,7 +45,7 @@ MedAdvice applies safety gates **before and after** the LLM call. Cisco AI Defen
 
 5. Show the now-**compliant** response delivered to the user.
 
-6. Pivot to Splunk: open the Section 0 **Secure** section ("Policy blocks & guardrail trips over time") and show the block you just created appear, correlated by `event_id`.
+6. Pivot to Splunk: open the AI Governance Overview Dashboard's **Secure** section ("Policy blocks & guardrail trips over time") and show the block you just created appear, correlated by `event_id`.
 
 ## What this shows
 
@@ -53,10 +56,15 @@ MedAdvice applies safety gates **before and after** the LLM call. Cisco AI Defen
 
 ## Expected result
 
-First run: response **blocked**, verdict visible in AI Defense, block visible in Splunk. After tuning: same prompt returns a **compliant** response. The **Policy Blocks** KPI in Section 0 increments.
+First run: response **blocked**, verdict visible in AI Defense, block visible in Splunk. After tuning: same prompt returns a **compliant** response. The **Policy Blocks** KPI in the AI Governance Overview Dashboard increments.
 
 {: .warning }
 > If Lab 2 no longer shows a block, the policy was probably left in its tuned (permissive) state from a prior run. In AI Defense, revert the governing policy to its blocking state, then re-run the scenario.
+
+<!-- exec-outcome:start -->
+{: .outcome }
+> **Executive outcome — Trusted AI.** Non-compliant output never reaches the user, and policy is authored and tuned in real time, then re-validated immediately against the live app — governance you can watch happen, not a quarter-long change request.
+<!-- exec-outcome:end -->
 
 ---
 

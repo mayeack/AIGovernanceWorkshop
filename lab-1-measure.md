@@ -7,7 +7,10 @@ nav_order: 4
 # Lab 1 — MEASURE (Cisco Agent Observability)
 {: .no_toc }
 
-**Pillar:** Measure · **Tool:** Cisco Agent Observability (+ Splunk `genai_scoring`) · **Timing:** 12–15 min · **Outcome:** Improved Outcomes
+**Pillar:** Measure<br>
+**Tool:** Cisco Agent Observability<br>
+**Timing:** 12–15 min<br>
+**Outcome:** Improved Outcomes
 {: .fs-5 .fw-300 }
 
 1. TOC
@@ -60,7 +63,7 @@ venv/bin/python scripts/demo/seed_governance_scenarios.py --only 5
 
 ### 5. Cross-reference in Splunk
 
-Open Section 0's **Measure** section ("Hallucination detections & avg risk over time"), sourced from `genai_scoring`. Two independent evaluators, one turn.
+Open the AI Governance Overview Dashboard's **Measure** section ("Hallucination detections & avg risk over time"), sourced from `genai_scoring`. Two independent evaluators, one turn.
 
 ### 6. Promote the finding to a guardrail
 
@@ -73,6 +76,11 @@ Cisco Agent Observability shows the baseline-vs-poisoned delta (baseline ~0 viol
 {: .warning }
 > If Cisco Agent Observability shows no traces, confirm `GALILEO_*` is set in `.env` (the app loads the corp CA on import). Splunk's `genai_scoring` Measure panels are the fallback.
 
+<!-- exec-outcome:start -->
+{: .outcome }
+> **Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Poisoned behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
+<!-- exec-outcome:end -->
+
 ---
 
-[← Section 0](section-0-overview.html){: .btn } [Next: Lab 2 — Secure →](lab-2-secure.html){: .btn .btn-primary }
+[← AI Governance Overview Dashboard](section-0-overview.html){: .btn } [Next: Lab 2 — Secure →](lab-2-secure.html){: .btn .btn-primary }

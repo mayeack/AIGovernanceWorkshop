@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""Regenerate index.md (Home) = front matter + jump buttons + the workshop narrative VERBATIM.
+"""Regenerate index.md (Home) = front matter + jump buttons + the workshop narrative VERBATIM,
+and sync each lab/overview page's full Executive outcome from that same narrative.
 
 The Home page must mirror the canonical narrative verbatim (see the update-workshop-site
-skill). Run this whenever the narrative changes instead of hand-editing index.md:
+skill). The lab/overview pages each carry the *full* Executive-outcome paragraph for their
+pillar — also sourced from the narrative — between `<!-- exec-outcome:start -->` and
+`<!-- exec-outcome:end -->` markers, so they never drift from Home. Run this whenever the
+narrative changes instead of hand-editing index.md or the outcome callouts:
 
     python3 build_index.py
 
@@ -75,3 +79,43 @@ for ln in (FRONT + body).split("\n"):
 OUT.write_text("\n".join(out_lines), encoding="utf-8")
 print(f"wrote {OUT} from {narrative_path} ({OUT.stat().st_size} bytes; "
       f"{n_outcomes} executive-outcome callouts)")
+
+# --- Sync each lab/overview page's full Executive outcome from the narrative ---------------
+# The narrative has exactly five "**Executive outcome …**" paragraphs, in this order:
+# Overview, Part 1, Part 2, Part 3, Part 4 — mapped positionally to the pages below. Each
+# page carries its outcome as an `{: .outcome }` callout between sentinel markers, so the
+# text stays verbatim-identical to Home.
+OUTCOME_PAGES = [
+    "section-0-overview.md",  # Overview / single pane of glass
+    "lab-1-measure.md",       # Part 1 — Measure
+    "lab-2-secure.md",        # Part 2 — Secure
+    "lab-3-observe.md",       # Part 3 — Observe
+    "lab-4-govern.md",        # Part 4 — Govern
+]
+MARK_START = "<!-- exec-outcome:start -->"
+MARK_END = "<!-- exec-outcome:end -->"
+
+outcomes = [ln for ln in lines if ln.startswith("**Executive outcome")]
+if len(outcomes) != len(OUTCOME_PAGES):
+    sys.exit(f"expected {len(OUTCOME_PAGES)} '**Executive outcome' paragraphs in the "
+             f"narrative, found {len(outcomes)} — cannot sync lab pages safely.")
+
+synced = 0
+for page_name, outcome in zip(OUTCOME_PAGES, outcomes):
+    page = HERE / page_name
+    if not page.exists():
+        print(f"  skip {page_name}: not found")
+        continue
+    page_lines = page.read_text(encoding="utf-8").split("\n")
+    try:
+        s = page_lines.index(MARK_START)
+        e = page_lines.index(MARK_END)
+    except ValueError:
+        print(f"  skip {page_name}: missing exec-outcome markers")
+        continue
+    block = [MARK_START, "{: .outcome }", "> " + outcome, MARK_END]
+    page_lines[s:e + 1] = block
+    page.write_text("\n".join(page_lines), encoding="utf-8")
+    synced += 1
+
+print(f"synced {synced}/{len(OUTCOME_PAGES)} lab/overview executive outcomes from {narrative_path}")
