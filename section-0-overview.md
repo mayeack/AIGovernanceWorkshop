@@ -20,7 +20,8 @@ nav_order: 3
 
 ## Objective
 
-Establish the thesis: every governed turn and its quality/security scores live in one view, and you drill from there into any pillar.
+{: .objective }
+> Establish the thesis: every governed turn and its quality/security scores live in one view, and you drill from there into any pillar.
 
 ## Step by step
 

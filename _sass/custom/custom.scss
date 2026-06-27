@@ -3,18 +3,25 @@
 // so rules here override the theme — works with remote_theme on GitHub Pages).
 // =============================================================================
 
-// --- "Outcome" callout: the STANDARD treatment for executive / business outcomes ---
+// --- "Outcome" / "Objective" callout: the STANDARD treatment for executive /
+//     business outcomes — and, sharing the exact same styling, the Objective box
+//     at the top of each lab/overview page ---
 //
-// The callout itself is defined in _config.yml (`outcome`, blue, no title). This
-// rule makes its border thicker so an outcome reads as the most prominent box on
-// the page. Keep these two in sync — color lives in _config.yml, weight lives here.
+// Both callouts are defined in _config.yml (`outcome` and `objective`, both blue,
+// no title). This rule makes their border thicker so they read as the most
+// prominent box on the page. Keep these in sync — color lives in _config.yml,
+// weight lives here, and `objective` shares this rule with `outcome` so the two
+// always look identical.
 //
 // Where it's used:
 //   * Home (index.md): build_index.py auto-wraps every "Executive outcome …"
 //     paragraph in `{: .outcome }`.
+//   * Lab/overview Objective sections: precede the paragraph with `{: .objective }`.
 //   * Anywhere else: precede the outcome paragraph/blockquote with `{: .outcome }`.
 .outcome,
-blockquote.outcome {
+blockquote.outcome,
+.objective,
+blockquote.objective {
   border-width: 2px;        // up from the theme default of 1px
   border-left-width: 6px;   // up from the theme default of 4px
 }

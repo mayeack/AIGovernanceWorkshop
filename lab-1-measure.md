@@ -20,7 +20,8 @@ nav_order: 4
 
 ## Objective
 
-Before you guard or operate anything, define and measure "good." Run a **baseline-vs-poisoned** evaluation, see it scored by **Luna**, read token/cost and the **signals** that surface the unknown unknowns, and promote a finding to a guardrail.
+{: .objective }
+> Before you guard or operate anything, define and measure "good." Run a **baseline-vs-poisoned** evaluation, see it scored by **Luna**, read token/cost and the **signals** that surface the unknown unknowns, and promote a finding to a guardrail.
 
 ## Background
 

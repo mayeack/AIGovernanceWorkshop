@@ -20,7 +20,8 @@ nav_order: 6
 
 ## Objective
 
-The response is compliant, but latency has spiked beyond SLO. Use the Troubleshooting & Remediation Agent to trace the request end-to-end, isolate the bottleneck, and restore performance.
+{: .objective }
+> The response is compliant, but latency has spiked beyond SLO. Use the Troubleshooting & Remediation Agent to trace the request end-to-end, isolate the bottleneck, and restore performance.
 
 ## Step by step
 

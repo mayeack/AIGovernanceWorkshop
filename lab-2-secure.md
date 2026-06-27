@@ -20,7 +20,8 @@ nav_order: 5
 
 ## Objective
 
-Turn the Lab 1 finding into enforcement: a medical-advice response is **blocked** as non-compliant; you update the governing policy and re-run to a **compliant** response. Take a prompt from blocked → compliant, live.
+{: .objective }
+> Turn the Lab 1 finding into enforcement: a medical-advice response is **blocked** as non-compliant; you update the governing policy and re-run to a **compliant** response. Take a prompt from blocked → compliant, live.
 
 ## Background
 

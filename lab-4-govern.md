@@ -20,7 +20,8 @@ nav_order: 7
 
 ## Objective
 
-During an audit, review immutable AI interaction logs, surface a prompt-injection attempt in the dashboard, and position the evidence-backed correlated record for handoff to Enterprise Security as part of security incident response.
+{: .objective }
+> During an audit, review immutable AI interaction logs, surface a prompt-injection attempt in the dashboard, and position the evidence-backed correlated record for handoff to Enterprise Security as part of security incident response.
 
 ## Step by step
 

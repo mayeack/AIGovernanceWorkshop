@@ -51,6 +51,10 @@ callouts:
   # bold "Executive outcome — …" lead-in inside the text serves as the label).
   outcome:
     color: blue
+  # Objective highlight on lab/overview pages — shares the outcome treatment
+  # (same blue, no title bar; the "## Objective" heading above labels it).
+  objective:
+    color: blue
 
 exclude:
   - Gemfile
