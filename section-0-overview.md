@@ -56,15 +56,24 @@ Lorem ipsum
 
 ### 2. Access AI Governance TA
 
-Expand the left sidecar to view all TAs, and click on **AI Governance**.
+Expand the left side-panel to view all TAs, and click on **AI Governance**.
 
 ![alt text](image-14.png)
 
 ### 3. Review AI Governance Overview Dashboard
 
+In the left side-panel, navigate to Dashboards -> AI Governance Overview.
+
+![alt text](image-38.png)
+
 The AI Governance Overview is the single-pane executive scorecard for AI across the enterprise — it consolidates usage, cost, performance, and risk into board-level numbers, complementing the deep per-conversation analysis with a top-down view spanning every model, app, and session.
 
-![alt text](image-15.png)
+![alt text](image-37.png)
+![alt text](image-39.png)
+![alt text](image-40.png)
+![alt text](image-41.png)
+![alt text](image-42.png)
+![alt text](image-43.png)
 
 Key Performance Indicators (Requests, Sessions, Token Usage, Cost, Latency) — The vital signs of the AI footprint: how much it's used, what it costs, and how fast it responds. These are the figures an executive tracks to know the program is healthy and spend is under control.
 

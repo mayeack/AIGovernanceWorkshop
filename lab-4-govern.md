@@ -13,6 +13,17 @@ nav_order: 7
 **Outcome:** Accountability & Evidence
 {: .fs-5 .fw-300 }
 
+<!-- persona:start -->
+
+{: .persona }
+> **Who this is for.** **SRE / Observability** and **FinOps** teams, with
+> **AI / ML Platform leaders**. Primary question: _Is the AI healthy, fast, and
+> affordable in production — and when something breaks, can I trace it to the
+> exact agent or request?_ This treats AI as a mission-critical service, monitored
+> like any other.
+
+<!-- persona:end -->
+
 1. TOC
 {:toc}
 
@@ -33,7 +44,49 @@ Lorem ipsum
 
 Lorem ipsum
 
-### 2. 
+### 2. Stage the Prompt Injection
+
+Go to DemoBot, and click on **Prompts**.
+
+Select one of the pre-defined prompts in Guardrail triggers -> Security -> Prompt injection.
+
+![alt text](image-35.png)
+
+Before sending the prompt, ensure that **Cisco AI Defense Policy Review** is toggled on.
+
+![alt text](image-36.png)
+
+Feel free to explore the behavior of other prompts, and the behavior with the Cisco AI Defense integration toggled off.
+
+### 3. Investigat the Prompt Injection
+
+Return to Splunk, and navigate to Dashboards -> Prompt Injection Detection.
+
+![alt text](image-44.png)
+
+Each section of the Prompt Injection Detection dashboard turns AI security into a measurable, governed discipline — proving the organization can detect, classify, and defend against adversarial attacks on its AI models.
+
+![alt text](image-45.png)
+![alt text](image-46.png)
+![alt text](image-47.png)
+
+Total Scanned — Establishes the denominator of coverage: how much AI traffic is actually being inspected for attacks. It answers the first governance question — "are we even looking?" — and proves monitoring is comprehensive, not selective.
+
+Injections Detected, Injections by Severity, and Detection Rate — The headline count of adversarial prompt-injection attempts caught. This is the tangible evidence that the AI is under active threat and that defenses are working, translating an abstract risk into a tracked number leadership can act on.
+
+Detection Trend — Shows whether attack volume and detection are rising or falling over time, turning point-in-time alerts into a directional signal for emerging campaigns and capacity planning.
+
+Injections by Technique — Breaks attacks down by method, revealing how adversaries are trying to manipulate the AI. This intelligence drives where defenses and training need to be hardened next.
+
+Severity & Confidence Distribution — Shows how threats spread across severity levels and how sure the detection model is of its calls. Confidence is the audit lens — it separates high-certainty threats from noise and keeps the system's own judgment accountable.
+
+Top Injection Sources — Identifies where attacks originate, enabling blocking, rate-limiting, and attribution. Knowing the source converts passive detection into active defense.
+
+Recent Detections — A live, row-level audit trail of individual attacks for investigation and forensics — the defensible record that proves what happened, when, and how it was handled.
+
+### 4. Review Correlation Search
+
+---
 
 1. **Stage the injection attempt** (scenario 4 — *"Prompt injection attempt"*; also staged when you seed all scenarios):
 

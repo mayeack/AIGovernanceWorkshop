@@ -138,7 +138,7 @@ Toggle **Trigger Demo Incident** on to trigger a series of alerts.
 
 ## 8. Triage and Resolve an Alert
 
-Click on any alert.
+Return to Observability Cloud, and click on any alert.
 
 This is the alert investigation experience — drilling into a single firing incident to see what broke, what it affected, and why, with an AI Troubleshooting Agent automatically working the root cause. This is where monitoring stops being a dashboard and becomes an answer.
 
