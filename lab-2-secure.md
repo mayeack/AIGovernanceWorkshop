@@ -8,10 +8,20 @@ nav_order: 5
 {: .no_toc }
 
 **Pillar:** Secure<br>
-**Tool:** Cisco AI Defense + MedAdvice chat<br>
+**Tool:** Cisco AI Defense<br>
 **Timing:** 20 minutes<br>
 **Outcome:** Trusted AI
 {: .fs-5 .fw-300 }
+
+<!-- persona:start -->
+
+{: .persona }
+> **Who this is for.** The **CISO** and **AI Security / AppSec** teams. Primary
+> question: _Is our AI safe to put in front of customers, and can I prove
+> threats are stopped in real time?_ AI / ML Platform leaders join as the owners
+> who author and tune the guardrails alongside security.
+
+<!-- persona:end -->
 
 1. TOC
 {:toc}
@@ -27,7 +37,7 @@ nav_order: 5
 
 Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the response (post-LLM) against **multiple guardrails** and blocks non-compliant content. The **Prescriptive Overreach** finding measured in [Lab 1](lab-1-measure.html) is authored here as a **custom response-direction guardrail**.
 
->>>TBD: Reference Cisco AI Defense Lab for deep dive in setup and configuration
+>>>TBD: Reference Cisco AI Defense lab for deep dive in setup and configuration
 
 ## Step by step
 
@@ -51,7 +61,7 @@ Feel free to explore how the various toggles generate non-compliant behavior, an
 
 Lorem ipsum
 
-### 4. Review the Dashboard
+### 4. Review Dashboard
 
 The Cisco AI Defense dashboard is the security command center for the AI estate — it discovers every AI asset in use, enforces protection around it, and shows in one number how many threats have been stopped, turning AI security from a blind spot into an actively defended perimeter.
 
@@ -63,7 +73,7 @@ Applications & Protection status — Inventories the AI applications in use and 
 
 AI Assets — A complete map of the AI attack surface: the agents, models, data, and third-party apps employees touch. This is asset discovery for AI — the foundation of any security program, surfacing shadow AI before it becomes a breach.
 
-### 5. Review the Associated Policies
+### 5. Review Associated Policies
 
 Click on Secure -> Runtime Policies.
 

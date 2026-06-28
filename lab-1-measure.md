@@ -13,6 +13,18 @@ nav_order: 4
 **Outcome:** Improved Outcomes
 {: .fs-5 .fw-300 }
 
+## Who this is for
+
+<!-- persona:start -->
+
+{: .persona }
+> **Who this is for.** **AI / ML Platform leaders** and **AI Governance / Risk**
+> teams. Primary question: _Is the AI actually any good — and can I measure
+> quality and safety objectively, version over version?_ This is where subjective
+> "it seems fine" becomes a defensible, repeatable score.
+
+<!-- persona:end -->
+
 1. TOC
 {:toc}
 
@@ -21,7 +33,7 @@ nav_order: 4
 ## Objective
 
 {: .objective }
-> Before you guard or operate anything, define and measure "good." Run a **baseline-vs-poisoned** evaluation, see it scored by **Luna**, read token/cost, and the **signals** that surface the unknown unknowns.
+> Before you guard or operate anything, define and measure "good." Yu will run a **baseline-vs-poisoned** evaluation, see it scored by **Luna**, read token/cost, and the **signals** that surface the unknown unknowns.
 
 ## Background
 
@@ -35,11 +47,16 @@ Model evaluation, metric construction, and signal understanding is critical both
 
 Lorem ipsum
 
+{: .objective }
+> Because we are using an open weight model, ensure that you select **gpt-4o-mini** from the **Static Emission** dropdown so that tokenomics calculates correctly!
+
+![alt text](image-21.png)
+
 ### 2. Explore the Baseline vs the Poisoned Model
 
 DemoBot is pre-loaded with two models - one a baseline verison, and one that has been intentionally poisoned to produce non-compliant responses, such as toxic content.
 
-Explore sending sample prompts both the baseline and the poisoned model, and observe the difference in responses. We will then review how these differential responses can be automatically identified by Cisco Agent Observability.
+Explore sending sample prompts to both the baseline and the poisoned model (via the model picker), and observe the difference in responses. We will then review how these differential responses can be automatically identified by Cisco Agent Observability.
 
 ![alt text](image.png)
 
@@ -47,7 +64,7 @@ Explore sending sample prompts both the baseline and the poisoned model, and obs
 
 Lorem ipsum
 
-### 4. Review the Overview
+### 4. Review Overview
 
 Click on **Overview**.
 
@@ -65,7 +82,7 @@ Datasets — Curated "golden" reference sets used to grade the AI consistently. 
 
 Prompts — A versioned, centralized library of the instructions that drive the AI, enabling governance and change-control over the core logic, reusable directly in code.
 
-### 5. Review the Logs
+### 5. Review Logs
 
 Click on **Logs**.
 
@@ -84,6 +101,8 @@ Click on the **Signals** button.
 The Signals panel is the AI watching the AI — it scans every logged conversation for risk patterns and surfaces them as named, prioritized issues, so the team learns where the application is failing without reading transcripts one by one. Whereas Metrics need to be defined by the user, Signals surface the unknown unknown issues, such as:
 
 ![alt text](image-3.png)
+
+Some example Signals (yours might vary):
 
 Sensitive PII Leakage — Flags responses that expose personal data. This is a top-tier compliance and privacy risk, surfaced automatically so it can be contained before it becomes a breach.
 
@@ -107,7 +126,7 @@ Metrics — One trace, examined from every angle: how it scored, how it was conf
 
 Feel free to explore the other tabs, such as **Latency** and **Trace Graph**.
 
-### 8. Review Trends.
+### 8. Review Trends
 
 Click on the back arrow, then click on **Trends**.
 
@@ -172,7 +191,7 @@ Metric level (Trace, Session, LLM, Retriever) — Defines where each metric appl
 
 Tags & Modality — Organize the library by purpose (agents, RAG, safety) and data type. As the catalog grows, this is what keeps it navigable and governable rather than a sprawl.
 
-### 12. Review the Prescriptive Overreach Metric
+### 12. Review Prescriptive Overreach Metric
 
 Scroll down to (or search for) the **Prescriptive Overreach Metric**, and click on it.
 

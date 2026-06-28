@@ -13,6 +13,16 @@ nav_order: 3
 **Outcome:** Unified Visibility & Control
 {: .fs-5 .fw-300 }
 
+<!-- persona:start -->
+
+{: .persona }
+> **Who this is for.** The **CIO / CTO** and **AI Governance leaders** who need
+> the whole AI program on one screen. Primary question: _What is the posture of
+> our AI — usage, cost, risk, compliance — and is every number backed by
+> evidence?_ Security and Platform leaders use this as their single pane of glass.
+
+<!-- persona:end -->
+
 1. TOC
 {:toc}
 
@@ -44,13 +54,13 @@ One dataset. Every pillar. That's what lets a leader go from a number on the scr
 
 Lorem ipsum
 
-### 2. Access the AI Governance TA
+### 2. Access AI Governance TA
 
 Expand the left sidecar to view all TAs, and click on **AI Governance**.
 
 ![alt text](image-14.png)
 
-### 3. Review the AI Governance Overview Dashboard
+### 3. Review AI Governance Overview Dashboard
 
 The AI Governance Overview is the single-pane executive scorecard for AI across the enterprise — it consolidates usage, cost, performance, and risk into board-level numbers, complementing the deep per-conversation analysis with a top-down view spanning every model, app, and session.
 
@@ -76,7 +86,7 @@ Recent AI Requests (Detailed Log) — The raw, timestamped record of individual 
 
 Compliance Summary (Safety Compliance %) — Rolls everything into the one figure leadership and auditors care about: the share of events that passed safely. This is the board-level headline — a defensible, quantified compliance posture rather than an assurance.
 
-### 4. Review the Tokenomics Dashboard
+### 4. Review Tokenomics Dashboard
 
 Expand the left sidecar, and navigate to Dashboards -> Tokenomics.
 
