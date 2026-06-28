@@ -53,6 +53,8 @@ Click on **Overview**.
 
 Each section of the Overview dashboard turns AI development into a measurable, governed discipline — testing safety, comparing versions objectively, and maintaining a defensible record of quality.
 
+![alt text](image-1.png)
+
 Log Streams — Captures live records of how the AI application behaves in real use, providing a continuous audit trail for monitoring quality and catching issues in production.
 
 Playgrounds — A sandbox for safely experimenting with prompts and model behavior, helping the team iterate and innovate without touching the live system.
@@ -63,19 +65,17 @@ Datasets — Curated "golden" reference sets used to grade the AI consistently. 
 
 Prompts — A versioned, centralized library of the instructions that drive the AI, enabling governance and change-control over the core logic, reusable directly in code.
 
-![alt text](image-1.png)
-
 ### 5. Review the Logs
 
 Click on **Logs**.
 
 The Log Stream view turns every live AI conversation into a graded, searchable record — the continuous audit trail that proves the application is behaving safely in production.
 
+![alt text](image-2.png)
+
 Logs — The running ledger of real user interactions, capturing what went in and what the AI sent back. This is the system of record that makes  behavior observable and reviewable rather than a black box.
 
 Automated scoring (such as Output Toxicity, Prescriptive Overreach, Completeness) — Every response is auto-graded against safety and quality measures, including custom risk checks tuned to this use case. This is the core value: thousands of interactions evaluated without human review, with weak responses surfaced automatically for attention. You can click on each metric to understand the cost. Notice the significant cost difference between metrics computed using Luna (SLM) and frontier lab models.
-
-![alt text](image-2.png)
 
 ### 6. Review Signals
 
@@ -83,19 +83,21 @@ Click on the **Signals** button.
 
 The Signals panel is the AI watching the AI — it scans every logged conversation for risk patterns and surfaces them as named, prioritized issues, so the team learns where the application is failing without reading transcripts one by one. Whereas Metrics need to be defined by the user, Signals surface the unknown unknown issues, such as:
 
+![alt text](image-3.png)
+
 Sensitive PII Leakage — Flags responses that expose personal data. This is a top-tier compliance and privacy risk, surfaced automatically so it can be contained before it becomes a breach.
 
 Medical Hallucinations & Violations — Catches invented medical claims and unauthorized prescriptions. For a health-facing assistant this is the highest-stakes failure mode, where a wrong answer can cause real harm and liability.
 
 Unexpected Harassment — Detects abusive or harassing language from the AI. A direct guard on brand safety and user trust.
 
-![alt text](image-3.png)
-
 ### 7. Review Log Details
 
 Click on any log.
 
 This single-trace view is the microscope of the platform — it opens up one AI conversation end to end, showing exactly how a multi-step agent produced its answer and how that answer scored on quality and safety.
+
+![alt text](image-4.png)
 
 Trace tree (Session → chat turn → agents) — Exposes the full chain of reasoning behind one response, including the specialist agents and underlying model that handled it. This turns a single answer into a traceable, explainable record — essential when you need to prove why the AI said what it said.
 
@@ -105,19 +107,20 @@ Metrics — One trace, examined from every angle: how it scored, how it was conf
 
 Feel free to explore the other tabs, such as **Latency** and **Trace Graph**.
 
-![alt text](image-4.png)
-
 ### 8. Review Trends.
 
 Click on the back arrow, then click on **Trends**.
+
+![alt text](image-10.png)
 
 The Trends view is the over-time picture of AI quality and risk — it tracks whether the application is holding steady, improving, or drifting, turning a snapshot of scores into a story leadership can monitor like any other business metric.
 
 Metrics charts — Plots the application's domain-specific risks day by day, so emerging problems show up as a rising line before they become incidents. This is early warning for the failure modes that matter most to this business.
 
-![alt text](image-10.png)
-
 Scroll down to **System Metrics**.
+
+![alt text](image-11.png)
+![alt text](image-12.png)
 
 The System Metrics view is the operational and cost dashboard for the AI — alongside quality and safety, it tracks consumption, spend, reliability, and volume, so the application is run like a managed business asset, not an unmonitored experiment.
 
@@ -129,9 +132,6 @@ API Failures — Counts how often the underlying service broke. This is the reli
 
 Traces Count — Tracks total volume of activity. This sizes the workload and gives every other metric context — quality and cost only mean something against how much the system is handling.
 
-![alt text](image-11.png)
-![alt text](image-12.png)
-
 ### 9. Review Experiments
 
 Click on **Experiments**.
@@ -140,6 +140,8 @@ Because Experiments can take 10+ minutes to execute, we have already executed an
 
 The Experiments leaderboard is where AI changes are proven before they ship — it pits different versions of the application head-to-head on the same tests and ranks them by safety and quality, turning "we think this is better" into evidence.
 
+![alt text](image-5.png)
+
 Rank (with the crowned #1) — Orders every version best-to-worst based on the selected metrics, crowning a clear winner. This is the objective verdict leadership needs to decide which configuration is safe to trust.
 
 Name (baseline vs. poisoned runs) — Identifies what each run is — including deliberately compromised "poisoned" versions tested against clean "baseline" ones. This shows the team can detect a degraded or tampered model rather than discovering it in production.
@@ -147,8 +149,6 @@ Name (baseline vs. poisoned runs) — Identifies what each run is — including 
 Dataset (with versions) — Records exactly which reference test set each run was graded against, and which version of it. This is what makes a comparison fair and repeatable — everyone is measured against the same yardstick.
 
 Scoring columns (Prompt Injection, Output Toxicity, Prescriptive Overreach, Completeness, etc.) — Grades each version across the safety and quality dimensions that matter most for this use case, including resistance to attacks and overstepping into unauthorized advice. The value is a multi-dimensional safety scorecard, not a single pass/fail.
-
-![alt text](image-5.png)
 
 ### 10. Compare Two Experiments
 
@@ -164,19 +164,21 @@ You can review two or more experiments side by side.
 
 The Metrics catalog is the rulebook for how every AI is graded — a central, reusable library of scoring criteria that makes "good" and "safe" mean the same thing across every project and every team. As you have seen, Metrics are leveraged at every point in the development and deployment lifecycle.
 
+![alt text](image-8.png)
+
 Metric type (Luna, LLM) — Shows what does the grading — a fast lightweight evaluator (Luna) or a full language model. This lets the business balance cost and speed against depth, choosing the right rigor for each measure.
 
 Metric level (Trace, Session, LLM, Retriever) — Defines where each metric applies — a single step, a whole conversation, or a specific component. Precision here means problems get measured at exactly the layer they occur.
 
 Tags & Modality — Organize the library by purpose (agents, RAG, safety) and data type. As the catalog grows, this is what keeps it navigable and governable rather than a sprawl.
 
-![alt text](image-8.png)
-
 ### 12. Review the Prescriptive Overreach Metric
 
 Scroll down to (or search for) the **Prescriptive Overreach Metric**, and click on it.
 
 This is where a safety standard gets authored — the editor for a custom Prescriptive Overreach Metric, showing how an abstract risk is turned into a precise, automated, repeatable test that every AI response is graded against.
+
+![alt text](image-13.png)
 
 Metric description (the intent) — States in plain terms what this metric watches for and how to read it — higher means worse, lower is better. This is the business definition of the risk, written so anyone reviewing results knows exactly what's being measured and which direction is good.
 
@@ -185,8 +187,6 @@ Configure Input (LLM model / Apply to) — Chooses which AI does the grading and
 Prompt (the scoring rubric) — The heart of it: explicit instructions and graded anchors that define exactly what counts as a minor lapse versus an egregious violation. This converts a fuzzy worry — "is the bot making up medical facts?" — into a consistent, defensible score that doesn't drift with opinion. You can use the **Help me write** toggle to enhance your prompts.
 
 Configure Output (type & roll-up) — Sets how individual scores combine into a single number that rolls up across the whole experiment. This is what makes one response's grade aggregate into a board-level quality figure.
-
-![alt text](image-13.png)
 
 ## Outcome
 

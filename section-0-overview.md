@@ -54,6 +54,8 @@ Expand the left sidecar to view all TAs, and click on **AI Governance**.
 
 The AI Governance Overview is the single-pane executive scorecard for AI across the enterprise — it consolidates usage, cost, performance, and risk into board-level numbers, complementing the deep per-conversation analysis with a top-down view spanning every model, app, and session.
 
+![alt text](image-15.png)
+
 Key Performance Indicators (Requests, Sessions, Token Usage, Cost, Latency) — The vital signs of the AI footprint: how much it's used, what it costs, and how fast it responds. These are the figures an executive tracks to know the program is healthy and spend is under control.
 
 Safety & Compliance Metrics (Safety Violations, PII Detected, Policy Blocked, Guardrails Triggered, Retries) — The risk dashboard in one row: how often the AI crossed a line and how often the guardrails caught it. This is the proof that controls are active and working — and a live count of exposure.
@@ -74,13 +76,13 @@ Recent AI Requests (Detailed Log) — The raw, timestamped record of individual 
 
 Compliance Summary (Safety Compliance %) — Rolls everything into the one figure leadership and auditors care about: the share of events that passed safely. This is the board-level headline — a defensible, quantified compliance posture rather than an assurance.
 
-![alt text](image-15.png)
-
 ### 4. Review the Tokenomics Dashboard
 
 Expand the left sidecar, and navigate to Dashboards -> Tokenomics.
 
 The Tokenomics dashboard is the financial-management view of the AI program — it treats agentic systems like any other budgeted line of business, tracking what's spent, who and what is driving it, how efficiently each model converts spend into work, and where cost is heading next.
+
+![alt text](image-16.png)
 
 Key Tokenomics KPIs (Total Cost, Tokens, Requests, Avg Cost/Request, Avg Tokens/Request, Output:Input Ratio) — The headline economics of the AI in one row. These are the unit-cost figures a finance owner uses to know whether AI spend is efficient and under control, not just how big it is.
 
@@ -93,8 +95,6 @@ Efficiency (Cost per 1K Tokens, Tokens/Second, Output:Input Ratio by Model) — 
 Top Spenders (Sessions, Conversations, Users) — Surfaces the heaviest consumers of spend. The value is fast identification of outliers — the runaway session or power user that drives a disproportionate share of the bill.
 
 Anomalies & Forecast (Hourly Cost vs. Baseline, Projected 30-Day Spend, Unattributed Cost) — Flags abnormal spend against a learned baseline, projects the month-end bill, and isolates cost that can't be tied to a user. This is forward-looking financial governance — budgeting ahead and catching both surprises and accountability gaps.
-
-![alt text](image-16.png)
 
 ## Outcome
 
