@@ -25,3 +25,25 @@ blockquote.objective {
   border-width: 2px;        // up from the theme default of 1px
   border-left-width: 6px;   // up from the theme default of 4px
 }
+
+// --- Site title in the sidebar header ---
+//
+// "Agentic AI Governance Workshop" wraps to three lines. The theme gives
+// .site-header a fixed min-height and vertically *centers* the title inside it;
+// when the title is taller than that height the first line ("Agentic AI")
+// overflows above the header's top edge and gets clipped off-screen.
+//
+// Fix: top-align the title instead of center-aligning it, let the header grow
+// to fit, and give it breathing room top and bottom so nothing is cut off.
+.site-header {
+  min-height: 0;
+  align-items: flex-start;
+}
+
+.site-title {
+  height: auto;
+  align-items: flex-start;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  line-height: 1.25;
+}
