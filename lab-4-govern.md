@@ -71,8 +71,6 @@ Return to Splunk, and navigate to Dashboards -> Prompt Injection Detection.
 
 Each section of the Prompt Injection Detection dashboard turns AI security into a measurable, governed discipline — proving the organization can detect, classify, and defend against adversarial attacks on its AI models.
 
-![alt text](image-45.png)
-
 Total Scanned — Establishes the denominator of coverage: how much AI traffic is actually being inspected for attacks. It answers the first governance question — "are we even looking?" — and proves monitoring is comprehensive, not selective.
 
 Injections Detected, Injections by Severity, and Detection Rate — The headline count of adversarial prompt-injection attempts caught. This is the tangible evidence that the AI is under active threat and that defenses are working, translating an abstract risk into a tracked number leadership can act on.
@@ -81,15 +79,17 @@ Detection Trend — Shows whether attack volume and detection are rising or fall
 
 Injections by Technique — Breaks attacks down by method, revealing how adversaries are trying to manipulate the AI. This intelligence drives where defenses and training need to be hardened next.
 
-![alt text](image-46.png)
+![alt text](image-45.png)
 
 Severity & Confidence Distribution — Shows how threats spread across severity levels and how sure the detection model is of its calls. Confidence is the audit lens — it separates high-certainty threats from noise and keeps the system's own judgment accountable.
 
 Top Injection Sources — Identifies where attacks originate, enabling blocking, rate-limiting, and attribution. Knowing the source converts passive detection into active defense.
 
-![alt text](image-47.png)
+![alt text](image-46.png)
 
 Recent Detections — A live, row-level audit trail of individual attacks for investigation and forensics — the defensible record that proves what happened, when, and how it was handled.
+
+![alt text](image-47.png)
 
 ### 4. Review Correlation Search
 

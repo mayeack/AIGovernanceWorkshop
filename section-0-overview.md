@@ -9,7 +9,7 @@ nav_order: 3
 
 **Pillar:** Overview<br>
 **Tool:** Splunk — AI Governance TA<br>
-**Timing:** 10 minutes<br>
+**Timing:** 15 minutes<br>
 **Outcome:** Unified Visibility & Control
 {: .fs-5 .fw-300 }
 
@@ -56,7 +56,7 @@ Lorem ipsum
 
 ### 2. Access AI Governance TA
 
-Expand the left side-panel to view all TAs, and click on **AI Governance**.
+In the left side-panel to view all TAs, and click on **AI Governance**.
 
 ![alt text](image-14.png)
 
@@ -102,7 +102,7 @@ Compliance Summary (Safety Compliance %) — Rolls everything into the one figur
 
 ### 4. Review Tokenomics Dashboard
 
-Expand the left sidecar, and navigate to Dashboards -> Tokenomics.
+In the left side-panel, navigate to Dashboards -> Tokenomics.
 
 ![alt text](image-16.png)
 
