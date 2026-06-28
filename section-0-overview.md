@@ -8,7 +8,7 @@ nav_order: 3
 {: .no_toc }
 
 **Pillar:** Overview<br>
-**Tool:** Splunk — AI Governance Overview dashboard<br>
+**Tool:** Splunk — AI Governance TA<br>
 **Timing:** 10 minutes<br>
 **Outcome:** Unified Visibility & Control
 {: .fs-5 .fw-300 }

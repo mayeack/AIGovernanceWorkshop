@@ -4,11 +4,11 @@ title: Lab 4 — Govern
 nav_order: 7
 ---
 
-# Lab 4 — GOVERN (Splunk Core / Enterprise Security)
+# Lab 4 — GOVERN (Splunk / Enterprise Security)
 {: .no_toc }
 
 **Pillar:** Govern<br>
-**Tool:** Splunk Core / Enterprise Security<br>
+**Tool:** Splunk / Enterprise Security<br>
 **Timing:** 12–15 min<br>
 **Outcome:** Accountability & Evidence
 {: .fs-5 .fw-300 }
@@ -23,7 +23,17 @@ nav_order: 7
 {: .objective }
 > During an audit, review immutable AI interaction logs, surface a prompt-injection attempt in the dashboard, and position the evidence-backed correlated record for handoff to Enterprise Security as part of security incident response.
 
+## Background
+
+Lorem ipsum
+
 ## Step by step
+
+### 1. Access Splunk
+
+Lorem ipsum
+
+### 2. 
 
 1. **Stage the injection attempt** (scenario 4 — *"Prompt injection attempt"*; also staged when you seed all scenarios):
 
@@ -52,13 +62,11 @@ nav_order: 7
    {: .note }
    > In production this record promotes to an ES notable / incident via a correlation search. In this workshop environment that handoff is **not wired** — show the correlated record itself as the defensible evidence ES consumes, and describe the promotion as the architectural next step in security incident response.
 
-## What this shows
+## Outcome
 
 - The logs are **immutable** and complete. Every turn carries full governance metadata and shared correlation IDs — auditability you can defend.
 - One search, one identifier, the whole story: what was asked, what the model said, what Cisco Agent Observability scored, what AI Defense ruled, what the ML pipelines flagged.
 - The injection attempt didn't just get blocked — it left **evidence**. That correlated record is exactly what Enterprise Security would promote to a notable in production.
-
-## Expected result
 
 The injection turn is visible and flagged in the Recent AI Requests log; the `event_id` search returns the full correlated record; the prompt-injection panel shows the detection. The correlated record is then positioned as the evidence Enterprise Security ingests (the ES notable/incident promotion is the production architecture, not a wired step in this demo).
 

@@ -9,7 +9,7 @@ nav_order: 5
 
 **Pillar:** Secure<br>
 **Tool:** Cisco AI Defense + MedAdvice chat<br>
-**Timing:** 12–15 min<br>
+**Timing:** 20 minutes<br>
 **Outcome:** Trusted AI
 {: .fs-5 .fw-300 }
 
@@ -25,42 +25,79 @@ nav_order: 5
 
 ## Background
 
-MedAdvice applies safety gates **before and after** the LLM call. Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the response (post-LLM) against **multiple guardrails** (PII, PHI, PCI, Harassment, Hate, Profanity, Sexual, Violence, Social Division, Prompt Injection, Code) and blocks non-compliant content. The **prescription-overreach** finding measured in [Lab 1](lab-1-measure.html) is authored here as a **custom response-direction guardrail**. Internal policy rules additionally block self-harm pre-LLM, and deterministic escalation rules route emergencies (e.g. chest pain) to a human-review queue.
+Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the response (post-LLM) against **multiple guardrails** and blocks non-compliant content. The **Prescriptive Overreach** finding measured in [Lab 1](lab-1-measure.html) is authored here as a **custom response-direction guardrail**.
+
+>>>TBD: Reference Cisco AI Defense Lab for deep dive in setup and configuration
 
 ## Step by step
 
-1. In the **Cisco AI Defense console**, show the policy currently governing MedAdvice — including the **custom guardrail promoted from the Lab 1 measurement**. Point to the guardrails and thresholds — this is the live control plane, authored and tuned in real time.
+### 1. Access DemoBot
 
-2. In the **MedAdvice chat** (`/app`), trigger a deterministic, correlated blocked moment from a terminal. Scenario 3 sends a PHI/PII-heavy turn that AI Defense flags/blocks:
+Lorem ipsum
 
-   ```bash
-   venv/bin/python scripts/demo/seed_governance_scenarios.py --only 3
-   ```
+### 2. Prompt Prescriptive Overreach
 
-   {: .note }
-   > Other deterministic block/flag moments: scenario **7** (policy-violating / toxic response → `policy_action=flag`) and scenario **8** (self-harm → hard policy block). Use whichever maps best to the policy you're demonstrating.
+This is the DemoBot control panel — the behind-the-scenes settings that lets you deliberately inject unsafe AI behavior and switch defenses on and off.
 
-3. Show the **blocked** outcome in the chat UI / response — the non-compliant content does not reach the user. In the AI Defense console, show the verdict and which guardrail tripped.
+Cisco AI Defense Policy Review — Routes every prompt through AI Defense before it reaches the assistant, blocking unsafe inputs up front.
 
-4. **Tune the policy** in the AI Defense console (adjust the governing rule so a compliant response is permitted), and **re-run** the prompt.
+Behavior injection toggles (Synthetic PII/PHI, Toxic Content, Hallucinated Content, Prescriptive Overreach) — The "poison" switches: deliberately force the AI to leak data, turn toxic, fabricate facts, or overstep its scope.
 
-5. Show the now-**compliant** response delivered to the user.
+Feel free to explore how the various toggles generate non-compliant behavior, and how that behavior is blocked when Cisco AI Defense is toggled on.
 
-6. Pivot to Splunk: open the AI Governance Overview Dashboard's **Secure** section ("Policy blocks & guardrail trips over time") and show the block you just created appear, correlated by `event_id`.
+![alt text](image-20.png)
 
-## What this shows
+### 3. Access Cisco AI Defense
 
-- The block came from the eval. The overreach was measured in Lab 1 and authored as a guardrail here — eval defines it; the guardrail enforces it.
-- Governance is a runtime control you author and tune in real time, not a quarterly review.
-- Pre-LLM **and** post-LLM — the prompt going in and the response coming out are both inspected against multiple guardrails.
-- The same turn is already in Splunk with the AI Defense verdict attached, correlated with the quality score that produced the guardrail.
+Lorem ipsum
 
-## Expected result
+### 4. Review the Dashboard
 
-First run: response **blocked**, verdict visible in AI Defense, block visible in Splunk. After tuning: same prompt returns a **compliant** response. The **Policy Blocks** KPI in the AI Governance Overview Dashboard increments.
+The Cisco AI Defense dashboard is the security command center for the AI estate — it discovers every AI asset in use, enforces protection around it, and shows in one number how many threats have been stopped, turning AI security from a blind spot into an actively defended perimeter.
 
-{: .warning }
-> If Lab 2 no longer shows a block, the policy was probably left in its tuned (permissive) state from a prior run. In AI Defense, revert the governing policy to its blocking state, then re-run the scenario.
+Total events detected — The headline: how many risky AI interactions were caught, and how many were stopped versus merely watched. This is the proof of active defense — the AI isn't just observed, threats are intercepted in real time.
+
+Applications & Protection status — Inventories the AI applications in use and shows how many are actually protected versus exposed. The value is closing the gap between "AI we know about" and "AI we're defending" — you can't secure what you can't see.
+
+AI Assets — A complete map of the AI attack surface: the agents, models, data, and third-party apps employees touch. This is asset discovery for AI — the foundation of any security program, surfacing shadow AI before it becomes a breach.
+
+![alt text](image-9.png)
+
+### 5. Review the Associated Policies
+
+Click on Secure -> Runtime Policies.
+
+![alt text](image-18.png)
+
+Click on **Yeack Protect**.
+
+![alt text](image-19.png)
+
+This is where AI protection gets enforced — the Yeack Protect policy in Cisco AI Defense shows the live guardrails wrapped around our agentic system, turning security intent into specific rules that actively block threats in real time.
+
+Guardrail profiles — Organizes protection into the three dimensions that matter — keeping attackers out, keeping data private, and keeping responses appropriate. The value is comprehensive coverage in one policy, not a single narrow filter.
+
+Direction (Prompt / Response / both) — Each rule inspects the right side of the conversation — what the user sends in, what the AI sends back, or both. The value is precision: threats are caught at the exact point they enter or leave.
+
+Action & Status (Block / Enabled) — Shows whether each guardrail is on and set to stop violations or just monitor them. This is enforcement, not observation — the difference between a policy on paper and a control that actually intervenes.
+
+Filter strength (Medium) — A tunable dial on how aggressively each rule fires. The value is balance — protection calibrated to the business's risk tolerance, tightenable where the stakes are higher.
+
+### 6. Create Custom Presciptive Overreach Guardrail
+
+Lorem ipsum - pending availability of Policy Studio
+
+### 7. Validate Applied Guardrail
+
+Lorem ipsum
+
+## Outcome
+
+A risky medical response went from **unblocked to blocked** The unsafe output never reached the user; the policy was authored and tuned on the spot; the fix was re-validated against the live app immediately.
+
+- **Threats are stopped, not just seen.** Cisco AI Defense inspects every prompt and every response, and blocks what crosses the line in real time.
+- **Governance is a runtime control.** Policy is written and tuned the moment a gap appears — not filed as a quarterly change request.
+- **Measure and enforce are one loop.** The Lab 1 finding became the guardrail.
 
 <!-- exec-outcome:start -->
 

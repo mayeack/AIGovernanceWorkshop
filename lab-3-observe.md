@@ -8,7 +8,7 @@ nav_order: 6
 {: .no_toc }
 
 **Pillar:** Observe<br>
-**Tool:** Splunk Observability Cloud (APM)<br>
+**Tool:** Splunk Observability Cloud<br>
 **Timing:** 12–15 min<br>
 **Outcome:** Operational Excellence
 {: .fs-5 .fw-300 }
@@ -23,7 +23,15 @@ nav_order: 6
 {: .objective }
 > The response is compliant, but latency has spiked beyond SLO. Use the Troubleshooting & Remediation Agent to trace the request end-to-end, isolate the bottleneck, and restore performance.
 
+## Background
+
 ## Step by step
+
+### 1. Access Splunk Observability Cloud
+
+Lorem ipsum
+
+### 2. Lorem Ipsum
 
 1. Show the **healthy baseline** first: in the AI Governance Overview Dashboard's Observe section ("Response latency avg / p90"), point out the steady-state — **avg latency ~8s**.
 
@@ -54,13 +62,11 @@ nav_order: 6
 
 6. Confirm latency returns to baseline in the APM service view and in the AI Governance Overview Dashboard's Observe latency chart.
 
-## What this shows
+## Outcome
 
 - Same platform, same correlation key. The slow turn in APM is the **same** `trace_id` you'd pull up in the audit log — operations, quality, and forensics share one identity.
 - A Troubleshooting & Remediation Agent traces end-to-end and points at the bottleneck instead of you grepping logs.
 - Cost and latency aren't separate dashboards — Observe shows token usage and latency on the same governed turns Cisco Agent Observability already scored for quality.
-
-## Expected result
 
 APM detectors breach during the ~90s incident; the trace view isolates the slow span; latency returns to ~8s baseline after stop/expiry. The AI Governance Overview Dashboard's Observe latency line shows the spike and recovery.
 
