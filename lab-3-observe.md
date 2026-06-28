@@ -36,6 +36,10 @@ nav_order: 6
 
 ## Background
 
+Splunk Observability Cloud instruments the AI application the way you'd instrument any production service — using **OpenTelemetry traces** that follow a request end-to-end, across every agent, model, and operation. Every governed turn carries the same identity used to score quality in Lab 1 and to record the AI Defense verdict in Lab 2. Operations, quality, and forensics are not three datasets — they are three views of one trace.
+
+The guardrail you applied in [Lab 2](lab-2-secure.html) made the response compliant — but latency has now breached SLO. Here you trace that exact request, isolate the slow span, and let the **Troubleshooting & Remediation Agent** pinpoint the bottleneck — instead of grepping logs. AI reliability, cost, and quality are governed on the same screen, as one operational discipline.
+
 >>>TBD: Reference Derek Mitchell's lab for deep dive in setup and configuration
 
 ## Step by step
@@ -116,16 +120,54 @@ Trace table (Trace ID, Span, Operation, Content, Date, Duration, Cost, Tokens, Q
 
 Per-trace cost & token breakdown (In/Out) — Attributes spend down to a single request, split by input and output. The value is cost accountability at the finest grain — you can see exactly what one conversation cost and why.
 
+## 6. Review Alerts
+
+Navigate to Alerts -> Active Alerts.
+
+The Active alerts view is the incident command center for the AI application — it consolidates every firing alert into one prioritized queue, ranked by severity, so teams know instantly what's broken, how badly, and where to act first.
+
+![alt text](image-29.png)
+
+## 7. Generate Latency Incident
+
+Go to DemoBot, and open the left side-panel.
+
+Toggle **Trigger Demo Incident** on to trigger a series of alerts.
+
+![alt text](image-30.png)
+
+## 8. Triage and Resolve an Alert
+
+Click on any alert.
+
+This is the alert investigation experience — drilling into a single firing incident to see what broke, what it affected, and why, with an AI Troubleshooting Agent automatically working the root cause. This is where monitoring stops being a dashboard and becomes an answer.
+
+![alt text](image-34.png)
+![alt text](image-32.png)
+![alt text](image-33.png)
+
+Overview / Root Cause Analysis / Evidence tabs — Structures the investigation from headline, to diagnosis, to the raw proof behind it. The value is a complete, defensible incident case file — conclusions always traceable to evidence.
+
+Alert summary & detail chart — Lays out exactly what triggered: the rule, the condition breached, current versus historical error rate, and the precise moment it spiked. The value is unambiguous detection — not "something feels off," but a measured deviation with a timestamp and a threshold.
+
+Root cause (AI-generated, with confidence) — Delivers a plain-language verdict on the likely cause — and, crucially, states its confidence and admits when evidence is insufficient. The value is honest automation: it accelerates diagnosis without pretending to certainty it doesn't have, which is exactly what you want from AI in a high-stakes operational role.
+
+Impact summary — Quantifies the blast radius: which service and how many business transactions are affected, and confirms what's not impacted. This is the business-language translation of a technical alert — "what does this actually break for users?"
+
+Troubleshooting tools (Runbooks, Related content, Data links) — Connects the alert to the next actions: established procedures, related dashboards, and deeper traces. This is how an incident moves from understood to resolved, fast.
+
+Because we triggered the alert, go ahead and click **Resolve alert**.
+
 ## Outcome
 
-- Same platform, same correlation key. The slow turn in APM is the **same** `trace_id` you'd pull up in the audit log — operations, quality, and forensics share one identity.
-- A Troubleshooting & Remediation Agent traces end-to-end and points at the bottleneck instead of you grepping logs.
-- Cost and latency aren't separate dashboards — Observe shows token usage and latency on the same governed turns Cisco Agent Observability already scored for quality.
+A latency spike was traced to its exact cause — and resolved — without reading a single log line. The slow request was isolated, diagnosed by an AI agent, and performance returned to baseline.
 
-APM detectors breach during the ~90s incident; the trace view isolates the slow span; latency returns to ~8s baseline after stop/expiry. The AI Governance Overview Dashboard's Observe latency line shows the spike and recovery.
+- **One platform, one turn** The slow turn in APM is the *same* turn as the audit log and the quality score — operations, quality, and
+  forensics share one identity.
+- **The agent traces; you don't grep.** A Troubleshooting & Remediation Agent follows the request end-to-end and points at the bottleneck automatically.
+- **Cost and latency, on the governed turn.** Observe shows token spend and latency on the very turns Cisco Agent Observability already scored for quality — not in a separate dashboard.
 
-{: .note }
-> The incident is a controlled fault injection against the demo service — safe, time-boxed, and reversible. It does not affect any real workload.
+APM detectors breach during the ~90s incident; the trace view isolates the slow span; latency returns to ~8s baseline after the fault expires.
 
 <!-- exec-outcome:start -->
 
