@@ -9,7 +9,7 @@ nav_order: 3
 
 **Pillar:** Overview<br>
 **Tool:** Splunk — AI Governance Overview dashboard<br>
-**Timing:** 8–10 min<br>
+**Timing:** 10 minutes<br>
 **Outcome:** Unified Visibility & Control
 {: .fs-5 .fw-300 }
 
@@ -23,46 +23,76 @@ nav_order: 3
 {: .objective }
 > Establish the thesis: every governed turn and its quality/security scores live in one view, and you drill from there into any pillar.
 
-## Step by step
+## Background
 
-1. Open the **AI Governance Overview** dashboard in Splunk; set the time range to **Last 7 days**.
-2. Walk the **KPI and safety tiles** left to right:
-   - **Total AI Requests** — every turn the platform governed.
-   - **Safety Violations / Policy Blocked / Guardrails Triggered** — non-compliant content stopped or flagged at runtime (Cisco AI Defense + internal policy).
-   - **PII Detected** — sensitive-data detections (the `ai_cim:pii:ml_scoring` pipeline correlates by `event_id`).
-   - **Total Token Usage / Total Cost** — spend as a first-class governance signal.
-   - **Unique Sessions** — breadth of activity.
-3. Walk the **GenAI / ML Detection summaries** and the cost / latency / volume trends. The Overview previews all four governance dimensions (Measure, Secure, Observe, Govern) in one surface; the dedicated pillar dashboards in the same TA are the deep-dives, one click away.
-4. Land on the **Recent AI Requests (Detailed Log)** table at the bottom. Pick a flagged turn, copy its `event_id`, and run the pivot below to resolve it to the **full correlated record** (Cisco Agent Observability score + AI Defense verdict + PII/injection/hallucination scores). This is the teaser for [Lab 4](lab-4-govern.html).
+Cisco Data Fabric
 
-   ```spl
-   index=gen_ai_log "<event_id>"
-   ```
+## Step by Step
 
-## What this shows
+### 1. Access Splunk
 
-- Every number on the screen comes from the **same governed turns**. Quality, security, operations, and audit aren't four tools — they're four views of one record, joined on `gen_ai.event.id` / `trace_id`.
-- Point tools each see a slice. One Cisco captures the interaction **once** and correlates the rest together — one investigation, not four.
+Lorem ipsum
 
-## Expected result
+### 2. Access the AI Governance TA
 
-The KPI tiles are populated and the Govern table has rows. Over a rolling ~7–30 day window you should see roughly:
+Expand the left sidecar to view all TAs, and click on **AI Governance**.
 
-| Signal | Range |
-|---|---|
-| Governed turns | ~170–190 across ~165 sessions, ~50 end-users |
-| Policy blocks | ~11–14 |
-| Prompt-injection attempts (ML-detected) | ~12 |
-| Hallucinations flagged | ~90 |
-| PII/PHI hits | ~17 |
-| Toxic hits | ~56 |
-| Tokens | ~120K |
-| Avg latency | ~8s |
+![alt text](image-14.png)
+
+### 3. Review the AI Governance Overview Dashboard
+
+The AI Governance Overview is the single-pane executive scorecard for AI across the enterprise — it consolidates usage, cost, performance, and risk into board-level numbers, complementing the deep per-conversation analysis with a top-down view spanning every model, app, and session.
+
+Key Performance Indicators (Requests, Sessions, Token Usage, Cost, Latency) — The vital signs of the AI footprint: how much it's used, what it costs, and how fast it responds. These are the figures an executive tracks to know the program is healthy and spend is under control.
+
+Safety & Compliance Metrics (Safety Violations, PII Detected, Policy Blocked, Guardrails Triggered, Retries) — The risk dashboard in one row: how often the AI crossed a line and how often the guardrails caught it. This is the proof that controls are active and working — and a live count of exposure.
+
+Trend Analysis (Request Volume, Token Usage over time) — Plots demand and consumption over time, so growth, spikes, and anomalies are visible at a glance. This is the early-warning view for both cost and unusual activity.
+
+Cost Analysis (Cost Over Time, Cost by Service) — Shows when money is spent and which service drives it. The value is attribution: cost stops being a lump sum and becomes traceable to the application responsible, so spend can be owned and controlled.
+
+Service Analysis (Requests by Service, Performance Comparison) — Ranks services side by side on volume, speed, cost, and tokens. This is how leadership sees which workloads carry the load and which are efficient versus expensive — the basis for optimization decisions.
+
+Model Analysis (Model Usage Statistics) — Breaks activity down by the specific model behind it. The value is a clear inventory of what's running where — essential for governing which models are approved and in use.
+
+Session Analysis (Session Activity) — Drills to the individual user session, with its interactions, cost, tokens, and latency. This is the bridge back to the human experience — letting you trace an anomaly all the way down to a single conversation.
+
+Status & Errors (Status Outcome, Errors by Service) — Shows the mix of successful versus blocked or violating responses, and which service generates the most errors. The value is a clean read on whether the AI is mostly behaving — and a finger pointed at the worst-offending service when it isn't.
+
+Recent AI Requests (Detailed Log) — The raw, timestamped record of individual requests with their model, tokens, cost, and safety flags. This is the ground-truth evidence layer — proof that every headline number traces back to real, inspectable events.
+
+Compliance Summary (Safety Compliance %) — Rolls everything into the one figure leadership and auditors care about: the share of events that passed safely. This is the board-level headline — a defensible, quantified compliance posture rather than an assurance.
+
+![alt text](image-15.png)
+
+### 4. Review the Tokenomics Dashboard
+
+Expand the left sidecar, and navigate to Dashboards -> Tokenomics.
+
+The Tokenomics dashboard is the financial-management view of the AI program — it treats agentic systems like any other budgeted line of business, tracking what's spent, who and what is driving it, how efficiently each model converts spend into work, and where cost is heading next.
+
+Key Tokenomics KPIs (Total Cost, Tokens, Requests, Avg Cost/Request, Avg Tokens/Request, Output:Input Ratio) — The headline economics of the AI in one row. These are the unit-cost figures a finance owner uses to know whether AI spend is efficient and under control, not just how big it is.
+
+Spend & Volume Trend (Cost / Tokens over time) — Plots dollars and consumption day by day, separating what goes in from what comes out. The value is seeing cost track demand — and spotting the spikes that warrant a closer look.
+
+Cost Attribution (by Provider, App, Model, User) — Answers "who and what is spending the money," down to the individual user. This is chargeback-grade accountability — the basis for allocating budget, setting limits, and having a fair cost conversation with each team.
+
+Efficiency (Cost per 1K Tokens, Tokens/Second, Output:Input Ratio by Model) — Compares models on price, speed, and productivity. This is the optimization lever: clear evidence for which models deliver the most work per dollar, so the business can steer traffic to the efficient ones.
+
+Top Spenders (Sessions, Conversations, Users) — Surfaces the heaviest consumers of spend. The value is fast identification of outliers — the runaway session or power user that drives a disproportionate share of the bill.
+
+Anomalies & Forecast (Hourly Cost vs. Baseline, Projected 30-Day Spend, Unattributed Cost) — Flags abnormal spend against a learned baseline, projects the month-end bill, and isolates cost that can't be tied to a user. This is forward-looking financial governance — budgeting ahead and catching both surprises and accountability gaps.
+
+![alt text](image-16.png)
+
+## Outcome
+
+Lorem ipsum
 
 <!-- exec-outcome:start -->
 
 {: .outcome }
-> **Executive outcome.** The leader sees the posture of the AI program at a glance — and knows that any number on the screen is one click from the evidence behind it.
+> **Executive outcome - Unified Visibility & Control.** The leader sees the posture of the AI program at a glance — and knows that any number on the screen is one click from the evidence behind it.
 
 <!-- exec-outcome:end -->
 
