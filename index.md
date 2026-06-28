@@ -15,7 +15,7 @@ permalink: /
 
 ---
 
-[Start: Setup & Prerequisites](setup.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Start: Setup](setup.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 [Jump to the labs](section-0-overview.html){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ## The Problem: AI Is Moving Faster Than Governance
