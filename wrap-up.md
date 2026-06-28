@@ -17,46 +17,36 @@ nav_order: 8
 
 ## Close the loop
 
-Return to the **AI Governance Overview Dashboard**. Everything covered — the measurement, the block, the latency spike, the injection — is on **one screen**, on the **same turns**, joined on `gen_ai.event.id` / `trace_id`. The same pattern generalizes: this engine re-skins to six verticals (medical, tax, benefits, legal, finance, telecom).
+Return to the **AI Governance Overview Dashboard**. Everything covered — the measurement, the block, the latency spike, the injection — is on **one screen**, on the **same turns**.
 
-## The five outcomes
+## 5-Minute Executive Outcome
 
-| Outcome | Pillar | Grounded in |
+**The gap.** Agentic AI is in production, deciding and talking to customers at machine speed. Every interaction can leak PII, absorb an injection, fabricate an answer, or drift from what it was certified with — and each is *simultaneously* a security, operations, quality, and compliance event. Today that's four tools, four truths, no thread. The audit becomes a fire drill.
+
+**The value:** One Cisco captures every AI interaction **once** and correlates it — so security, operations, quality, and audit become **one investigation, not four.**
+
+Proven on a single live turn, four pillars deep:
+
+| Pillar | What it does | Value |
 |---|---|---|
-| **Unified Visibility & Control** | Overview | The single pane (AI Governance Overview Dashboard) |
-| **Improved Outcomes** | Measure | Evaluation, signals & continuous metrics ([Lab 1](lab-1-measure.html)) |
-| **Trusted AI** | Secure | Exposed → compliant live ([Lab 2](lab-2-secure.html)) |
-| **Operational Excellence** | Observe | APM trace-to-root-cause ([Lab 3](lab-3-observe.html)) |
-| **Accountability & Evidence** | Govern | Immutable audit trail for every event ([Lab 4](lab-4-govern.html)) |
+| **Measure** (Cisco Agent Observability) | Scores clean vs. poisoned behavior, cost, and quality — continuously, affordably | Quality and risk become **SLA-governed metrics, not a vibe**; failures caught *before* they ship |
+| **Secure** (Cisco AI Defense) | Authors the guardrail from that finding, live | Non-compliant output **blocked at runtime** — policy tuned in real time, not a quarter-long change request |
+| **Observe** (Splunk Observability Cloud) | Traces the same turn end to end | Bottlenecks **found by tracing, not guessing** — reliable, cost-efficient AI |
+| **Govern** (Splunk Core / ES) | Immutable audit trail, injection surfaced, escalated | The audit is a **query, not a scramble** — defensible evidence on every turn |
 
----
+## Five Executive Outcomes
 
-## Optional — deterministic emergency escalation
+| Outcome | What it means | Grounded in |
+| --- | --- | --- |
+| **Unified Visibility & Control** | The whole AI program on one screen; every KPI live, every number one click from its evidence | Single pane of glass (AI Governance Overview Dashboard) |
+| **Improved Outcomes** | Measurable quality, cost, and risk; optimized agent behavior, unknown unknowns surfaced | Evaluation, signals & continuous metrics (Part 1) |
+| **Trusted AI** | Safe, compliant responses; non-compliant output blocked at runtime | Exposed→compliant live (Part 2) |
+| **Operational Excellence** | Reliable, cost-efficient AI; trace, don't guess | APM trace-to-root-cause (Part 3) |
+| **Accountability & Evidence** | End-to-end auditability; defensible, correlated evidence | Immutable audit trail for every event (Part 4) |
 
-To show the human-in-the-loop safety path, run scenario 2 (*"Emergency symptom → escalation"*):
+**The ask.** The question is no longer *whether* to govern agentic AI — it's *whether you can prove you are.* One Cisco makes that proof a single screen and a single thread. **Capture once. Correlate across all four. Investigate once, not four times.**
 
-```bash
-venv/bin/python scripts/demo/seed_governance_scenarios.py --only 2
-```
-
-This opens a session with an emergency presentation (e.g. crushing chest pain radiating down the left arm, shortness of breath, cold sweats) to trip the **deterministic escalation rules** — routing the emergency to a human-review queue rather than letting the model advise. Show it in `/governance-ui` as `escalated=true`. Some decisions shouldn't be the model's to make — the platform routes them to a human by rule, not by chance.
-
----
-
-## Reset between sessions (soft reset)
-
-1. Stop any active incident:
-   ```bash
-   curl -u x:$ACCESS_KEY -X POST http://localhost:8001/api/incident/stop
-   ```
-2. Re-stage fresh, correlated demo data so the next session sees recent activity:
-   ```bash
-   venv/bin/python scripts/demo/seed_governance_scenarios.py
-   ```
-3. In the AI Defense console, **revert the Lab 2 policy** to its pre-tuned (blocking) state so the blocked → compliant moment works again.
-4. Reset the AI Governance Overview Dashboard time range to **Last 7 days** and refresh.
-
-See the [Reference page](reference.html#reset--teardown) for full teardown.
+Secure. Observable. Governed. Measurable. **One Cisco, end to end.**
 
 ---
 

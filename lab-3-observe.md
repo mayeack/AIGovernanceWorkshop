@@ -66,7 +66,7 @@ Navigate to APM -> AI Overview.
 
 Select in "demobot-local" Environment.
 
-Generate a few transactions in DemoBot.
+Generate a few transactions in DemoBot. It may take a few minutes for them to appear.
 
 AI Overview is the health monitor for the AI application — it tracks performance, reliability, cost, and quality in real time and breaks every number down by model and provider, so teams know not just that the AI works, but which model is fast, cheap, and safe.
 
