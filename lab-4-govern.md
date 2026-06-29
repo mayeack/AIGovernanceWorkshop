@@ -63,7 +63,7 @@ Before sending the prompt, ensure that **Cisco AI Defense Policy Review** is tog
 
 Feel free to explore the behavior of other prompts, and the behavior with the Cisco AI Defense integration toggled off.
 
-### 3. Investigat the Prompt Injection
+### 3. Investigate the Prompt Injection
 
 Return to Splunk, and navigate to Dashboards -> Prompt Injection Detection.
 

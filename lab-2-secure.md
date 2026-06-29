@@ -31,7 +31,7 @@ nav_order: 5
 ## Objective
 
 {: .objective }
-> Turn the Lab 1 finding into enforcement: a medical-advice response is **blocked** as non-compliant; you update the governing policy and re-run to a **compliant** response. Take a prompt from blocked → compliant, live.
+> Turn the Lab 1 finding into enforcement: a medical-advice response is **non-compliant**; you update the governing policy and re-run to ensure a **governed** response.
 
 ## Background
 
@@ -93,7 +93,7 @@ Filter strength (Medium) — A tunable dial on how aggressively each rule fires.
 
 ![alt text](image-19.png)
 
-### 6. Create Custom Presciptive Overreach Guardrail
+### 6. Create Custom Prescriptive Overreach Guardrail
 
 Lorem ipsum - pending availability of Policy Studio
 
@@ -103,7 +103,7 @@ Lorem ipsum
 
 ## Outcome
 
-A risky medical response went from **unblocked to blocked** The unsafe output never reached the user; the policy was authored and tuned on the spot; the fix was re-validated against the live app immediately.
+A risky medical response went from **non-compliant to governed**. The unsafe output never reached the user; the policy was authored and tuned on the spot; the fix was re-validated against the live app immediately.
 
 - **Threats are stopped, not just seen.** Cisco AI Defense inspects every prompt and every response, and blocks what crosses the line in real time.
 - **Governance is a runtime control.** Policy is written and tuned the moment a gap appears — not filed as a quarterly change request.

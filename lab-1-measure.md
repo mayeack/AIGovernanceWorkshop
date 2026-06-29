@@ -31,11 +31,11 @@ nav_order: 4
 ## Objective
 
 {: .objective }
-> Before you guard or operate anything, define and measure "good." Yu will run a **baseline-vs-poisoned** evaluation, see it scored by **Luna**, read token/cost, and the **signals** that surface the unknown unknowns.
+> Before you guard or operate anything, define and measure "good." You will run a **baseline-vs-poisoned** evaluation, see it scored by **Luna**, read token/cost, and the **signals** that surface the unknown unknowns.
 
 ## Background
 
-Cisco Agent Observability evaluates the **whole agent trace** and scores each turn against research-backed metrics (hallucination, context adherence, PII/PHI leakage, tool-selection quality) plus custom metrics you define, such as Presciptive Overreach. Metrics are run by **Luna** — Cisco's small, purpose-built evaluator models — so continuous LLM-as-judge scoring is affordable rather than a frontier-model bill.
+Cisco Agent Observability evaluates the **whole agent trace** and scores each turn against research-backed metrics (hallucination, context adherence, PII/PHI leakage, tool-selection quality) plus custom metrics you define, such as Prescriptive Overreach. Metrics are run by **Luna** — Cisco's small, purpose-built evaluator models — so continuous LLM-as-judge scoring is affordable rather than a frontier-model bill.
 
 Model evaluation, metric construction, and signal understanding is critical both to build trust in AI systems before deployment, and to monitor model drift over time.
 
@@ -52,7 +52,7 @@ Lorem ipsum
 
 ### 2. Explore the Baseline vs the Poisoned Model
 
-DemoBot is pre-loaded with two models - one a baseline verison, and one that has been intentionally poisoned to produce non-compliant responses, such as toxic content.
+DemoBot is pre-loaded with two models - one a baseline version, and one that has been intentionally poisoned to produce non-compliant responses, such as toxic content.
 
 Explore sending sample prompts to both the baseline and the poisoned model (via the model picker), and observe the difference in responses. We will then review how these differential responses can be automatically identified by Cisco Agent Observability.
 
