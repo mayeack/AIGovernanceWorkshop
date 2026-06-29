@@ -40,7 +40,7 @@ Splunk Observability Cloud instruments the AI application the way you'd instrume
 
 The guardrail you applied in [Lab 2](lab-2-secure.html) made the response compliant — but latency has now breached SLO. Here you trace that exact request, isolate the slow span, and let the **Troubleshooting & Remediation Agent** pinpoint the bottleneck — instead of grepping logs. AI reliability, cost, and quality are governed on the same screen, as one operational discipline.
 
->>>TBD: Reference Derek Mitchell's lab for deep dive in setup and configuration
+>>>TBD: Reference Derek Mitchell's lab for deep dive on setup and configuration
 
 ## Step by step
 

@@ -15,6 +15,8 @@ Go to https://medadvice.yeackbot.com/app
 
 Enter the access code provided by the facilitator.
 
+GitHub: https://github.com/mayeack/DemoBot
+
 ### 2. How to Access Cisco Agent Observability
 
 Lorem ipsum
@@ -30,3 +32,5 @@ Lorem ipsum
 ### 5. How to Access Splunk
 
 Lorem ipsum
+
+GitHub: https://github.com/mayeack/TA-gen_ai_cim
