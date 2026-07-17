@@ -37,8 +37,6 @@ nav_order: 5
 
 Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the response (post-LLM) against **multiple guardrails** and blocks non-compliant content. The **Prescriptive Overreach** finding measured in [Lab 1](lab-1-measure.html) is authored here as a **custom response-direction guardrail**.
 
->>>TBD: Reference Cisco AI Defense lab for deep dive in setup and configuration
-
 ## Step by step
 
 ### 1. Access DemoBot
@@ -95,11 +93,105 @@ Filter strength (Medium) — A tunable dial on how aggressively each rule fires.
 
 ### 6. Create Custom Prescriptive Overreach Guardrail
 
-Lorem ipsum - pending availability of Policy Studio
+Navigate to **Policy Studio**.
 
-### 7. Validate Applied Guardrail
+![alt text](image-59.png)
 
-Lorem ipsum
+Click on **New policy profile**.
+
+![alt text](image-60.png)
+
+Complete the form as follows, then click **Launch Policy Studio**.
+
+![alt text](image-61.png)
+
+Enter the following into the text box **Describe your policy profile requirements**, or experiment with your own prompt!
+
+"Block any response that acts as a prescriber. The chatbot may only recommend OTC products, lifestyle or self-care measures, or referral to a licensed professional. Block responses that recommend prescription-only or controlled medications, provide prescription-style dosing, frequency, route, or duration, or instruct users to start, stop, or change a prescription medication without clinician oversight."
+
+![alt text](image-62.png)
+
+It may take a moment for the guardrail to generate. Once it does, review all of the insights generated, and notice how the system is attempting to help the user determine how to navigate edge cases.
+
+Once you have reviewed all of the insights, scroll up to see the suggested next steps, and click on (or type) **Rewrite the policy to address the agreed insights**.
+
+![alt text](image-64.png)
+
+Toggle on **Generate new synthetic samples for evaluation** and click on **Run evaluation**.
+
+![alt text](image-65.png)
+
+Once evaluation is complete, review the findings. You can optionally continue iterating with the suggested next steps.
+
+Click on **Publish**.
+
+![alt text](image-66.png)
+
+Review the evaluation results, then click **Continue**.
+
+![alt text](image-67.png)
+
+Click on **Publish Policy**.
+
+![alt text](image-68.png)
+
+Click on **Go to adpative guardrail profiles**.
+
+![alt text](image-69.png)
+
+### 7. Apply the Custom Guardrail
+
+Navigate to **Secure -> Runtime Policies**.
+
+![alt text](image-71.png)
+
+Click on **Yeack Protect**.
+
+![alt text](image-72.png)
+
+Click on **Edit policy**.
+
+![alt text](image-73.png)
+
+Click on **Adaptive guardrail profile**.
+
+![alt text](image-74.png)
+
+Toggle **Disabled** to **Enabled** and check the box next to the name of the guardrail you just created.
+
+Navigate to **Policy summary**.
+
+![alt text](image-75.png)
+
+Click on **Save changes**.
+
+![alt text](image-76.png)
+
+### 8. Validate Applied Guardrail
+
+Navigate back to DemoBot. In the left sidepanel, toggle on **Prescriptive Overreach**.
+
+![alt text](image-77.png)
+
+Send any prompt, and notice how the agent response contains prescriptive overreach.
+
+![alt text](image-78.png)
+
+In the left sidepanel, toggle on **Cisco AI Defense Policy Review**. Click on **New Session**.
+
+![alt text](image-79.png)
+
+Send a similiar prompt. The non-compliant response is now blocked!
+
+![alt text](image-80.png)
+
+In the left sidepanel, toggle off **Prescriptive Overreach**. Click on **New Session**.
+
+![alt text](image-81.png)
+
+Send a similiar prompt. Compliant responses are not blocked.
+
+![alt text](image-82.png)
 
 ## Outcome
 
