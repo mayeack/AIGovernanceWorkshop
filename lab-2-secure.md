@@ -9,7 +9,7 @@ nav_order: 5
 
 **Pillar:** Secure<br>
 **Tool:** Cisco AI Defense<br>
-**Timing:** 20 minutes<br>
+**Timing:** 45 minutes<br>
 **Outcome:** Trusted AI
 {: .fs-5 .fw-300 }
 
@@ -41,7 +41,7 @@ Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the
 
 ### 1. Access DemoBot
 
-Lorem ipsum
+Navigate to **https://medadvice.yeackbot.com/app**. When prompted, enter the access code provided by the presenter.
 
 ### 2. Prompt Prescriptive Overreach
 

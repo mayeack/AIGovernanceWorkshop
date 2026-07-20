@@ -140,7 +140,7 @@ The takeaway: AI is no longer a black box trusted on faith. It's a measurable, a
 <!-- exec-outcome:start -->
 
 {: .outcome }
-> **Executive outcome - Unified Visibility & Control.** The leader sees the posture of the AI program at a glance — and knows that any number on the screen is one click from the evidence behind it.
+> **Executive outcome.** The leader sees the posture of the AI program at a glance — and knows that any number on the screen is one click from the evidence behind it.
 
 <!-- exec-outcome:end -->
 

@@ -15,7 +15,7 @@ permalink: /
 
 ---
 
-[Start: Setup](setup.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Start: Setup & Prerequisites](setup.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 [Jump to the labs](section-0-overview.html){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ## The Problem: AI Is Moving Faster Than Governance
@@ -43,11 +43,13 @@ The four pillars:
 | **Measure / Evaluate** | Define **good**, then prove it — baseline vs. poisoned behavior, token & cost, signals that surface unknown unknowns, continuous metrics on a deployed agent | Cisco Agent Observability |
 | **Secure** | Runtime policy + guardrails on every prompt and response | Cisco AI Defense |
 | **Observe** | End-to-end tracing, latency, and cost | Splunk Observability Cloud |
-| **Govern** | Immutable audit trail + forensics + security incident response | Splunk / Enterprise Security |
+| **Govern** | Immutable audit trail + forensics + security incident response | Splunk Core / Enterprise Security |
+
+![One Cisco AI Governance architecture: production AI traffic flows through Cisco Cloud Control, Cisco AI Defense, and Cisco Data Fabric into Splunk Observability Cloud and Splunk Core, with Cisco Agent Observability closing the continuous feedback loop back to the AI system — delivering Trusted AI, Operational Excellence, Risk Reduction, Accountability & Evidence, and Improved Outcomes.](image-83.png)
 
 ### The Single Pane of Glass
 
-The architectural anchor is the **AI Governance Overview** dashboard in Splunk. It answers, in one view, the question every leader is actually asking — *"Is our AI safe, reliable, accurate, and accountable right now?"* — through KPI tiles (Total AI Requests, Cost, Token Usage, Unique Sessions), safety tiles (Safety Violations, PII Detected, Policy Blocked, Guardrails Triggered), GenAI Detection summaries, cost / latency / volume trends, and a Recent AI Requests log you pivot from to any turn's correlated record. Pillar deep-dives — Prompt Injection Detection, PII Detection, and Tokenomics are one click away.
+The architectural anchor is the **AI Governance Overview** dashboard in Splunk Core. It answers, in one view, the question every leader is actually asking — *"Is our AI safe, reliable, accurate, and accountable right now?"* — through KPI tiles (Total AI Requests, Cost, Token Usage, Unique Sessions), safety tiles (Safety Violations, PII Detected, Policy Blocked, Guardrails Triggered), GenAI Detection summaries, cost / latency / volume trends, and a Recent AI Requests log you pivot from to any turn's correlated record. Pillar deep-dives — Prompt Injection Detection, PII Detection, and Tokenomics are one click away.
 
 ---
 
@@ -65,9 +67,9 @@ MedAdvice applies safety gates before and after every LLM call. **Cisco AI Defen
 
 That same per-turn telemetry feeds **Splunk Observability Cloud** (Part 3), the operational lens on the running agent. Where **Cisco AI Defense** governs what MedAdvice is allowed to say, **Observability Cloud** watches how it runs — emitting OpenTelemetry traces, spans, latency, and token/cost telemetry for every LLM call and tool hop across the multi-agent graph. Because each trace carries the same shared identifier as that turn's security verdict and quality score, a slow or expensive turn is one click from the exact span that caused it.
 
-Splunk (Part 4) is where all of it comes to rest — the immutable audit trail and single pane over every governed turn, so any interaction can be pulled back by that same shared identifier and, when it's evidence-backed, escalated into Splunk Enterprise Security as a notable event.
+Splunk Core (Part 4) is where all of it comes to rest — the immutable audit trail and single pane over every governed turn, so any interaction can be pulled back by that same shared identifier and, when it's evidence-backed, escalated into Splunk Enterprise Security as a notable event.
 
-None of these downstream pillars stand on their own, though — the foundation was laid in by **Cisco Agent Observability** (Part 1). The baseline-vs-poisoned evaluation is what defined "good" in the first place: the metrics, the thresholds, and the failure modes worth governing. AI Defense enforces that definition, Observability Cloud confirms the agent honors it under load, and Splunk proves it held — every pillar that follows is measuring against the baseline the evaluation set.
+None of these downstream pillars stand on their own, though — the foundation was laid in by **Cisco Agent Observability** (Part 1). The baseline-vs-poisoned evaluation is what defined "good" in the first place: the metrics, the thresholds, and the failure modes worth governing. AI Defense enforces that definition, Observability Cloud confirms the agent honors it under load, and Splunk Core proves it held — every pillar that follows is measuring against the baseline the evaluation set.
 
 ### AI Governance Overview Dashboard: The Single Pane of Glass
 
@@ -87,11 +89,11 @@ None of these downstream pillars stand on their own, though — the foundation w
 {: .outcome }
 > **Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Poisoned behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
 
-### Part 2 — Secure (Cisco AI Defense): From Non-Compliant to Governed
+### Part 2 — Secure (Cisco AI Defense): From Blocked to Compliant
 
 **Scenario.** The evaluation in Part 1 measured the poisoned model's prescription overreach on otherwise benign prompts. Now that finding becomes enforcement.
 
-**What One Cisco does.** This is where the evaluation becomes enforcement. Cisco AI Defense applies runtime guardrails on the prompt and the response — *per direction*, since the model's output is its own risk surface — and the prescription-overreach finding from the Cisco Agent Observability evaluation in Part 1 is authored here as a **custom response-direction guardrail**, so the exact behavior the eval measured is what now gets blocked. In the workshop, the participants author and tune the governing policy *in real time*, then re-run — taking it from **non-compliant -> governed** live.
+**What One Cisco does.** This is where the evaluation becomes enforcement. Cisco AI Defense applies runtime guardrails on the prompt and the response — *per direction*, since the model's output is its own risk surface — and the prescription-overreach finding from the Cisco Agent Observability evaluation in Part 1 is authored here as a **custom response-direction guardrail**, so the exact behavior the eval measured is what now gets blocked. In the workshop, the participants author and tune the governing policy *in real time*, then re-run — taking it from **not blocked → compliant** live.
 
 {: .outcome }
 > **Executive outcome — Trusted AI.** Non-compliant output never reaches the user, and policy is authored and tuned in real time, then re-validated immediately against the live app — governance you can watch happen, not a quarter-long change request.
@@ -105,7 +107,7 @@ None of these downstream pillars stand on their own, though — the foundation w
 {: .outcome }
 > **Executive outcome — Operational Excellence.** Reliable, cost-efficient AI — performance problems are found by tracing, not guessing.
 
-### Part 4 — Govern (Splunk / Enterprise Security): Audit, Surface, Escalate
+### Part 4 — Govern (Splunk Core / Enterprise Security): Audit, Surface, Escalate
 
 **Scenario.** An audit is underway. The reviewer needs to demonstrate not just that controls exist, but that they fired — and to act on what they find.
 
@@ -135,7 +137,7 @@ One turn. Four pillars. One thread. The data scientist, the security analyst, th
 | --- | --- | --- |
 | **Unified Visibility & Control** | The whole AI program on one screen; every KPI live, every number one click from its evidence | Single pane of glass (AI Governance Overview Dashboard) |
 | **Improved Outcomes** | Measurable quality, cost, and risk; optimized agent behavior, unknown unknowns surfaced | Evaluation, signals & continuous metrics (Part 1) |
-| **Trusted AI** | Safe, compliant responses; non-compliant output blocked at runtime | Exposed -> compliant live (Part 2) |
+| **Trusted AI** | Safe, compliant responses; non-compliant output blocked at runtime | Exposed→compliant live (Part 2) |
 | **Operational Excellence** | Reliable, cost-efficient AI; trace, don't guess | APM trace-to-root-cause (Part 3) |
 | **Accountability & Evidence** | End-to-end auditability; defensible, correlated evidence | Immutable audit trail for every event (Part 4) |
 

@@ -43,7 +43,7 @@ Model evaluation, metric construction, and signal understanding is critical both
 
 ### 1. Access DemoBot
 
-Lorem ipsum
+Navigate to **https://medadvice.yeackbot.com/app**. When prompted, enter the access code provided by the presenter.
 
 {: .objective }
 > Because we are using an open weight model, ensure that you select **gpt-4o-mini** from the **Static Emission** dropdown so that tokenomics calculates correctly!
@@ -229,7 +229,7 @@ Now that we have identified the critical metric Prescriptive Overreach, let's op
 <!-- exec-outcome:start -->
 
 {: .outcome }
-> **Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Aberrant model behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
+> **Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Poisoned behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
 
 <!-- exec-outcome:end -->
 
