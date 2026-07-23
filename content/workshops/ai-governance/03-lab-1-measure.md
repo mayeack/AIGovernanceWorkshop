@@ -31,11 +31,9 @@ Model evaluation, metric construction, and signal understanding is critical both
 
 ## Step by step
 
-### 1. Access DemoBot and Cisco Agent Observability
+### 1. Access DemoBot
 
 Go to **https://medadvice.yeackbot.com/app**. When prompted, enter the access code provided by the presenter.
-
-Go to **https://console.multitenant.galileocloud.io/splunkse** and enter the username / password provided by the facilitator.
 
 {{% notice warning "Important" %}}
 Because we are using an open weight model, ensure that you select **gpt-4o-mini** from the **Static Emission** dropdown so that tokenomics calculates correctly!
@@ -53,7 +51,7 @@ Explore sending sample prompts to both the baseline and the poisoned model (via 
 
 ### 3. Access Cisco Agent Observability
 
-Lorem ipsum
+Go to **https://console.multitenant.galileocloud.io/splunkse** and enter the username / password provided by the facilitator.
 
 ### 4. Review Overview
 
