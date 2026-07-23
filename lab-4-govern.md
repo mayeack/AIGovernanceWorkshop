@@ -47,7 +47,7 @@ You will stage a real prompt-injection attack against DemoBot, watch it surface 
 
 ### 1. Access Splunk
 
-Lorem ipsum
+You should have received an email with instructions on how to access your assigned Splunk Cloud instance.
 
 ### 2. Stage the Prompt Injection
 

@@ -52,7 +52,7 @@ One dataset. Every pillar. That's what lets a leader go from a number on the scr
 
 ### 1. Access Splunk
 
-Lorem ipsum
+You should have received an email with instructions on how to access your assigned Splunk Cloud instance.
 
 ### 2. Access AI Governance TA
 
