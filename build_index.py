@@ -1,22 +1,29 @@
 #!/usr/bin/env python3
-"""Regenerate index.md (Home) = front matter + jump buttons + the workshop narrative VERBATIM,
+"""Regenerate content/_index.md (Home) = hero front matter + the workshop narrative VERBATIM,
 and sync each lab/overview page's full Executive outcome from that same narrative.
 
 The Home page must mirror the canonical narrative verbatim (see the update-workshop-site
-skill). The lab/overview pages each carry the *full* Executive-outcome paragraph for their
-pillar — also sourced from the narrative — between `<!-- exec-outcome:start -->` and
-`<!-- exec-outcome:end -->` markers, so they never drift from Home. Run this whenever the
-narrative changes instead of hand-editing index.md or the outcome callouts:
+skill). With the Hugo splunk-workshop theme, the narrative's title block (title, tagline,
+pillars line) moves into the hero front matter and the old jump buttons become hero CTAs —
+that is the only "workshop UI" transformation. Everything after the title block is emitted
+verbatim, except that each `**Executive outcome …**` paragraph is wrapped in a
+`{{% notice info "Executive outcome" %}}` callout (text unchanged, markup only) and image
+paths are rewritten to /images/ (screenshots live in static/images/).
+
+The same run syncs the five Executive-outcome paragraphs onto the overview/lab pages
+(between `<!-- exec-outcome:start -->` / `<!-- exec-outcome:end -->` markers), so they never
+drift from Home. Run this whenever the narrative changes instead of hand-editing:
 
     python3 build_index.py
 
 By default it reads the narrative from the sibling collateral folder (this repo cloned
-inside the OneDrive "o11y AI Workshop '27" project) and writes index.md next to this script.
-Override the source with an argument or the NARRATIVE_MD env var if your layout differs:
+inside the OneDrive "o11y AI Workshop '27" project). Override with an argument or the
+NARRATIVE_MD env var:
 
     python3 build_index.py "/path/to/1 - narrative.md"
 """
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -26,22 +33,8 @@ DEFAULT_NARRATIVE = HERE.parent / "collateral" / "1 - narrative.md"
 narrative_path = Path(
     sys.argv[1] if len(sys.argv) > 1 else os.environ.get("NARRATIVE_MD", DEFAULT_NARRATIVE)
 )
-OUT = HERE / "index.md"
-
-FRONT = (
-    "---\n"
-    "layout: default\n"
-    "title: Home\n"
-    "nav_order: 1\n"
-    "permalink: /\n"
-    "---\n\n"
-)
-
-BUTTONS = (
-    "\n"
-    "[Start: Setup & Prerequisites](setup.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }\n"
-    "[Jump to the labs](section-0-overview.html){: .btn .fs-5 .mb-4 .mb-md-0 }\n"
-)
+OUT = HERE / "content" / "_index.md"
+WORKSHOP_DIR = HERE / "content" / "workshops" / "ai-governance"
 
 if not narrative_path.exists():
     sys.exit(f"narrative not found: {narrative_path}\n"
@@ -50,47 +43,88 @@ if not narrative_path.exists():
 text = narrative_path.read_text(encoding="utf-8")
 lines = text.split("\n")
 
-# Insert the jump buttons just after the first horizontal rule (the one below the title block).
-insert_at = None
-for i, ln in enumerate(lines):
-    if ln.strip() == "---" and i > 0:
-        insert_at = i + 1
-        break
+# --- Split the title block (everything before the first hr) from the body ------------------
+try:
+    hr = next(i for i, ln in enumerate(lines) if ln.strip() == "---" and i > 0)
+except StopIteration:
+    sys.exit("narrative has no '---' after the title block — layout changed?")
 
-if insert_at is None:
-    body = text
-else:
-    body = "\n".join(lines[:insert_at]) + "\n" + BUTTONS + "\n".join(lines[insert_at:])
+title_block = [ln for ln in lines[:hr]]
+body_lines = lines[hr + 1:]
 
-# Workshop-specific presentation: wrap each "Executive outcome …" paragraph in a
-# just-the-docs `outcome` callout so it stands out on the Home page (the text is
-# unchanged — only blockquote/callout markup is added). Requires an `outcome`
-# callout defined in _config.yml.
+h1 = tagline = pillars = ""
+extra_title_lines = []  # e.g. the italic "A field workshop…" descriptor — kept in the body
+for ln in title_block:
+    s = ln.strip()
+    if not s:
+        continue
+    if s.startswith("# ") and not h1:
+        h1 = s[2:].strip()
+    elif s.startswith("### ") and not tagline:
+        tagline = s[4:].strip()
+    elif s.startswith("**") and s.endswith("**") and not pillars:
+        pillars = s.strip("*").strip()
+    else:
+        extra_title_lines.append(ln)
+
+if not h1:
+    sys.exit("narrative title block has no '# ' heading — layout changed?")
+
+
+def esc(s: str) -> str:
+    return s.replace("\\", "\\\\").replace('"', '\\"')
+
+
+# The hero renders the H1 with a gradient accent on emphasized text.
+hero_title = h1.replace("End to End", "*End to End*") if "End to End" in h1 else h1
+
+FRONT = f'''+++
+title         = "{esc(h1)}"
+hero_title    = "{esc(hero_title)}"
+eyebrow       = "{esc(tagline)}"
+description   = "{esc(pillars)}"
+home_sections = ["workshops"]
+
+[[cta]]
+label = "Start: Setup & Prerequisites"
+href  = "/workshops/ai-governance/01-setup/"
+style = "primary"
+
+[[cta]]
+label = "Jump to the labs"
+href  = "/workshops/ai-governance/02-overview/"
+style = "ghost"
++++
+'''
+
+# --- Body: verbatim narrative + outcome callouts + image path rewrite ----------------------
 out_lines = []
 n_outcomes = 0
-for ln in (FRONT + body).split("\n"):
+for ln in extra_title_lines + [""] + body_lines:
     if ln.startswith("**Executive outcome"):
-        out_lines.append("{: .outcome }")
-        out_lines.append("> " + ln)
+        out_lines.append('{{% notice style="info" title="Executive outcome" icon="star" %}}')
+        out_lines.append(ln)
+        out_lines.append("{{% /notice %}}")
         n_outcomes += 1
     else:
-        out_lines.append(ln)
+        out_lines.append(ln.replace("](image", "](/images/image"))
 
-OUT.write_text("\n".join(out_lines), encoding="utf-8")
+body = re.sub(r"\n{3,}", "\n\n", "\n".join(out_lines)).strip("\n")
+OUT.write_text(FRONT + "\n" + body + "\n", encoding="utf-8")
 print(f"wrote {OUT} from {narrative_path} ({OUT.stat().st_size} bytes; "
       f"{n_outcomes} executive-outcome callouts)")
 
 # --- Sync each lab/overview page's full Executive outcome from the narrative ---------------
 # The narrative has exactly five "**Executive outcome …**" paragraphs, in this order:
 # Overview, Part 1, Part 2, Part 3, Part 4 — mapped positionally to the pages below. Each
-# page carries its outcome as an `{: .outcome }` callout between sentinel markers, so the
-# text stays verbatim-identical to Home.
+# page carries its outcome as a notice callout between sentinel markers, so the text stays
+# verbatim-identical to Home.
 OUTCOME_PAGES = [
-    "section-0-overview.md",  # Overview / single pane of glass
-    "lab-1-measure.md",       # Part 1 — Measure
-    "lab-2-secure.md",        # Part 2 — Secure
-    "lab-3-observe.md",       # Part 3 — Observe
-    "lab-4-govern.md",        # Part 4 — Govern
+    "02-overview.md",        # Overview / single pane of glass
+    "03-lab-1-measure.md",   # Part 1 — Measure
+    "04-lab-2-secure.md",    # Part 2 — Secure
+    "05-lab-3-observe.md",   # Part 3 — Observe
+    "06-lab-4-govern.md",    # Part 4 — Govern
 ]
 MARK_START = "<!-- exec-outcome:start -->"
 MARK_END = "<!-- exec-outcome:end -->"
@@ -102,7 +136,7 @@ if len(outcomes) != len(OUTCOME_PAGES):
 
 synced = 0
 for page_name, outcome in zip(OUTCOME_PAGES, outcomes):
-    page = HERE / page_name
+    page = WORKSHOP_DIR / page_name
     if not page.exists():
         print(f"  skip {page_name}: not found")
         continue
@@ -113,11 +147,11 @@ for page_name, outcome in zip(OUTCOME_PAGES, outcomes):
     except ValueError:
         print(f"  skip {page_name}: missing exec-outcome markers")
         continue
-    # Blank lines around the IAL/blockquote are required: kramdown only attaches the
-    # `{: .outcome }` class to the blockquote when a blank line precedes the IAL (otherwise
-    # it renders as a plain paragraph). Keep the blank line before MARK_END too so the end
-    # comment is its own block.
-    block = [MARK_START, "", "{: .outcome }", "> " + outcome, "", MARK_END]
+    block = [MARK_START, "",
+             '{{% notice style="info" title="Executive outcome" icon="star" %}}',
+             outcome,
+             "{{% /notice %}}",
+             "", MARK_END]
     page_lines[s:e + 1] = block
     page.write_text("\n".join(page_lines), encoding="utf-8")
     synced += 1

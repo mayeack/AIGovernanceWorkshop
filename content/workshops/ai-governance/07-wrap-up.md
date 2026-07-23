@@ -1,19 +1,12 @@
----
-layout: default
-title: Wrap-Up & Outcomes
-nav_order: 8
----
-
-# Wrap-Up & Outcomes
-{: .no_toc }
++++
+title       = "Wrap-Up & Outcomes"
+description = "Close the loop: four pillars, one governed dataset, five executive outcomes."
+duration    = "5 min"
+weight      = 70
+aliases     = ["/wrap-up.html"]
++++
 
 **Timing:** 5 min · Return to the AI Governance Overview Dashboard and close the loop.
-{: .fs-5 .fw-300 }
-
-1. TOC
-{:toc}
-
----
 
 ## Close the loop
 
@@ -47,7 +40,3 @@ Proven on a single live turn, four pillars deep:
 **The ask.** The question is no longer *whether* to govern agentic AI — it's *whether you can prove you are.* One Cisco makes that proof a single screen and a single thread. **Capture once. Correlate across all four. Investigate once, not four times.**
 
 Secure. Observable. Governed. Measurable. **One Cisco, end to end.**
-
----
-
-[← Lab 4](lab-4-govern.html){: .btn } [Reference & Troubleshooting →](reference.html){: .btn .btn-primary }

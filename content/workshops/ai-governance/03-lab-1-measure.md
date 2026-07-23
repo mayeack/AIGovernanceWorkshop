@@ -1,37 +1,27 @@
----
-layout: default
-title: Lab 1 — Measure
-nav_order: 4
----
-
-# Lab 1 — MEASURE (Cisco Agent Observability)
-{: .no_toc }
++++
+title       = "Lab 1 — Measure"
+description = "Cisco Agent Observability: run a baseline-vs-poisoned evaluation, score it with Luna, and surface the unknown unknowns."
+duration    = "30 min"
+weight      = 30
+aliases     = ["/lab-1-measure.html"]
++++
 
 **Pillar:** Measure<br>
 **Tool:** Cisco Agent Observability<br>
 **Timing:** 30 minutes<br>
 **Outcome:** Improved Outcomes
-{: .fs-5 .fw-300 }
 
 <!-- persona:start -->
 
-{: .persona }
-> **Who this is for.** **AI / ML Platform leaders** and **AI Governance / Risk**
-> teams. Primary question: _Is the AI actually any good — and can I measure
-> quality and safety objectively, version over version?_ This is where subjective
-> "it seems fine" becomes a defensible, repeatable score.
+{{% notice style="info" title="Who this is for" icon="users" %}}
+**AI / ML Platform leaders** and **AI Governance / Risk** teams. Primary question: _Is the AI actually any good — and can I measure quality and safety objectively, version over version?_ This is where subjective "it seems fine" becomes a defensible, repeatable score.
+{{% /notice %}}
 
 <!-- persona:end -->
 
-1. TOC
-{:toc}
-
----
-
-## Objective
-
-{: .objective }
-> Before you guard or operate anything, define and measure "good." You will run a **baseline-vs-poisoned** evaluation, see it scored by **Luna**, read token/cost, and the **signals** that surface the unknown unknowns.
+{{% notice style="info" title="Objective" icon="target" %}}
+Before you guard or operate anything, define and measure "good." You will run a **baseline-vs-poisoned** evaluation, see it scored by **Luna**, read token/cost, and the **signals** that surface the unknown unknowns.
+{{% /notice %}}
 
 ## Background
 
@@ -47,10 +37,11 @@ Go to **https://medadvice.yeackbot.com/app**. When prompted, enter the access co
 
 Go to **https://console.multitenant.galileocloud.io/splunkse** and enter the username / password provided by the facilitator.
 
-{: .objective }
-> Because we are using an open weight model, ensure that you select **gpt-4o-mini** from the **Static Emission** dropdown so that tokenomics calculates correctly!
+{{% notice warning "Important" %}}
+Because we are using an open weight model, ensure that you select **gpt-4o-mini** from the **Static Emission** dropdown so that tokenomics calculates correctly!
+{{% /notice %}}
 
-![alt text](image-21.png)
+![alt text](/images/image-21.png)
 
 ### 2. Explore the Baseline vs the Poisoned Model
 
@@ -58,7 +49,7 @@ DemoBot is pre-loaded with two models - one a baseline version, and one that has
 
 Explore sending sample prompts to both the baseline and the poisoned model (via the model picker), and observe the difference in responses. We will then review how these differential responses can be automatically identified by Cisco Agent Observability.
 
-![alt text](image.png)
+![alt text](/images/image.png)
 
 ### 3. Access Cisco Agent Observability
 
@@ -80,7 +71,7 @@ Datasets — Curated "golden" reference sets used to grade the AI consistently. 
 
 Prompts — A versioned, centralized library of the instructions that drive the AI, enabling governance and change-control over the core logic, reusable directly in code.
 
-![alt text](image-1.png)
+![alt text](/images/image-1.png)
 
 ### 5. Review Logs
 
@@ -92,7 +83,7 @@ Logs — The running ledger of real user interactions, capturing what went in an
 
 Automated scoring (such as Output Toxicity, Prescriptive Overreach, Completeness) — Every response is auto-graded against safety and quality measures, including custom risk checks tuned to this use case. This is the core value: thousands of interactions evaluated without human review, with weak responses surfaced automatically for attention. You can click on each metric to understand the cost. Notice the significant cost difference between metrics computed using Luna (SLM) and frontier lab models.
 
-![alt text](image-2.png)
+![alt text](/images/image-2.png)
 
 ### 6. Review Signals
 
@@ -108,7 +99,7 @@ Medical Hallucinations & Violations — Catches invented medical claims and unau
 
 Unexpected Harassment — Detects abusive or harassing language from the AI. A direct guard on brand safety and user trust.
 
-![alt text](image-3.png)
+![alt text](/images/image-3.png)
 
 ### 7. Review Log Details
 
@@ -122,7 +113,7 @@ Input / Output panel — Shows the exact user request and the verbatim response 
 
 Metrics — One trace, examined from every angle: how it scored, how it was configured, human notes, and flagged risks. The value is a complete case file for any interaction worth investigating.
 
-![alt text](image-4.png)
+![alt text](/images/image-4.png)
 
 Feel free to explore the other tabs, such as **Latency** and **Trace Graph**.
 
@@ -134,7 +125,7 @@ The Trends view is the over-time picture of AI quality and risk — it tracks wh
 
 Metrics charts — Plots the application's domain-specific risks day by day, so emerging problems show up as a rising line before they become incidents. This is early warning for the failure modes that matter most to this business.
 
-![alt text](image-10.png)
+![alt text](/images/image-10.png)
 
 Scroll down to **System Metrics**.
 
@@ -148,8 +139,8 @@ Traces Count — Tracks total volume of activity. This sizes the workload and gi
 
 Agent Cost — Translates that consumption into dollars. This is the line item leadership actually cares about: what is this AI costing us, tracked over time so spend never becomes a surprise.
 
-![alt text](image-11.png)
-![alt text](image-12.png)
+![alt text](/images/image-11.png)
+![alt text](/images/image-12.png)
 
 ### 9. Review Experiments
 
@@ -167,17 +158,17 @@ Dataset (with versions) — Records exactly which reference test set each run wa
 
 Scoring columns (Prompt Injection, Output Toxicity, Prescriptive Overreach, Completeness, etc.) — Grades each version across the safety and quality dimensions that matter most for this use case, including resistance to attacks and overstepping into unauthorized advice. The value is a multi-dimensional safety scorecard, not a single pass/fail.
 
-![alt text](image-5.png)
+![alt text](/images/image-5.png)
 
 ### 10. Compare Two Experiments
 
 Click on the checkbox next to the two experiments, then click **Compare Experiments**.
 
-![alt text](image-6.png)
+![alt text](/images/image-6.png)
 
 You can review two or more experiments side by side.
 
-![alt text](image-7.png)
+![alt text](/images/image-7.png)
 
 ### 11. Review Metrics
 
@@ -189,7 +180,7 @@ Metric level (Trace, Session, LLM, Retriever) — Defines where each metric appl
 
 Tags & Modality — Organize the library by purpose (agents, RAG, safety) and data type. As the catalog grows, this is what keeps it navigable and governable rather than a sprawl.
 
-![alt text](image-8.png)
+![alt text](/images/image-8.png)
 
 ### 12. Review Prescriptive Overreach Metric
 
@@ -205,7 +196,7 @@ Prompt (the scoring rubric) — The heart of it: explicit instructions and grade
 
 Configure Output (type & roll-up) — Sets how individual scores combine into a single number that rolls up across the whole experiment. This is what makes one response's grade aggregate into a board-level quality figure.
 
-![alt text](image-13.png)
+![alt text](/images/image-13.png)
 
 ## Outcome
 
@@ -230,11 +221,8 @@ Now that we have identified the critical metric Prescriptive Overreach, let's op
 
 <!-- exec-outcome:start -->
 
-{: .outcome }
-> **Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Poisoned behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
+{{% notice style="info" title="Executive outcome" icon="star" %}}
+**Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Poisoned behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
+{{% /notice %}}
 
 <!-- exec-outcome:end -->
-
----
-
-[← AI Governance Overview Dashboard](section-0-overview.html){: .btn } [Next: Lab 2 — Secure →](lab-2-secure.html){: .btn .btn-primary }

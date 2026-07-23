@@ -1,13 +1,10 @@
----
-layout: default
-title: Setup
-nav_order: 2
----
-
-1. TOC
-{:toc}
-
----
++++
+title       = "Setup & Prerequisites"
+description = "Access DemoBot, Cisco Agent Observability, Cisco AI Defense, Splunk Observability Cloud, and Splunk Cloud."
+duration    = "10 min"
+weight      = 10
+aliases     = ["/setup.html"]
++++
 
 ### 1. How to Access DemoBot
 

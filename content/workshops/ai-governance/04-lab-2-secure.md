@@ -1,41 +1,31 @@
----
-layout: default
-title: Lab 2 — Secure
-nav_order: 5
----
-
-# Lab 2 — SECURE (Cisco AI Defense)
-{: .no_toc }
++++
+title       = "Lab 2 — Secure"
+description = "Cisco AI Defense: turn the Lab 1 finding into a runtime guardrail and block non-compliant output live."
+duration    = "45 min"
+weight      = 40
+aliases     = ["/lab-2-secure.html"]
++++
 
 **Pillar:** Secure<br>
 **Tool:** Cisco AI Defense<br>
 **Timing:** 45 minutes<br>
 **Outcome:** Trusted AI
-{: .fs-5 .fw-300 }
 
 <!-- persona:start -->
 
-{: .persona }
-> **Who this is for.** The **CISO** and **AI Security / AppSec** teams. Primary
-> question: _Is our AI safe to put in front of customers, and can I prove
-> threats are stopped in real time?_ AI / ML Platform leaders join as the owners
-> who author and tune the guardrails alongside security.
+{{% notice style="info" title="Who this is for" icon="users" %}}
+The **CISO** and **AI Security / AppSec** teams. Primary question: _Is our AI safe to put in front of customers, and can I prove threats are stopped in real time?_ AI / ML Platform leaders join as the owners who author and tune the guardrails alongside security.
+{{% /notice %}}
 
 <!-- persona:end -->
 
-1. TOC
-{:toc}
-
----
-
-## Objective
-
-{: .objective }
-> Turn the Lab 1 finding into enforcement: a medical-advice response is **non-compliant**; you update the governing policy and re-run to ensure a **governed** response.
+{{% notice style="info" title="Objective" icon="target" %}}
+Turn the Lab 1 finding into enforcement: a medical-advice response is **non-compliant**; you update the governing policy and re-run to ensure a **governed** response.
+{{% /notice %}}
 
 ## Background
 
-Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the response (post-LLM) against **multiple guardrails** and blocks non-compliant content. The **Prescriptive Overreach** finding measured in [Lab 1](lab-1-measure.html) is authored here as a **custom response-direction guardrail**.
+Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the response (post-LLM) against **multiple guardrails** and blocks non-compliant content. The **Prescriptive Overreach** finding measured in [Lab 1](../03-lab-1-measure/) is authored here as a **custom response-direction guardrail**.
 
 ## Step by step
 
@@ -53,7 +43,7 @@ Cisco AI Defense Policy Review — Routes every prompt through AI Defense before
 
 Behavior injection toggles (Synthetic PII/PHI, Toxic Content, Hallucinated Content, Prescriptive Overreach) — The "poison" switches: deliberately force the AI to leak data, turn toxic, fabricate facts, or overstep its scope.
 
-![alt text](image-20.png)
+![alt text](/images/image-20.png)
 
 Feel free to explore how the various toggles generate non-compliant behavior, and how that behavior is blocked when Cisco AI Defense is toggled on.
 
@@ -71,13 +61,13 @@ Applications & Protection status — Inventories the AI applications in use and 
 
 AI Assets — A complete map of the AI attack surface: the agents, models, data, and third-party apps employees touch. This is asset discovery for AI — the foundation of any security program, surfacing shadow AI before it becomes a breach.
 
-![alt text](image-9.png)
+![alt text](/images/image-9.png)
 
 ### 5. Review Associated Policies
 
 Click on Secure -> Runtime Policies.
 
-![alt text](image-18.png)
+![alt text](/images/image-18.png)
 
 Click on **Yeack Protect**.
 
@@ -91,109 +81,109 @@ Action & Status (Block / Enabled) — Shows whether each guardrail is on and set
 
 Filter strength (Medium) — A tunable dial on how aggressively each rule fires. The value is balance — protection calibrated to the business's risk tolerance, tightenable where the stakes are higher.
 
-![alt text](image-19.png)
+![alt text](/images/image-19.png)
 
 ### 6. Create Custom Prescriptive Overreach Guardrail
 
 Navigate to **Policy Studio**.
 
-![alt text](image-59.png)
+![alt text](/images/image-59.png)
 
 Click on **New policy profile**.
 
-![alt text](image-60.png)
+![alt text](/images/image-60.png)
 
 Complete the form as follows, then click **Launch Policy Studio**.
 
-![alt text](image-61.png)
+![alt text](/images/image-61.png)
 
 Enter the following into the text box **Describe your policy profile requirements**, or experiment with your own prompt!
 
 "Block any response that acts as a prescriber. The chatbot may only recommend OTC products, lifestyle or self-care measures, or referral to a licensed professional. Block responses that recommend prescription-only or controlled medications, provide prescription-style dosing, frequency, route, or duration, or instruct users to start, stop, or change a prescription medication without clinician oversight."
 
-![alt text](image-62.png)
+![alt text](/images/image-62.png)
 
 It may take a moment for the guardrail to generate. Once it does, review all of the insights generated, and notice how the system is attempting to help the user determine how to navigate edge cases.
 
 Once you have reviewed all of the insights, scroll up to see the suggested next steps, and click on (or type) **Rewrite the policy to address the agreed insights**.
 
-![alt text](image-64.png)
+![alt text](/images/image-64.png)
 
 Toggle on **Generate new synthetic samples for evaluation** and click on **Run evaluation**.
 
-![alt text](image-65.png)
+![alt text](/images/image-65.png)
 
 Once evaluation is complete, review the findings. You can optionally continue iterating with the suggested next steps.
 
 Click on **Publish**.
 
-![alt text](image-66.png)
+![alt text](/images/image-66.png)
 
 Review the evaluation results, then click **Continue**.
 
-![alt text](image-67.png)
+![alt text](/images/image-67.png)
 
 Click on **Publish Policy**.
 
-![alt text](image-68.png)
+![alt text](/images/image-68.png)
 
 Click on **Go to adpative guardrail profiles**.
 
-![alt text](image-69.png)
+![alt text](/images/image-69.png)
 
 ### 7. Apply the Custom Guardrail
 
 Navigate to **Secure -> Runtime Policies**.
 
-![alt text](image-71.png)
+![alt text](/images/image-71.png)
 
 Click on **Yeack Protect**.
 
-![alt text](image-72.png)
+![alt text](/images/image-72.png)
 
 Click on **Edit policy**.
 
-![alt text](image-73.png)
+![alt text](/images/image-73.png)
 
 Click on **Adaptive guardrail profile**.
 
-![alt text](image-74.png)
+![alt text](/images/image-74.png)
 
 Toggle **Disabled** to **Enabled** and check the box next to the name of the guardrail you just created.
 
 Navigate to **Policy summary**.
 
-![alt text](image-75.png)
+![alt text](/images/image-75.png)
 
 Click on **Save changes**.
 
-![alt text](image-76.png)
+![alt text](/images/image-76.png)
 
 ### 8. Validate Applied Guardrail
 
 Navigate back to DemoBot. In the left sidepanel, toggle on **Prescriptive Overreach**.
 
-![alt text](image-77.png)
+![alt text](/images/image-77.png)
 
 Send any prompt, and notice how the agent response contains prescriptive overreach.
 
-![alt text](image-78.png)
+![alt text](/images/image-78.png)
 
 In the left sidepanel, toggle on **Cisco AI Defense Policy Review**. Click on **New Session**.
 
-![alt text](image-79.png)
+![alt text](/images/image-79.png)
 
 Send a similiar prompt. The non-compliant response is now blocked!
 
-![alt text](image-80.png)
+![alt text](/images/image-80.png)
 
 In the left sidepanel, toggle off **Prescriptive Overreach**. Click on **New Session**.
 
-![alt text](image-81.png)
+![alt text](/images/image-81.png)
 
 Send a similiar prompt. Compliant responses are not blocked.
 
-![alt text](image-82.png)
+![alt text](/images/image-82.png)
 
 ## Outcome
 
@@ -205,11 +195,8 @@ A risky medical response went from **non-compliant to governed**. The unsafe out
 
 <!-- exec-outcome:start -->
 
-{: .outcome }
-> **Executive outcome — Trusted AI.** Non-compliant output never reaches the user, and policy is authored and tuned in real time, then re-validated immediately against the live app — governance you can watch happen, not a quarter-long change request.
+{{% notice style="info" title="Executive outcome" icon="star" %}}
+**Executive outcome — Trusted AI.** Non-compliant output never reaches the user, and policy is authored and tuned in real time, then re-validated immediately against the live app — governance you can watch happen, not a quarter-long change request.
+{{% /notice %}}
 
 <!-- exec-outcome:end -->
-
----
-
-[← Lab 1](lab-1-measure.html){: .btn } [Next: Lab 3 — Observe →](lab-3-observe.html){: .btn .btn-primary }

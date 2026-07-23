@@ -1,35 +1,55 @@
 # Agentic AI Governance Workshop
 
 Customer-facing site for the **One Cisco — Agentic AI Governance Workshop**, published with
-GitHub Pages (just-the-docs theme) at:
+GitHub Pages at:
 
 **https://mayeack.github.io/AIGovernanceWorkshop/**
 
 A hands-on workshop for governing agentic AI across four correlated pillars — **Measure,
 Secure, Observe, Govern** — on a live multi-agent demo application.
 
+## Stack
+
+Hugo (0.161+ extended) with the
+[splunk/hugo-theme-splunk-workshop](https://github.com/splunk/hugo-theme-splunk-workshop)
+theme, vendored as a git submodule at `themes/hugo-theme-splunk-workshop`. The site is built
+and published by GitHub Actions (`.github/workflows/pages.yml`) on every push to `main`
+(repo Settings → Pages → Source must be "GitHub Actions").
+
+## Layout
+
+- `content/_index.md` — Home (hero + the workshop narrative). **Generated** by
+  `build_index.py`; do not hand-edit.
+- `content/workshops/ai-governance/` — the workshop pages: `01-setup.md`,
+  `02-overview.md`, `03-lab-1-measure.md` … `06-lab-4-govern.md`, `07-wrap-up.md`,
+  `08-reference.md`. Sidebar order comes from `weight` in each page's front matter.
+- `static/images/` — screenshots, referenced as `/images/image-NN.png`.
+- `hugo.toml` — site config and theme params (branding, colors, layout toggles).
+
 ## Editing
 
-This is a Jekyll site served from the `main` branch root. Edit the Markdown pages
-(`index.md`, `setup.md`, `lab-*.md`, `wrap-up.md`, `reference.md`); commit to `main` and
-GitHub Pages rebuilds automatically (~1 min).
-
-Local preview (optional):
-
 ```bash
-bundle install
-bundle exec jekyll serve
-# http://127.0.0.1:4000/AIGovernanceWorkshop/
+git clone --recurse-submodules git@github.com:mayeack/AIGovernanceWorkshop.git
+hugo server          # local preview at http://localhost:1313/AIGovernanceWorkshop/
 ```
+
+Commit to `main` and push — the Pages workflow rebuilds the site (~1–2 min).
 
 ## Conventions
 
 - **Customer-facing.** No internal sales positioning or facilitator-only delivery notes.
-- **`index.md` (Home)** mirrors the canonical workshop narrative verbatim, plus
-  workshop-specific UI (jump-to-labs buttons).
+- **Home mirrors the canonical workshop narrative verbatim.** When the narrative changes,
+  run `python3 build_index.py` (reads `../collateral/1 - narrative.md`); it regenerates
+  `content/_index.md` and re-syncs the five Executive-outcome callouts onto the
+  overview/lab pages (between the `<!-- exec-outcome:start/end -->` markers).
+- **Callout standards** (theme `notice` shortcode):
+  - Executive outcomes: `{{% notice style="info" title="Executive outcome" icon="star" %}}` — applied
+    automatically by `build_index.py`; never hand-edit between the exec-outcome markers.
+  - Lab objectives: `{{% notice style="info" title="Objective" icon="target" %}}` at the top of each
+    lab/overview page.
+  - Personas: `{{% notice style="info" title="Who this is for" icon="users" %}}` between the
+    `<!-- persona:start/end -->` markers.
+  - Operational asides: `{{% notice note %}}`; cautions: `{{% notice warning %}}`.
 - The lab commands reference the demo application repo
   ([DemoBot](https://github.com/mayeack/DemoBot)) — `scripts/demo/seed_governance_scenarios.py`,
   `scripts/demo/galileo_eval_prescription.py`, and the `/api/incident/*` endpoints.
-- **Outcomes** use the standard **`outcome` callout** — a blue, thick-bordered box (color in
-  `_config.yml`, border weight in `_sass/custom/custom.scss`). On Home it is applied
-  automatically by `build_index.py`; elsewhere precede the outcome with `{: .outcome }`.

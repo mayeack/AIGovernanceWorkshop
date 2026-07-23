@@ -1,46 +1,33 @@
----
-layout: default
-title: Lab 3 — Observe
-nav_order: 6
----
-
-# Lab 3 — OBSERVE (Splunk Observability Cloud)
-{: .no_toc }
++++
+title       = "Lab 3 — Observe"
+description = "Splunk Observability Cloud: trace a latency incident end to end and let the Troubleshooting Agent isolate the bottleneck."
+duration    = "20 min"
+weight      = 50
+aliases     = ["/lab-3-observe.html"]
++++
 
 **Pillar:** Observe<br>
 **Tool:** Splunk Observability Cloud<br>
 **Timing:** 20 minutes<br>
 **Outcome:** Operational Excellence
-{: .fs-5 .fw-300 }
 
 <!-- persona:start -->
 
-{: .persona }
-> **Who this is for.** **SRE / Observability** and **FinOps** teams, with
-> **AI / ML Platform leaders**. Primary question: _Is the AI healthy, fast, and
-> affordable in production — and when something breaks, can I trace it to the
-> exact agent or request?_ This treats AI as a mission-critical service, monitored
-> like any other.
+{{% notice style="info" title="Who this is for" icon="users" %}}
+**SRE / Observability** and **FinOps** teams, with **AI / ML Platform leaders**. Primary question: _Is the AI healthy, fast, and affordable in production — and when something breaks, can I trace it to the exact agent or request?_ This treats AI as a mission-critical service, monitored like any other.
+{{% /notice %}}
 
 <!-- persona:end -->
 
-1. TOC
-{:toc}
-
----
-
-## Objective
-
-{: .objective }
-> After applying the guardrail in Cisco AI Defense, the response is now compliant. However, latency has spiked beyond SLO. Use the Troubleshooting & Remediation Agent to trace the request end-to-end, isolate the bottleneck, and restore performance.
+{{% notice style="info" title="Objective" icon="target" %}}
+After applying the guardrail in Cisco AI Defense, the response is now compliant. However, latency has spiked beyond SLO. Use the Troubleshooting & Remediation Agent to trace the request end-to-end, isolate the bottleneck, and restore performance.
+{{% /notice %}}
 
 ## Background
 
 Splunk Observability Cloud instruments the AI application the way you'd instrument any production service — using **OpenTelemetry traces** that follow a request end-to-end, across every agent, model, and operation. Every governed turn carries the same identity used to score quality in Lab 1 and to record the AI Defense verdict in Lab 2. Operations, quality, and forensics are not three datasets — they are three views of one trace.
 
-The guardrail you applied in [Lab 2](lab-2-secure.html) made the response compliant — but latency has now breached SLO. Here you trace that exact request, isolate the slow span, and let the **Troubleshooting & Remediation Agent** pinpoint the bottleneck — instead of grepping logs. AI reliability, cost, and quality are governed on the same screen, as one operational discipline.
-
->>>TBD: Reference Derek Mitchell's lab for deep dive on setup and configuration
+The guardrail you applied in [Lab 2](../04-lab-2-secure/) made the response compliant — but latency has now breached SLO. Here you trace that exact request, isolate the slow span, and let the **Troubleshooting & Remediation Agent** pinpoint the bottleneck — instead of grepping logs. AI reliability, cost, and quality are governed on the same screen, as one operational discipline.
 
 ## Step by step
 
@@ -56,13 +43,13 @@ Active alerts — Shows how many issues are firing and how long they've gone unr
 
 Live feed — A real-time stream of what's breaking right now, including an AI Hallucination Detector alongside latency and error alerts. The standout point: AI-specific quality failures are monitored in the same operational pane as classic infrastructure problems — AI is treated as core business application, not a science project.
 
-![alt text](image-22.png)
+![alt text](/images/image-22.png)
 
 ### 3. Review AI Overview
 
 Navigate to APM -> AI Overview.
 
-![alt text](image-23.png)
+![alt text](/images/image-23.png)
 
 Select in "demobot-local" Environment.
 
@@ -74,17 +61,17 @@ Top KPIs (Requests, Errors, Tokens, Cost) — The live vital signs of the applic
 
 Performance by Requests and Errors — Plots request volume and failures over time, split by model. The value is seeing reliability per model — which one is carrying load and which is throwing errors, side by side.
 
-![alt text](image-24.png)
+![alt text](/images/image-24.png)
 
 Performance by Latencies (per model / provider / operation, p50–p99) — Measures response speed at the percentiles that matter, including the slow tail users actually feel. This is the experience metric — proof the AI is responsive, and a precise pointer to which model or step is the bottleneck.
 
 Token Usage and Cost (by model / provider) — Ties consumption directly to dollars, model by model. The value is cost-performance comparison in one view — the evidence to route traffic to the model that delivers the best work per dollar.
 
-![alt text](image-25.png)
+![alt text](/images/image-25.png)
 
 Quality and Risk (Quality issues, Risks) — The standout: alongside speed and cost, this grades responses for toxicity, bias, hallucination, and relevance, and watches for security risks. AI-specific failure modes are monitored with the same rigor as latency — quality is an operational metric, not an afterthought.
 
-![alt text](image-26.png)
+![alt text](/images/image-26.png)
 
 ### 4. Review AI Agents
 
@@ -102,7 +89,7 @@ Per-agent table (Agent, Health, Requests, Errors, Latency, Tokens, Cost, Quality
 
 Health flags (Critical) & quality callouts (Irrelevant 100%, Negative Sentiment 100%) — Surfaces the specific failing agents and how they're failing. The value is precise triage — the platform points straight at the coordinator that's critical or the agent returning 100% irrelevant answers.
 
-![alt text](image-28.png)
+![alt text](/images/image-28.png)
 
 ### 5. Review AI Trace Data
 
@@ -120,7 +107,7 @@ Trace table (Trace ID, Span, Operation, Content, Date, Duration, Cost, Tokens, Q
 
 Per-trace cost & token breakdown (In/Out) — Attributes spend down to a single request, split by input and output. The value is cost accountability at the finest grain — you can see exactly what one conversation cost and why.
 
-![alt text](image-27.png)
+![alt text](/images/image-27.png)
 
 ### 6. Review Alerts
 
@@ -128,7 +115,7 @@ Navigate to Alerts -> Active Alerts.
 
 The Active alerts view is the incident command center for the AI application — it consolidates every firing alert into one prioritized queue, ranked by severity, so teams know instantly what's broken, how badly, and where to act first.
 
-![alt text](image-29.png)
+![alt text](/images/image-29.png)
 
 ### 7. Generate Latency Incident
 
@@ -136,7 +123,7 @@ Go to DemoBot, and open the left side-panel.
 
 Toggle **Trigger Demo Incident** on to trigger a series of alerts.
 
-![alt text](image-30.png)
+![alt text](/images/image-30.png)
 
 ### 8. Triage and Resolve an Alert
 
@@ -150,14 +137,14 @@ Alert summary & detail chart — Lays out exactly what triggered: the rule, the 
 
 Root cause (AI-generated, with confidence) — Delivers a plain-language verdict on the likely cause — and, crucially, states its confidence and admits when evidence is insufficient. The value is honest automation: it accelerates diagnosis without pretending to certainty it doesn't have, which is exactly what you want from AI in a high-stakes operational role.
 
-![alt text](image-34.png)
-![alt text](image-32.png)
+![alt text](/images/image-34.png)
+![alt text](/images/image-32.png)
 
 Impact summary — Quantifies the blast radius: which service and how many business transactions are affected, and confirms what's not impacted. This is the business-language translation of a technical alert — "what does this actually break for users?"
 
 Troubleshooting tools (Runbooks, Related content, Data links) — Connects the alert to the next actions: established procedures, related dashboards, and deeper traces. This is how an incident moves from understood to resolved, fast.
 
-![alt text](image-33.png)
+![alt text](/images/image-33.png)
 
 Because we triggered the alert, go ahead and click **Resolve alert**.
 
@@ -174,11 +161,8 @@ APM detectors breach during the ~90s incident; the trace view isolates the slow 
 
 <!-- exec-outcome:start -->
 
-{: .outcome }
-> **Executive outcome — Operational Excellence.** Reliable, cost-efficient AI — performance problems are found by tracing, not guessing.
+{{% notice style="info" title="Executive outcome" icon="star" %}}
+**Executive outcome — Operational Excellence.** Reliable, cost-efficient AI — performance problems are found by tracing, not guessing.
+{{% /notice %}}
 
 <!-- exec-outcome:end -->
-
----
-
-[← Lab 2](lab-2-secure.html){: .btn } [Next: Lab 4 — Govern →](lab-4-govern.html){: .btn .btn-primary }
