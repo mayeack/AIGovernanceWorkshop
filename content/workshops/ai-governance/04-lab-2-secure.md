@@ -29,11 +29,9 @@ Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the
 
 ## Step by step
 
-### 1. Access DemoBot and Cisco AI Defense
+### 1. Access DemoBot
 
 Go to **https://medadvice.yeackbot.com/app**. When prompted, enter the access code provided by the presenter.
-
-You should have received an email with instructions on how to access Cisco AI Defense at **https://security.cisco.com/dashboard?enterpriseId=d87a65f7-f4f1-47ad-bdab-593226c85f3d**.
 
 ### 2. Prompt Prescriptive Overreach
 
@@ -49,7 +47,7 @@ Feel free to explore how the various toggles generate non-compliant behavior, an
 
 ### 3. Access Cisco AI Defense
 
-Lorem ipsum
+You should have received an email with instructions on how to access Cisco AI Defense at **https://security.cisco.com/dashboard?enterpriseId=d87a65f7-f4f1-47ad-bdab-593226c85f3d**.
 
 ### 4. Review Dashboard
 
