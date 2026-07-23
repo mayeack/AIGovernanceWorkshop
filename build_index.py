@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Regenerate content/_index.md (Home) = hero front matter + the workshop narrative VERBATIM,
+also emit that same narrative as the workshop's first sidebar page (00-introduction.md),
 and sync each lab/overview page's full Executive outcome from that same narrative.
 
 The Home page must mirror the canonical narrative verbatim (see the update-workshop-site
@@ -113,6 +114,21 @@ body = re.sub(r"\n{3,}", "\n\n", "\n".join(out_lines)).strip("\n")
 OUT.write_text(FRONT + "\n" + body + "\n", encoding="utf-8")
 print(f"wrote {OUT} from {narrative_path} ({OUT.stat().st_size} bytes; "
       f"{n_outcomes} executive-outcome callouts)")
+
+# --- Also emit the same narrative as the workshop's FIRST sidebar page ----------------------
+# The introduction is both the site home (content/_index.md) and the first page inside the
+# workshop, so an attendee walking the left sidebar hits it before Setup (weight 5 < Setup's
+# 10). Same body, workshop-page front matter instead of the hero block.
+INTRO = WORKSHOP_DIR / "00-introduction.md"
+INTRO_FRONT = (
+    "+++\n"
+    'title       = "Introduction"\n'
+    f'description = "{esc(pillars)}"\n'
+    "weight      = 5\n"
+    "+++\n"
+)
+INTRO.write_text(INTRO_FRONT + "\n" + body + "\n", encoding="utf-8")
+print(f"wrote {INTRO} (workshop intro page — same narrative body)")
 
 # --- Sync each lab/overview page's full Executive outcome from the narrative ---------------
 # The narrative has exactly five "**Executive outcome …**" paragraphs, in this order:
