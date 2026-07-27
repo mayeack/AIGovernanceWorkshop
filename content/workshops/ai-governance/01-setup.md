@@ -20,7 +20,7 @@ You should have received an email with instructions on how to access Cisco AI De
 
 ### 4. How to Access Splunk Observability Cloud
 
-Lorem ipsum
+You should have received an email with instructions on how to access your assigned Splunk Observability instance.
 
 ### 5. How to Access Splunk
 
