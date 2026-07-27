@@ -1,6 +1,6 @@
 +++
 title       = "Setup & Prerequisites"
-description = "Access DemoBot, Cisco Agent Observability, Cisco AI Defense, Splunk Observability Cloud, and Splunk Cloud."
+description = "Access DemoBot, Splunk Agent Observability, Cisco AI Defense, Splunk Observability Cloud, and Splunk Cloud."
 duration    = "10 min"
 weight      = 10
 aliases     = ["/setup.html"]
@@ -10,7 +10,7 @@ aliases     = ["/setup.html"]
 
 Go to **https://medadvice.yeackbot.com/app** and enter the access code provided by the facilitator.
 
-### 2. How to Access Cisco Agent Observability
+### 2. How to Access Splunk Agent Observability
 
 Go to **https://console.multitenant.galileocloud.io/splunkse** and enter the username / password provided by the facilitator.
 

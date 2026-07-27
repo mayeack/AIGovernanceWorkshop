@@ -22,7 +22,7 @@ Proven on a single live turn, four pillars deep:
 
 | Pillar | What it does | Value |
 |---|---|---|
-| **Measure** (Cisco Agent Observability) | Scores clean vs. poisoned behavior, cost, and quality — continuously, affordably | Quality and risk become **SLA-governed metrics, not a vibe**; failures caught *before* they ship |
+| **Measure** (Splunk Agent Observability) | Scores clean vs. poisoned behavior, cost, and quality — continuously, affordably | Quality and risk become **SLA-governed metrics, not a vibe**; failures caught *before* they ship |
 | **Secure** (Cisco AI Defense) | Authors the guardrail from that finding, live | Non-compliant output **blocked at runtime** — policy tuned in real time, not a quarter-long change request |
 | **Observe** (Splunk Observability Cloud) | Traces the same turn end to end | Bottlenecks **found by tracing, not guessing** — reliable, cost-efficient AI |
 | **Govern** (Splunk Core / ES) | Immutable audit trail, injection surfaced, escalated | The audit is a **query, not a scramble** — defensible evidence on every turn |

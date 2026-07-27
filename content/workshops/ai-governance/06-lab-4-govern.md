@@ -124,7 +124,7 @@ Finding narrative — A plain-language case summary: which actor, how many injec
 ## Outcome
 
 - The logs are **immutable** and complete. Every turn carries full governance metadata — auditability you can defend.
-- One search, one identifier, the whole story: what was asked, what the model said, what Cisco Agent Observability scored, what AI Defense ruled, what the detection pipelines flagged.
+- One search, one identifier, the whole story: what was asked, what the model said, what Splunk Agent Observability scored, what AI Defense ruled, what the detection pipelines flagged.
 - The injection attempt didn't just get blocked — it left **evidence**, and that evidence became **accountable casework**: a named actor, an owner, and a documented disposition. That correlated record is exactly what Enterprise Security would promote to a notable in production.
 
 The prompt injection turn is visible and flagged in the search results; the Prompt Injection dashboard shows the detection. The correlation search identifies the event, and then escalates a notable event as the evidence in Enterprise Security.

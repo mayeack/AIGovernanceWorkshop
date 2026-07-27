@@ -155,7 +155,7 @@ A latency spike was traced to its exact cause — and resolved — without readi
 - **One platform, one turn** The slow turn in APM is the *same* turn as the audit log and the quality score — operations, quality, and
   forensics share one identity.
 - **The agent traces; you don't grep.** A Troubleshooting & Remediation Agent follows the request end-to-end and points at the bottleneck automatically.
-- **Cost and latency, on the governed turn.** Observe shows token spend and latency on the very turns Cisco Agent Observability already scored for quality — not in a separate dashboard.
+- **Cost and latency, on the governed turn.** Observe shows token spend and latency on the very turns Splunk Agent Observability already scored for quality — not in a separate dashboard.
 
 APM detectors breach during the ~90s incident; the trace view isolates the slow span; latency returns to ~8s baseline after the fault expires.
 

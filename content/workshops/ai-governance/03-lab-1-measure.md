@@ -1,13 +1,13 @@
 +++
 title       = "Lab 1 — Measure"
-description = "Cisco Agent Observability: run a baseline-vs-poisoned evaluation, score it with Luna, and surface the unknown unknowns."
+description = "Splunk Agent Observability: run a baseline-vs-poisoned evaluation, score it with Luna, and surface the unknown unknowns."
 duration    = "30 min"
 weight      = 30
 aliases     = ["/lab-1-measure.html"]
 +++
 
 **Pillar:** Measure<br>
-**Tool:** Cisco Agent Observability<br>
+**Tool:** Splunk Agent Observability<br>
 **Timing:** 30 minutes<br>
 **Outcome:** Improved Outcomes
 
@@ -25,7 +25,7 @@ Before you guard or operate anything, define and measure "good." You will run a 
 
 ## Background
 
-Cisco Agent Observability evaluates the **whole agent trace** and scores each turn against research-backed metrics (hallucination, context adherence, PII/PHI leakage, tool-selection quality) plus custom metrics you define, such as Prescriptive Overreach. Metrics are run by **Luna** — Cisco's small, purpose-built evaluator models — so continuous LLM-as-judge scoring is affordable rather than a frontier-model bill.
+Splunk Agent Observability evaluates the **whole agent trace** and scores each turn against research-backed metrics (hallucination, context adherence, PII/PHI leakage, tool-selection quality) plus custom metrics you define, such as Prescriptive Overreach. Metrics are run by **Luna** — Cisco's small, purpose-built evaluator models — so continuous LLM-as-judge scoring is affordable rather than a frontier-model bill.
 
 Model evaluation, metric construction, and signal understanding is critical both to build trust in AI systems before deployment, and to monitor model drift over time.
 
@@ -45,11 +45,11 @@ Because we are using an open weight model, ensure that you select **gpt-4o-mini*
 
 DemoBot is pre-loaded with two models - one a baseline version, and one that has been intentionally poisoned to produce non-compliant responses, such as toxic content.
 
-Explore sending sample prompts to both the baseline and the poisoned model (via the model picker), and observe the difference in responses. We will then review how these differential responses can be automatically identified by Cisco Agent Observability.
+Explore sending sample prompts to both the baseline and the poisoned model (via the model picker), and observe the difference in responses. We will then review how these differential responses can be automatically identified by Splunk Agent Observability.
 
 ![alt text](/images/image.png)
 
-### 3. Access Cisco Agent Observability
+### 3. Access Splunk Agent Observability
 
 Go to **https://console.multitenant.galileocloud.io/splunkse** and enter the username / password provided by the facilitator.
 
@@ -198,7 +198,7 @@ Configure Output (type & roll-up) — Sets how individual scores combine into a 
 
 ## Outcome
 
-**Cisco Agent Observability** turns AI development from a black box into a measurable, governed discipline. Using DemoBot — preloaded with a clean "baseline" model and an intentionally "poisoned" one — participants see firsthand how non-compliant AI behavior is automatically detected, scored, and contained.
+**Splunk Agent Observability** turns AI development from a black box into a measurable, governed discipline. Using DemoBot — preloaded with a clean "baseline" model and an intentionally "poisoned" one — participants see firsthand how non-compliant AI behavior is automatically detected, scored, and contained.
 
 The journey walks through six governance capabilities:
 
