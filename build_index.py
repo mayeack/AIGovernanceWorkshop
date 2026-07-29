@@ -1,27 +1,38 @@
 #!/usr/bin/env python3
-"""Regenerate content/_index.md (Home) = hero front matter + the workshop narrative VERBATIM,
-also emit that same narrative as the workshop's first sidebar page (00-introduction.md),
-and sync each lab/overview page's full Executive outcome from that same narrative.
+"""Propagate the workshop Introduction page outward: Home, the collateral narrative, and each
+lab/overview page's Executive outcome.
 
-The Home page must mirror the canonical narrative verbatim (see the update-workshop-site
-skill). With the Hugo splunk-workshop theme, the narrative's title block (title, tagline,
-pillars line) moves into the hero front matter and the old jump buttons become hero CTAs —
-that is the only "workshop UI" transformation. Everything after the title block is emitted
-verbatim, except that each `**Executive outcome …**` paragraph is wrapped in a
-`{{% notice info "Executive outcome" %}}` callout (text unchanged, markup only) and image
-paths are rewritten to /images/ (screenshots live in static/images/).
+DIRECTION OF TRUTH (reversed 2026-07-29): the hand-authored source is the workshop's
+Introduction page,
 
-The same run syncs the five Executive-outcome paragraphs onto the overview/lab pages
-(between `<!-- exec-outcome:start -->` / `<!-- exec-outcome:end -->` markers), so they never
-drift from Home. Run this whenever the narrative changes instead of hand-editing:
+    content/workshops/<slug>/00-introduction.md
+
+and everything else is generated from it:
+
+  1. content/_index.md (Home)          — Home's `+++` front matter (hero, CTAs) is site UI and is
+                                         PRESERVED verbatim; only the body is replaced with the
+                                         Introduction body, so Home mirrors it exactly.
+  2. ../collateral/1 - narrative.md    — the narrative export for decks/collateral. Home's front
+                                         matter supplies the title block (`# `, `### `, pillars);
+                                         the Executive-outcome notice callouts are unwrapped back
+                                         to bare paragraphs and `/images/image-NN.png` paths go
+                                         back to relative.
+  3. the five lab/overview pages       — each page's full Executive outcome is written between
+                                         `<!-- exec-outcome:start -->` / `<!-- exec-outcome:end -->`
+                                         markers, so it never drifts from the Introduction.
+
+Edit 00-introduction.md, then run:
 
     python3 build_index.py
 
-By default it reads the narrative from the sibling collateral folder (this repo cloned
-inside the OneDrive "o11y AI Workshop '27" project). Override with an argument or the
-NARRATIVE_MD env var:
+Do NOT hand-edit content/_index.md's body, 1 - narrative.md, or the text between the
+exec-outcome markers — those are outputs and the next run overwrites them. Home's front matter
+IS hand-maintained (it is the only place the hero title, eyebrow, pillars line, and CTAs live).
 
-    python3 build_index.py "/path/to/1 - narrative.md"
+Override the narrative output path with an argument or NARRATIVE_MD; select the vertical with
+WORKSHOP_SLUG (each verticalized workshop is its own section under content/workshops/):
+
+    WORKSHOP_SLUG=ai-governance-finserv python3 build_index.py "/path/to/1 - narrative.md"
 """
 import os
 import re
@@ -34,113 +45,112 @@ DEFAULT_NARRATIVE = HERE.parent / "collateral" / "1 - narrative.md"
 narrative_path = Path(
     sys.argv[1] if len(sys.argv) > 1 else os.environ.get("NARRATIVE_MD", DEFAULT_NARRATIVE)
 )
-OUT = HERE / "content" / "_index.md"
 # Slug of the vertical being built. Each verticalized workshop is its own section under
 # content/workshops/ (ai-governance-healthcare, ai-governance-finserv, …) so the URLs stay
 # distinct; override with WORKSHOP_SLUG when generating a different vertical.
 WORKSHOP_SLUG = os.environ.get("WORKSHOP_SLUG", "ai-governance-healthcare")
-LEGACY_SLUG = "ai-governance"  # pre-vertical URLs, kept alive via aliases
 WORKSHOP_DIR = HERE / "content" / "workshops" / WORKSHOP_SLUG
-
-if not narrative_path.exists():
-    sys.exit(f"narrative not found: {narrative_path}\n"
-             f"Pass the path as an argument or set NARRATIVE_MD.")
-
-text = narrative_path.read_text(encoding="utf-8")
-lines = text.split("\n")
-
-# --- Split the title block (everything before the first hr) from the body ------------------
-try:
-    hr = next(i for i, ln in enumerate(lines) if ln.strip() == "---" and i > 0)
-except StopIteration:
-    sys.exit("narrative has no '---' after the title block — layout changed?")
-
-title_block = [ln for ln in lines[:hr]]
-body_lines = lines[hr + 1:]
-
-h1 = tagline = pillars = ""
-extra_title_lines = []  # e.g. the italic "A field workshop…" descriptor — kept in the body
-for ln in title_block:
-    s = ln.strip()
-    if not s:
-        continue
-    if s.startswith("# ") and not h1:
-        h1 = s[2:].strip()
-    elif s.startswith("### ") and not tagline:
-        tagline = s[4:].strip()
-    elif s.startswith("**") and s.endswith("**") and not pillars:
-        pillars = s.strip("*").strip()
-    else:
-        extra_title_lines.append(ln)
-
-if not h1:
-    sys.exit("narrative title block has no '# ' heading — layout changed?")
-
-
-def esc(s: str) -> str:
-    return s.replace("\\", "\\\\").replace('"', '\\"')
-
-
-# The hero renders the H1 with a gradient accent on emphasized text.
-hero_title = h1.replace("End to End", "*End to End*") if "End to End" in h1 else h1
-
-FRONT = f'''+++
-title         = "{esc(h1)}"
-hero_title    = "{esc(hero_title)}"
-eyebrow       = "{esc(tagline)}"
-description   = "{esc(pillars)}"
-home_sections = ["workshops"]
-
-[[cta]]
-label = "Start: Setup & Prerequisites"
-href  = "/workshops/{WORKSHOP_SLUG}/01-setup/"
-style = "primary"
-
-[[cta]]
-label = "Jump to the labs"
-href  = "/workshops/{WORKSHOP_SLUG}/02-overview/"
-style = "ghost"
-+++
-'''
-
-# --- Body: verbatim narrative + outcome callouts + image path rewrite ----------------------
-out_lines = []
-n_outcomes = 0
-for ln in extra_title_lines + [""] + body_lines:
-    if ln.startswith("**Executive outcome"):
-        out_lines.append('{{% notice style="info" title="Executive outcome" icon="star" %}}')
-        out_lines.append(ln)
-        out_lines.append("{{% /notice %}}")
-        n_outcomes += 1
-    else:
-        out_lines.append(ln.replace("](image", "](/images/image"))
-
-body = re.sub(r"\n{3,}", "\n\n", "\n".join(out_lines)).strip("\n")
-OUT.write_text(FRONT + "\n" + body + "\n", encoding="utf-8")
-print(f"wrote {OUT} from {narrative_path} ({OUT.stat().st_size} bytes; "
-      f"{n_outcomes} executive-outcome callouts)")
-
-# --- Also emit the same narrative as the workshop's FIRST sidebar page ----------------------
-# The introduction is both the site home (content/_index.md) and the first page inside the
-# workshop, so an attendee walking the left sidebar hits it before Setup (weight 5 < Setup's
-# 10). Same body, workshop-page front matter instead of the hero block.
 INTRO = WORKSHOP_DIR / "00-introduction.md"
-INTRO_FRONT = (
-    "+++\n"
-    'title       = "Introduction"\n'
-    f'description = "{esc(pillars)}"\n'
-    "weight      = 5\n"
-    f'aliases     = ["/workshops/{LEGACY_SLUG}/00-introduction/"]\n'
-    "+++\n"
-)
-INTRO.write_text(INTRO_FRONT + "\n" + body + "\n", encoding="utf-8")
-print(f"wrote {INTRO} (workshop intro page — same narrative body)")
+HOME = HERE / "content" / "_index.md"
 
-# --- Sync each lab/overview page's full Executive outcome from the narrative ---------------
-# The narrative has exactly five "**Executive outcome …**" paragraphs, in this order:
-# Overview, Part 1, Part 2, Part 3, Part 4 — mapped positionally to the pages below. Each
-# page carries its outcome as a notice callout between sentinel markers, so the text stays
-# verbatim-identical to Home.
+OUTCOME_MARK = 'title="Executive outcome"'
+NOTICE_CLOSE = "{{% /notice %}}"
+MARK_START = "<!-- exec-outcome:start -->"
+MARK_END = "<!-- exec-outcome:end -->"
+
+for required in (INTRO, HOME):
+    if not required.exists():
+        sys.exit(f"not found: {required}")
+
+
+def split_front_matter(path: Path) -> tuple[str, str]:
+    """Return (front_matter_including_delimiters, body) for a `+++`-fenced page."""
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("+++"):
+        sys.exit(f"{path} does not start with a '+++' front-matter block")
+    end = text.find("\n+++", 3)
+    if end == -1:
+        sys.exit(f"{path} has an unterminated '+++' front-matter block")
+    close = end + len("\n+++")
+    return text[:close], text[close:].strip("\n")
+
+
+def fm_value(front: str, key: str) -> str:
+    """Pull a quoted scalar out of a TOML front-matter block."""
+    m = re.search(rf'^{re.escape(key)}\s*=\s*"((?:[^"\\]|\\.)*)"', front, re.M)
+    if not m:
+        sys.exit(f"content/_index.md front matter has no '{key}' — layout changed?")
+    return m.group(1).replace('\\"', '"').replace("\\\\", "\\")
+
+
+intro_front, body = split_front_matter(INTRO)
+home_front, _ = split_front_matter(HOME)
+
+# --- 1. Home: preserved front matter (hero + CTAs) + the Introduction body verbatim ---------
+HOME.write_text(home_front + "\n\n" + body + "\n", encoding="utf-8")
+print(f"wrote {HOME} (hero front matter preserved; body mirrors {INTRO.name})")
+
+# --- 2. Narrative export: title block from Home's front matter + de-Hugo-ified body ---------
+# The narrative's title block is the hero, flattened back into Markdown; everything from the
+# first '## ' heading on is the body. Any preamble before that first heading (the italic
+# descriptor) belongs above the '---' in the narrative, which is where it came from.
+body_lines = body.split("\n")
+try:
+    first_h2 = next(i for i, ln in enumerate(body_lines) if ln.startswith("## "))
+except StopIteration:
+    sys.exit(f"{INTRO} has no '## ' heading — layout changed?")
+
+preamble = [ln for ln in body_lines[:first_h2] if ln.strip()]
+rest = body_lines[first_h2:]
+
+# Unwrap the Executive-outcome callouts back to the bare paragraphs the narrative carries.
+unwrapped = []
+in_outcome = False
+for ln in rest:
+    if ln.startswith("{{% notice") and OUTCOME_MARK in ln:
+        in_outcome = True
+        continue
+    if in_outcome and ln.strip() == NOTICE_CLOSE:
+        in_outcome = False
+        continue
+    unwrapped.append(ln.replace("](/images/image", "](image"))
+if in_outcome:
+    sys.exit(f"{INTRO} has an unclosed Executive-outcome notice callout")
+
+narrative_lines = [
+    f"# {fm_value(home_front, 'title')}",
+    "",
+    f"### {fm_value(home_front, 'eyebrow')}",
+    "",
+    f"**{fm_value(home_front, 'description')}**",
+    "",
+    *(preamble + [""] if preamble else []),
+    "---",
+    "",
+    *unwrapped,
+]
+narrative = re.sub(r"\n{3,}", "\n\n", "\n".join(narrative_lines)).strip("\n") + "\n"
+
+if narrative_path.exists():
+    previous = narrative_path.read_text(encoding="utf-8")
+    if previous == narrative:
+        print(f"{narrative_path} already current — left untouched")
+    else:
+        # Single rolling backup: the narrative is collateral the user also edits by hand, so
+        # never overwrite it without leaving the prior version recoverable.
+        backup = narrative_path.with_suffix(narrative_path.suffix + ".bak")
+        backup.write_text(previous, encoding="utf-8")
+        narrative_path.write_text(narrative, encoding="utf-8")
+        print(f"wrote {narrative_path} (previous version saved to {backup.name})")
+else:
+    narrative_path.write_text(narrative, encoding="utf-8")
+    print(f"wrote {narrative_path}")
+
+# --- 3. Sync each lab/overview page's full Executive outcome from the Introduction ----------
+# The Introduction has exactly five "**Executive outcome …**" paragraphs, in this order:
+# Overview, Part 1, Part 2, Part 3, Part 4 — mapped positionally to the pages below. Each page
+# carries its outcome as a notice callout between sentinel markers, so the text stays
+# verbatim-identical to the Introduction and Home.
 OUTCOME_PAGES = [
     "02-overview.md",        # Overview / single pane of glass
     "03-lab-1-measure.md",   # Part 1 — Measure
@@ -148,13 +158,11 @@ OUTCOME_PAGES = [
     "05-lab-3-observe.md",   # Part 3 — Observe
     "06-lab-4-govern.md",    # Part 4 — Govern
 ]
-MARK_START = "<!-- exec-outcome:start -->"
-MARK_END = "<!-- exec-outcome:end -->"
 
-outcomes = [ln for ln in lines if ln.startswith("**Executive outcome")]
+outcomes = [ln for ln in body_lines if ln.startswith("**Executive outcome")]
 if len(outcomes) != len(OUTCOME_PAGES):
-    sys.exit(f"expected {len(OUTCOME_PAGES)} '**Executive outcome' paragraphs in the "
-             f"narrative, found {len(outcomes)} — cannot sync lab pages safely.")
+    sys.exit(f"expected {len(OUTCOME_PAGES)} '**Executive outcome' paragraphs in "
+             f"{INTRO.name}, found {len(outcomes)} — cannot sync lab pages safely.")
 
 synced = 0
 for page_name, outcome in zip(OUTCOME_PAGES, outcomes):
@@ -172,10 +180,10 @@ for page_name, outcome in zip(OUTCOME_PAGES, outcomes):
     block = [MARK_START, "",
              '{{% notice style="info" title="Executive outcome" icon="star" %}}',
              outcome,
-             "{{% /notice %}}",
+             NOTICE_CLOSE,
              "", MARK_END]
     page_lines[s:e + 1] = block
     page.write_text("\n".join(page_lines), encoding="utf-8")
     synced += 1
 
-print(f"synced {synced}/{len(OUTCOME_PAGES)} lab/overview executive outcomes from {narrative_path}")
+print(f"synced {synced}/{len(OUTCOME_PAGES)} lab/overview executive outcomes from {INTRO.name}")

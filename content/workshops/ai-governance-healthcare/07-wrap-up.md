@@ -6,19 +6,11 @@ weight      = 70
 aliases     = ["/wrap-up.html", "/workshops/ai-governance/07-wrap-up/"]
 +++
 
-**Timing:** 5 min · Return to the AI Governance Overview Dashboard and close the loop.
+## Outcome
 
-## Close the loop
-
-Return to the **AI Governance Overview Dashboard**. Everything covered — the measurement, the block, the latency spike, the injection — is on **one screen**, on the **same turns**.
-
-## 5-Minute Executive Outcome
-
-**The gap.** Agentic AI is in production, deciding and talking to customers at machine speed. Every interaction can leak PII, absorb an injection, fabricate an answer, or drift from what it was certified with — and each is *simultaneously* a security, operations, quality, and compliance event. Today that's four tools, four truths, no thread. The audit becomes a fire drill.
+**The gap.** Agentic AI is in production, deciding and talking to customers at machine speed. Every interaction can leak PII, absorb an injection, fabricate an answer, or drift from what it was certified with — and each is *simultaneously* a security, operations, quality, and compliance event.
 
 **The value:** One Cisco captures every AI interaction **once** and correlates it — so security, operations, quality, and audit become **one investigation, not four.**
-
-Proven on a single live turn, four pillars deep:
 
 | Pillar | What it does | Value |
 |---|---|---|
@@ -37,6 +29,6 @@ Proven on a single live turn, four pillars deep:
 | **Operational Excellence** | Reliable, cost-efficient AI; trace, don't guess | APM trace-to-root-cause (Part 3) |
 | **Accountability & Evidence** | End-to-end auditability; defensible, correlated evidence | Immutable audit trail for every event (Part 4) |
 
-**The ask.** The question is no longer *whether* to govern agentic AI — it's *whether you can prove you are.* One Cisco makes that proof a single screen and a single thread. **Capture once. Correlate across all four. Investigate once, not four times.**
+**The ask.** The question is no longer *whether* to govern agentic AI — it's *whether you can prove you are.* One Cisco gives your governance board the visbility and control to move AI agents from prototype to production. **Capture once. Correlate across all four pillars.**
 
 Secure. Observable. Governed. Measurable. **One Cisco, end to end.**
