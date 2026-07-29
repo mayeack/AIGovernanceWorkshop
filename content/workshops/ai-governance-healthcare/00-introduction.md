@@ -21,6 +21,18 @@ That gap — between the speed of agentic AI and the speed of governing it — i
 
 ## The Scenario
 
+![alt text](/images/image-120.png)
+
+MedAdvice has demonstrated the value of agentic AI in healthcare: reducing the cost of routine patient interactions, accelerating access to guidance, and allowing skilled clinical staff to focus on higher-acuity cases where their expertise delivers the greatest impact.
+
+That creates a compelling opportunity to improve both operating efficiency and patient outcomes.
+
+![alt text](/images/image-121.png)
+
+But scaling that value introduces material governance risk. Hallucinations, PII exposure, and prescriptive overreach can quickly turn an efficiency gain into a clinical, regulatory, or reputational event.
+
+**The value of MedAdvice can scale. So can the risk. Governance is what makes the economics sustainable.**
+
 ---
 
 ## The One Cisco Thesis
