@@ -3,7 +3,7 @@ title       = "Lab 3 — Observe"
 description = "Splunk Observability Cloud: trace a latency incident end to end and let the Troubleshooting Agent isolate the bottleneck."
 duration    = "20 min"
 weight      = 50
-aliases     = ["/lab-3-observe.html"]
+aliases     = ["/lab-3-observe.html", "/workshops/ai-governance/05-lab-3-observe/"]
 +++
 
 **Pillar:** Observe<br>

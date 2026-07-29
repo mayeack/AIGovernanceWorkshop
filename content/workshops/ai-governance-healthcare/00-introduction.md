@@ -2,6 +2,7 @@
 title       = "Introduction"
 description = "Secure. Observable. Governed. Measurable. One Cisco, end to end."
 weight      = 5
+aliases     = ["/workshops/ai-governance/00-introduction/"]
 +++
 
 *A field workshop for the executives accountable for AI — and the engineers who run it. Observability is one of four governed pillars covered here, not the whole story.*

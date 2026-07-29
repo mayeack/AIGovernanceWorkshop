@@ -3,7 +3,7 @@ title       = "Wrap-Up & Outcomes"
 description = "Close the loop: four pillars, one governed dataset, five executive outcomes."
 duration    = "5 min"
 weight      = 70
-aliases     = ["/wrap-up.html"]
+aliases     = ["/wrap-up.html", "/workshops/ai-governance/07-wrap-up/"]
 +++
 
 **Timing:** 5 min · Return to the AI Governance Overview Dashboard and close the loop.

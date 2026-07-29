@@ -3,7 +3,7 @@ title       = "Lab 4 — Govern"
 description = "Splunk and Enterprise Security: immutable audit trail, prompt-injection detection, and accountable casework."
 duration    = "20 min"
 weight      = 60
-aliases     = ["/lab-4-govern.html"]
+aliases     = ["/lab-4-govern.html", "/workshops/ai-governance/06-lab-4-govern/"]
 +++
 
 **Pillar:** Govern<br>

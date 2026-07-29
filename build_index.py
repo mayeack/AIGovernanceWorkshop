@@ -35,7 +35,12 @@ narrative_path = Path(
     sys.argv[1] if len(sys.argv) > 1 else os.environ.get("NARRATIVE_MD", DEFAULT_NARRATIVE)
 )
 OUT = HERE / "content" / "_index.md"
-WORKSHOP_DIR = HERE / "content" / "workshops" / "ai-governance"
+# Slug of the vertical being built. Each verticalized workshop is its own section under
+# content/workshops/ (ai-governance-healthcare, ai-governance-finserv, …) so the URLs stay
+# distinct; override with WORKSHOP_SLUG when generating a different vertical.
+WORKSHOP_SLUG = os.environ.get("WORKSHOP_SLUG", "ai-governance-healthcare")
+LEGACY_SLUG = "ai-governance"  # pre-vertical URLs, kept alive via aliases
+WORKSHOP_DIR = HERE / "content" / "workshops" / WORKSHOP_SLUG
 
 if not narrative_path.exists():
     sys.exit(f"narrative not found: {narrative_path}\n"
@@ -88,12 +93,12 @@ home_sections = ["workshops"]
 
 [[cta]]
 label = "Start: Setup & Prerequisites"
-href  = "/workshops/ai-governance/01-setup/"
+href  = "/workshops/{WORKSHOP_SLUG}/01-setup/"
 style = "primary"
 
 [[cta]]
 label = "Jump to the labs"
-href  = "/workshops/ai-governance/02-overview/"
+href  = "/workshops/{WORKSHOP_SLUG}/02-overview/"
 style = "ghost"
 +++
 '''
@@ -125,6 +130,7 @@ INTRO_FRONT = (
     'title       = "Introduction"\n'
     f'description = "{esc(pillars)}"\n'
     "weight      = 5\n"
+    f'aliases     = ["/workshops/{LEGACY_SLUG}/00-introduction/"]\n'
     "+++\n"
 )
 INTRO.write_text(INTRO_FRONT + "\n" + body + "\n", encoding="utf-8")
