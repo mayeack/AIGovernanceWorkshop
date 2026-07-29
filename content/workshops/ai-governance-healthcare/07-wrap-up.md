@@ -1,6 +1,6 @@
 +++
 title       = "Wrap-Up & Outcomes"
-description = "Close the loop: four pillars, one governed dataset, five executive outcomes."
+description = "Four pillars, one governed dataset, five executive outcomes."
 duration    = "5 min"
 weight      = 70
 aliases     = ["/wrap-up.html", "/workshops/ai-governance/07-wrap-up/"]
@@ -31,4 +31,4 @@ aliases     = ["/wrap-up.html", "/workshops/ai-governance/07-wrap-up/"]
 
 **The ask.** The question is no longer *whether* to govern agentic AI — it's *whether you can prove you are.* One Cisco gives your governance board the visbility and control to move AI agents from prototype to production. **Capture once. Correlate across all four pillars.**
 
-Secure. Observable. Governed. Measurable. **One Cisco, end to end.**
+Measured. Secured. Observable. Governed. **One Cisco, end to end.**
