@@ -1,6 +1,6 @@
 +++
 title       = "Introduction"
-description = "Secure. Observable. Governed. Measurable. One Cisco, end to end."
+description = "Measured. Secured. Observable. Governed. One Cisco, end to end."
 weight      = 5
 aliases     = ["/workshops/ai-governance/00-introduction/"]
 +++
