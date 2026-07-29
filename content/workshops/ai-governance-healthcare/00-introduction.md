@@ -37,13 +37,13 @@ But scaling that value introduces material governance risk. Hallucinations, PII 
 
 ## The One Cisco Thesis
 
-One Cisco closes the governance gap end to end with **one integrated architecture across four pillars** — and the differentiator versus point tools is structural, not cosmetic:
+One Cisco closes the governance gap end to end with **one integrated architecture across four pillars** — and the differentiator versus point tools is structural, not cosmetic.
 
 > **Every AI interaction is captured once and correlated on a shared, OTel-compliant identifier, so security, operations, quality, and audit become one investigation, not four disconnected tools.**
 
 The four pillars:
 
-| Pillar | Capability | Platform |
+| **Pillar** | **Capability** | **Platform** |
 | --- | --- | --- |
 | **Measure / Evaluate** | Define **good**, then prove it — baseline vs. poisoned behavior, token & cost, signals that surface unknown unknowns, continuous metrics on a deployed agent | Splunk Agent Observability |
 | **Secure** | Runtime policy + guardrails on every prompt and response | Cisco AI Defense |
