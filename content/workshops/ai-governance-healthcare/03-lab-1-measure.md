@@ -35,7 +35,7 @@ Model evaluation, metric construction, and signal understanding is critical both
 
 ![alt text](/images/image-21.png)
 
-Go to the  DemoBot instance and enter the access code provided by the facilitator.
+Go to the DemoBot instance and enter the access code provided by the facilitator.
 
 {{% notice warning "Important" %}}
 Because we are using an open weight model, ensure that you select **gpt-4o-mini** from the **Static Emission** dropdown so that tokenomics calculates correctly!
@@ -45,9 +45,22 @@ Because we are using an open weight model, ensure that you select **gpt-4o-mini*
 
 ![alt text](/images/image-92.png)
 
-DemoBot is pre-loaded with two models - one a baseline version, and one that has been intentionally poisoned to produce non-compliant responses, such as toxic content.
+Select **ollama** in **Provider**. DemoBot is pre-loaded with two models - one a baseline version, and one that has been intentionally poisoned to produce non-compliant responses, such as toxic content.
+
+![alt text](/images/image-119.png)
+
+The left sidepanel also has a number of controls to force non-compliant behavior.
 
 Explore sending sample prompts to both the baseline and the poisoned model (via the model picker), and observe the difference in responses. We will then review how these differential responses can be automatically identified by Splunk Agent Observability.
+
+At minimum:
+
+- Send a prompt with **Prescriptive Overreach** toggled on.
+- Send a prompt with various PII, such as a phone number, email address, SSN, or address
+- Send a prompt with a toxic or aggressive tone
+- Send a prompt with a prompt injection attempt
+
+We will explore how this non-compliant behavior is monitored in subsequent sections.
 
 ### 3. Access Splunk Agent Observability
 

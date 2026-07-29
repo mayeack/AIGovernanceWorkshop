@@ -30,6 +30,10 @@ That gap — between the speed of agentic AI and the speed of governing it — i
 
 ---
 
+## The Scenario
+
+---
+
 ## The One Cisco Thesis
 
 One Cisco closes the governance gap end to end with **one integrated architecture across four pillars** — and the differentiator versus point tools is structural, not cosmetic:
@@ -45,7 +49,9 @@ The four pillars:
 | **Observe** | End-to-end tracing, latency, and cost | Splunk Observability Cloud |
 | **Govern** | Immutable audit trail + forensics + security incident response | Splunk Core / Enterprise Security |
 
-![One Cisco AI Governance architecture: production AI traffic flows through Cisco Cloud Control, Cisco AI Defense, and Cisco Data Fabric into Splunk Observability Cloud and Splunk Core, with Splunk Agent Observability closing the continuous feedback loop back to the AI system — delivering Trusted AI, Operational Excellence, Risk Reduction, Accountability & Evidence, and Improved Outcomes.](/images/image-83.png)
+![alt text](/images/image-118.png)
+
+One Cisco AI Governance architecture: production AI traffic flows through Cisco Cloud Control, Cisco AI Defense, and Cisco Data Fabric into Splunk Observability Cloud and Splunk Core, with Splunk Agent Observability closing the continuous feedback loop back to the AI system — delivering Trusted AI, Operational Excellence, Risk Reduction, Accountability & Evidence, and Improved Outcomes.
 
 ### The Single Pane of Glass
 

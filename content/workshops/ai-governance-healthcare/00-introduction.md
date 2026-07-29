@@ -19,6 +19,10 @@ That gap — between the speed of agentic AI and the speed of governing it — i
 
 ---
 
+## The Scenario
+
+---
+
 ## The One Cisco Thesis
 
 One Cisco closes the governance gap end to end with **one integrated architecture across four pillars** — and the differentiator versus point tools is structural, not cosmetic:
