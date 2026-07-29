@@ -54,7 +54,7 @@ WORKSHOP_DIR = HERE / "content" / "workshops" / WORKSHOP_SLUG
 INTRO = WORKSHOP_DIR / "00-introduction.md"
 HOME = HERE / "content" / "_index.md"
 
-OUTCOME_MARK = 'title="Executive outcome"'
+OUTCOME_TITLE = "Executive outcome"
 NOTICE_CLOSE = "{{% /notice %}}"
 MARK_START = "<!-- exec-outcome:start -->"
 MARK_END = "<!-- exec-outcome:end -->"
@@ -114,19 +114,27 @@ HOME.write_text(home_front + "\n\n" + home_body + "\n", encoding="utf-8")
 print(f"wrote {HOME} (front matter preserved; body = descriptor + "
       f"{rest[0].lstrip('# ').strip()!r})")
 
-# Unwrap the Executive-outcome callouts back to the bare paragraphs the narrative carries.
+# Flatten every notice callout: the narrative is plain Markdown for decks and collateral, so
+# no Hugo shortcode may survive into it. Executive outcomes already open with their own bold
+# lead ("**Executive outcome — …**"), so they need no label; any other callout keeps its title
+# as a bold lead line so the label is not lost.
 unwrapped = []
-in_outcome = False
+in_notice = False
 for ln in rest:
-    if ln.startswith("{{% notice") and OUTCOME_MARK in ln:
-        in_outcome = True
+    if ln.startswith("{{% notice"):
+        if in_notice:
+            sys.exit(f"{INTRO} nests notice callouts — cannot flatten them for the narrative")
+        in_notice = True
+        title = re.search(r'title="([^"]*)"', ln)
+        if title and title.group(1) != OUTCOME_TITLE:
+            unwrapped.extend(["", f"**{title.group(1)}**", ""])
         continue
-    if in_outcome and ln.strip() == NOTICE_CLOSE:
-        in_outcome = False
+    if in_notice and ln.strip() == NOTICE_CLOSE:
+        in_notice = False
         continue
     unwrapped.append(ln.replace("](/images/image", "](image"))
-if in_outcome:
-    sys.exit(f"{INTRO} has an unclosed Executive-outcome notice callout")
+if in_notice:
+    sys.exit(f"{INTRO} has an unclosed notice callout")
 
 narrative_lines = [
     f"# {fm_value(home_front, 'title')}",

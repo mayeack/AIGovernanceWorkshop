@@ -52,31 +52,41 @@ The four pillars:
 
 ![alt text](/images/image-118.png)
 
-One Cisco AI Governance architecture: production AI traffic flows through Cisco Cloud Control, Cisco AI Defense, and Cisco Data Fabric into Splunk Observability Cloud and Splunk Core, with Splunk Agent Observability closing the continuous feedback loop back to the AI system — delivering Trusted AI, Operational Excellence, Risk Reduction, Accountability & Evidence, and Improved Outcomes.
-
-### The Single Pane of Glass
-
-The architectural anchor is the **AI Governance Overview** dashboard in Splunk Core. It answers, in one view, the question every leader is actually asking — *"Is our AI safe, reliable, accurate, and accountable right now?"* — through KPI tiles (Total AI Requests, Cost, Token Usage, Unique Sessions), safety tiles (Safety Violations, PII Detected, Policy Blocked, Guardrails Triggered), GenAI Detection summaries, cost / latency / volume trends, and a Recent AI Requests log you pivot from to any turn's correlated record. Pillar deep-dives — Prompt Injection Detection, PII Detection, and Tokenomics are one click away.
+One Cisco AI Governance architecture: production AI traffic flows through Cisco Cloud Control, Cisco AI Defense, and Cisco Data Fabric into Splunk Observability Cloud and Splunk Core, with Splunk Agent Observability closing the continuous feedback loop back to the AI system — delivering a cohesive agentic AI governance solution.
 
 ---
 
-## Start with Evaluation: Define "Good" Before You Can Guard It
+## The Journey: One Turn, Four Pillars
 
-Before any guardrail can fire, someone has to define what the guardrail is *for*. That definition is an **evaluation** — and in this architecture it comes first, because **a guardrail is just an evaluation finding with an action attached.** You cannot block what you have not measured, and you cannot certify what you cannot define.
+The workshop is delivered against a real, running application: MedAdvice — a multi-agent medical-advice chatbot.
 
-**Splunk Agent Observability** (formerly Galileo) is where agentic behavior gets defined and measured. It evaluates the *whole agent trace* — workflow, agents, tool calls, and the LLM response — and scores each turn against research-backed metrics (hallucination, context adherence, PII/PHI leakage, tool-selection quality) plus **custom metrics you define for your own domain**. Those metrics are run by **Luna**, Cisco's family of small, purpose-built evaluation models, so you get LLM-as-judge quality *without* paying frontier-model prices to score every turn — and that cost profile is exactly what makes evaluation affordable to run **continuously**, not just once. You run it two ways: as an **offline experiment** over a dataset before you ship — and as **continuous scoring** on live traffic once deployed, where its **signals surface the unknown unknowns** no one anticipated.
+The architectural anchor is the **AI Governance Overview** dashboard in Splunk Core (AI Governance Overview Dashboard). It answers, in one view, the question every leader is actually asking — *"Is our AI safe, reliable, accurate, and accountable right now?"*.
 
-## The Journey: One Turn, Four Pillars, One Thread
+Splunk Agent Observability (Lab 1) is where agentic behavior gets evaluated, defined, and measured. It evaluates the whole agent trace — workflow, agents, tool calls, and the LLM response — and scores each turn against research-backed metrics (hallucination, context adherence, PII/PHI leakage, tool-selection quality) plus custom metrics you define. Those metrics are run by Luna, one of Cisco’s purpose built small language models, so you get LLM-as-judge quality without paying frontier-model prices to score every turn — and that cost profile is exactly what makes evaluation affordable to run continuously, not just once. You run it two ways: as an offline experiment over a dataset before you ship — and as continuous scoring on live traffic once deployed, where its signals surface the unknown unknowns no one anticipated.
 
-The workshop is delivered against a real, running application: MedAdvice — a multi-agent medical-advice chatbot. The same engine re-skins to six verticals (medical, tax, benefits, legal, finance, telecom), which is the proof that the governance pattern generalizes far beyond healthcare.
+{{% notice style="info" title="What is Luna?" icon="users" %}}
+Luna is Splunk Agent Observability's purpose-built small language model family for AI evaluation and runtime protection. Instead of using an expensive frontier LLM to judge every AI interaction, Luna provides specialized, low-latency scoring that can run continuously in production.
 
-MedAdvice applies safety gates before and after every LLM call. **Cisco AI Defense** (Part 2) is a live integration: it inspects the prompt pre-LLM and the response post-LLM against multiple guardrails — PII, PHI, PCI, Harassment, Hate, Profanity, Prompt Injection, etc. — and blocks non-compliant content. Every turn is logged with full governance and audit metadata in Cisco Data Fabric.
+The key advantages are:
 
-That same per-turn telemetry feeds **Splunk Observability Cloud** (Part 3), the operational lens on the running agent. Where **Cisco AI Defense** governs what MedAdvice is allowed to say, **Observability Cloud** watches how it runs — emitting OpenTelemetry traces, spans, latency, and token/cost telemetry for every LLM call and tool hop across the multi-agent graph. Because each trace carries the same shared identifier as that turn's security verdict and quality score, a slow or expensive turn is one click from the exact span that caused it.
+**Much lower cost:** Luna makes it economically practical to evaluate 100% of production AI traffic rather than sampling. Luna costs pennies per million tokens, roughly 97% lower cost than GPT-style judges for guardrail workloads.
 
-Splunk Core (Part 4) is where all of it comes to rest — the immutable audit trail and single pane over every governed turn, so any interaction can be pulled back by that same shared identifier and, when it's evidence-backed, escalated into Splunk Enterprise Security as a notable event.
+**Real-time performance:** Luna returns evaluations in milliseconds. That allows evaluations to sit directly in the user request/response path without materially degrading experience.
 
-None of these downstream pillars stand on their own, though — the foundation was laid in by **Splunk Agent Observability** (Part 1). The baseline-vs-poisoned evaluation is what defined "good" in the first place: the metrics, the thresholds, and the failure modes worth governing. AI Defense enforces that definition, Observability Cloud confirms the agent honors it under load, and Splunk Core proves it held — every pillar that follows is measuring against the baseline the evaluation set.
+**Purpose-built accuracy:** Rather than being a general-purpose LLM prompted to act as a judge, Luna is specifically trained for evaluation tasks such as hallucination detection, context adherence, security, privacy, and agent behavior.
+
+**Continuous monitoring and protection:** The same evaluation approach can be used offline during development and online as a runtime guardrail, including blocking unsafe responses, detecting prompt injection, identifying PII leakage, or escalating to a human.
+
+**Customizable to enterprise requirements:** Luna can support custom metrics and can be tuned against an organization's own data and definition of acceptable AI behavior, making it more relevant than generic LLM-as-a-judge approaches.
+
+Luna changes AI governance from periodic sampling to continuous control. Its cost and latency profile makes it feasible to evaluate and protect AI interactions at production scale instead of relying primarily on expensive LLM judges or manual review.
+{{% /notice %}}
+
+MedAdvice applies safety gates before and after every LLM call. **Cisco AI Defense** (Lab 2) is a live integration: it inspects the prompt pre-LLM and the response post-LLM against multiple guardrails — PII, PHI, PCI, Harassment, Hate, Profanity, Prompt Injection, etc. — and blocks non-compliant content. Every turn is logged with full governance and audit metadata in Cisco Data Fabric.
+
+That same per-turn telemetry feeds Splunk Observability Cloud (Lab 3), the operational lens on the running agent. Where Cisco AI Defense governs what MedAdvice is allowed to say, Observability Cloud watches how it runs, emitting OpenTelemetry traces, spans, latency, and token/cost telemetry for every LLM call and tool hop across the multi-agent graph. The AI Troubleshooting Agent then uses this telemetry to identify incidents, evaluate their root cause and impact, and resolve issues across the agentic workflow.
+
+Splunk Core (Lab 4) is where all of it comes to rest, providing the immutable audit trail and unified security record for every governed turn. If MedAdvice detects a prompt injection attempt, Splunk can correlate the malicious prompt, AI Defense verdict, affected agent actions, and downstream response into a single investigation. Enterprise Security Agents can then help triage the event, assess its scope and severity, recommend next actions, and accelerate response, turning that governed telemetry into the foundation for an agentic SOC.
 
 ### AI Governance Overview Dashboard: The Single Pane of Glass
 
