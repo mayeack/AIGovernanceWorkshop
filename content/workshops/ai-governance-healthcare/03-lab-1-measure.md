@@ -33,27 +33,33 @@ Model evaluation, metric construction, and signal understanding is critical both
 
 ### 1. Access DemoBot
 
-Go to **https://medadvice.yeackbot.com/app**. When prompted, enter the access code provided by the presenter.
+![alt text](/images/image-21.png)
+
+Go to the  DemoBot instance and enter the access code provided by the facilitator.
 
 {{% notice warning "Important" %}}
 Because we are using an open weight model, ensure that you select **gpt-4o-mini** from the **Static Emission** dropdown so that tokenomics calculates correctly!
 {{% /notice %}}
 
-![alt text](/images/image-21.png)
-
 ### 2. Explore the Baseline vs the Poisoned Model
+
+![alt text](/images/image-92.png)
 
 DemoBot is pre-loaded with two models - one a baseline version, and one that has been intentionally poisoned to produce non-compliant responses, such as toxic content.
 
 Explore sending sample prompts to both the baseline and the poisoned model (via the model picker), and observe the difference in responses. We will then review how these differential responses can be automatically identified by Splunk Agent Observability.
-
-![alt text](/images/image.png)
 
 ### 3. Access Splunk Agent Observability
 
 Go to **https://console.multitenant.galileocloud.io/splunkse** and enter the username / password provided by the facilitator.
 
 ### 4. Review Overview
+
+![alt text](/images/image-94.png)
+
+Search for the project **DemoBot**, and then click on it.
+
+![alt text](/images/image-95.png)
 
 Click on **Overview**.
 
@@ -69,9 +75,9 @@ Datasets — Curated "golden" reference sets used to grade the AI consistently. 
 
 Prompts — A versioned, centralized library of the instructions that drive the AI, enabling governance and change-control over the core logic, reusable directly in code.
 
-![alt text](/images/image-1.png)
-
 ### 5. Review Logs
+
+![alt text](/images/image-96.png)
 
 Click on **Logs**.
 
@@ -81,11 +87,11 @@ Logs — The running ledger of real user interactions, capturing what went in an
 
 Automated scoring (such as Output Toxicity, Prescriptive Overreach, Completeness) — Every response is auto-graded against safety and quality measures, including custom risk checks tuned to this use case. This is the core value: thousands of interactions evaluated without human review, with weak responses surfaced automatically for attention. You can click on each metric to understand the cost. Notice the significant cost difference between metrics computed using Luna (SLM) and frontier lab models.
 
-![alt text](/images/image-2.png)
-
 ### 6. Review Signals
 
-Click on the **Signals** button.
+![alt text](/images/image-3.png)
+
+Click on the **Signals** button. Click on **Refresh** if no signals appear. 
 
 The Signals panel is the AI watching the AI — it scans every logged conversation for risk patterns and surfaces them as named, prioritized issues, so the team learns where the application is failing without reading transcripts one by one. Whereas Metrics need to be defined by the user, Signals surface the unknown unknown issues, such as:
 
@@ -97,11 +103,11 @@ Medical Hallucinations & Violations — Catches invented medical claims and unau
 
 Unexpected Harassment — Detects abusive or harassing language from the AI. A direct guard on brand safety and user trust.
 
-![alt text](/images/image-3.png)
-
 ### 7. Review Log Details
 
 Click on any log.
+
+![alt text](/images/image-4.png)
 
 This single-trace view is the microscope of the platform — it opens up one AI conversation end to end, showing exactly how a multi-step agent produced its answer and how that answer scored on quality and safety.
 
@@ -111,11 +117,11 @@ Input / Output panel — Shows the exact user request and the verbatim response 
 
 Metrics — One trace, examined from every angle: how it scored, how it was configured, human notes, and flagged risks. The value is a complete case file for any interaction worth investigating.
 
-![alt text](/images/image-4.png)
-
 Feel free to explore the other tabs, such as **Latency** and **Trace Graph**.
 
 ### 8. Review Trends
+
+![alt text](/images/image-10.png)
 
 Click on the back arrow, then click on **Trends**.
 
@@ -123,7 +129,7 @@ The Trends view is the over-time picture of AI quality and risk — it tracks wh
 
 Metrics charts — Plots the application's domain-specific risks day by day, so emerging problems show up as a rising line before they become incidents. This is early warning for the failure modes that matter most to this business.
 
-![alt text](/images/image-10.png)
+![alt text](/images/image-97.png)
 
 Scroll down to **System Metrics**.
 
@@ -137,14 +143,15 @@ Traces Count — Tracks total volume of activity. This sizes the workload and gi
 
 Agent Cost — Translates that consumption into dollars. This is the line item leadership actually cares about: what is this AI costing us, tracked over time so spend never becomes a surprise.
 
-![alt text](/images/image-11.png)
-![alt text](/images/image-12.png)
+Feel free to explore additonal metric charts.
 
 ### 9. Review Experiments
 
 {{% notice style="WARNING" title="KNOWN BUG" %}}
 **NOTE: There is a known bug with ranking of Experiments; SKIP Section 9 & 10, and proceed to Section 11**
 {{% /notice %}}
+
+![alt text](/images/image-5.png)
 
 Click on **Experiments**.
 
@@ -160,19 +167,21 @@ Dataset (with versions) — Records exactly which reference test set each run wa
 
 Scoring columns (Prompt Injection, Output Toxicity, Prescriptive Overreach, Completeness, etc.) — Grades each version across the safety and quality dimensions that matter most for this use case, including resistance to attacks and overstepping into unauthorized advice. The value is a multi-dimensional safety scorecard, not a single pass/fail.
 
-![alt text](/images/image-5.png)
-
 ### 10. Compare Two Experiments
-
-Click on the checkbox next to the two experiments, then click **Compare Experiments**.
 
 ![alt text](/images/image-6.png)
 
-You can review two or more experiments side by side.
+Click on the checkbox next to the two experiments, then click **Compare Experiments**.
 
 ![alt text](/images/image-7.png)
 
+You can review two or more experiments side by side.
+
 ### 11. Review Metrics
+
+![alt text](/images/image-8.png)
+
+Click on **Metrics**.
 
 The Metrics catalog is the rulebook for how every AI is graded — a central, reusable library of scoring criteria that makes "good" and "safe" mean the same thing across every project and every team. As you have seen, Metrics are leveraged at every point in the development and deployment lifecycle.
 
@@ -182,11 +191,13 @@ Metric level (Trace, Session, LLM, Retriever) — Defines where each metric appl
 
 Tags & Modality — Organize the library by purpose (agents, RAG, safety) and data type. As the catalog grows, this is what keeps it navigable and governable rather than a sprawl.
 
-![alt text](/images/image-8.png)
-
 ### 12. Review Prescriptive Overreach Metric
 
+![alt text](/images/image-98.png)
+
 Scroll down to (or search for) the **Prescriptive Overreach Metric**, and click on it.
+
+![alt text](/images/image-99.png)
 
 This is where a safety standard gets authored — the editor for a custom Prescriptive Overreach Metric, showing how an abstract risk is turned into a precise, automated, repeatable test that every AI response is graded against.
 
@@ -197,8 +208,6 @@ Configure Input (LLM model / Apply to) — Chooses which AI does the grading and
 Prompt (the scoring rubric) — The heart of it: explicit instructions and graded anchors that define exactly what counts as a minor lapse versus an egregious violation. This converts a fuzzy worry — "is the bot making up medical facts?" — into a consistent, defensible score that doesn't drift with opinion. You can use the **Help me write** toggle to enhance your prompts.
 
 Configure Output (type & roll-up) — Sets how individual scores combine into a single number that rolls up across the whole experiment. This is what makes one response's grade aggregate into a board-level quality figure.
-
-![alt text](/images/image-13.png)
 
 ## Outcome
 

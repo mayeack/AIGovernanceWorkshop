@@ -31,17 +31,17 @@ Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the
 
 ### 1. Access DemoBot
 
-Go to **https://medadvice.yeackbot.com/app**. When prompted, enter the access code provided by the presenter.
+Go to the  DemoBot instance and enter the access code provided by the facilitator.
 
 ### 2. Prompt Prescriptive Overreach
+
+![alt text](/images/image-20.png)
 
 This is the DemoBot control panel — the behind-the-scenes settings that lets you deliberately inject unsafe AI behavior and switch defenses on and off.
 
 Cisco AI Defense Policy Review — Routes every prompt through AI Defense before it reaches the assistant, blocking unsafe inputs up front.
 
 Behavior injection toggles (Synthetic PII/PHI, Toxic Content, Hallucinated Content, Prescriptive Overreach) — The "poison" switches: deliberately force the AI to leak data, turn toxic, fabricate facts, or overstep its scope.
-
-![alt text](/images/image-20.png)
 
 Feel free to explore how the various toggles generate non-compliant behavior, and how that behavior is blocked when Cisco AI Defense is toggled on.
 
@@ -51,6 +51,12 @@ You should have received an email with instructions on how to access Cisco AI De
 
 ### 4. Review Dashboard
 
+![alt text](/images/image-100.png)
+
+Click on **AI Defense**.
+
+![alt text](/images/image-9.png)
+
 The Cisco AI Defense dashboard is the security command center for the AI estate — it discovers every AI asset in use, enforces protection around it, and shows in one number how many threats have been stopped, turning AI security from a blind spot into an actively defended perimeter.
 
 Total events detected — The headline: how many risky AI interactions were caught, and how many were stopped versus merely watched. This is the proof of active defense — the AI isn't just observed, threats are intercepted in real time.
@@ -59,17 +65,17 @@ Applications & Protection status — Inventories the AI applications in use and 
 
 AI Assets — A complete map of the AI attack surface: the agents, models, data, and third-party apps employees touch. This is asset discovery for AI — the foundation of any security program, surfacing shadow AI before it becomes a breach.
 
-![alt text](/images/image-9.png)
-
 ### 5. Review Associated Policies
-
-Click on Secure -> Runtime Policies.
 
 ![alt text](/images/image-18.png)
 
-Click on **Yeack Protect**.
+Click on **Secure -> Runtime Policies**.
 
 ![alt text](/images/image-19.png)
+
+Click on **Yeack Protect**.
+
+![alt text](/images/image-84.png)
 
 This is where AI protection gets enforced — the Yeack Protect policy in Cisco AI Defense shows the live guardrails wrapped around our agentic system, turning security intent into specific rules that actively block threats in real time.
 
@@ -85,105 +91,107 @@ Filter strength (Medium) — A tunable dial on how aggressively each rule fires.
 
 ### 6. Create Custom Prescriptive Overreach Guardrail
 
-Navigate to **Policy Studio**.
-
 ![alt text](/images/image-59.png)
 
-Click on **New policy profile**.
+Navigate to **Policy Studio**.
 
 ![alt text](/images/image-60.png)
 
-Complete the form as follows, then click **Launch Policy Studio**.
+Click on **New policy profile**.
 
 ![alt text](/images/image-61.png)
+
+Complete the form as follows, then click **Launch Policy Studio**.
+
+![alt text](/images/image-62.png)
 
 Enter the following into the text box **Describe your policy profile requirements**, or experiment with your own prompt!
 
 "Block any response that acts as a prescriber. The chatbot may only recommend OTC products, lifestyle or self-care measures, or referral to a licensed professional. Block responses that recommend prescription-only or controlled medications, provide prescription-style dosing, frequency, route, or duration, or instruct users to start, stop, or change a prescription medication without clinician oversight."
 
-![alt text](/images/image-62.png)
+![alt text](/images/image-64.png)
 
 It may take a moment for the guardrail to generate. Once it does, review all of the insights generated, and notice how the system is attempting to help the user determine how to navigate edge cases.
 
 Once you have reviewed all of the insights, scroll up to see the suggested next steps, and click on (or type) **Rewrite the policy to address the agreed insights**.
 
-![alt text](/images/image-64.png)
+![alt text](/images/image-65.png)
 
 Toggle on **Generate new synthetic samples for evaluation** and click on **Run evaluation**.
 
-![alt text](/images/image-65.png)
+![alt text](/images/image-66.png)
 
 Once evaluation is complete, review the findings. You can optionally continue iterating with the suggested next steps.
 
 Click on **Publish**.
 
-![alt text](/images/image-66.png)
+![alt text](/images/image-67.png)
 
 Review the evaluation results, then click **Continue**.
 
-![alt text](/images/image-67.png)
+![alt text](/images/image-68.png)
 
 Click on **Publish Policy**.
 
-![alt text](/images/image-68.png)
+![alt text](/images/image-69.png)
 
 Click on **Go to adpative guardrail profiles**.
 
-![alt text](/images/image-69.png)
-
 ### 7. Apply the Custom Guardrail
-
-Navigate to **Secure -> Runtime Policies**.
 
 ![alt text](/images/image-71.png)
 
-Click on **Yeack Protect**.
+Navigate to **Secure -> Runtime Policies**.
 
 ![alt text](/images/image-72.png)
 
-Click on **Edit policy**.
+Click on **Yeack Protect**.
 
 ![alt text](/images/image-73.png)
 
-Click on **Adaptive guardrail profile**.
+Click on **Edit policy**.
 
 ![alt text](/images/image-74.png)
+
+Click on **Adaptive guardrail profile**.
+
+![alt text](/images/image-75.png)
 
 Toggle **Disabled** to **Enabled** and check the box next to the name of the guardrail you just created.
 
 Navigate to **Policy summary**.
 
-![alt text](/images/image-75.png)
+![alt text](/images/image-76.png)
 
 Click on **Save changes**.
 
-![alt text](/images/image-76.png)
+![alt text](/images/image-77.png)
 
 ### 8. Validate Applied Guardrail
 
 Navigate back to DemoBot. In the left sidepanel, toggle on **Prescriptive Overreach**.
 
-![alt text](/images/image-77.png)
+![alt text](/images/image-78.png)
 
 Send any prompt, and notice how the agent response contains prescriptive overreach.
 
-![alt text](/images/image-78.png)
+![alt text](/images/image-79.png)
 
 In the left sidepanel, toggle on **Cisco AI Defense Policy Review**. Click on **New Session**.
 
-![alt text](/images/image-79.png)
+![alt text](/images/image-80.png)
 
 Send a similiar prompt. The non-compliant response is now blocked!
 
-![alt text](/images/image-80.png)
+![alt text](/images/image-81.png)
 
 In the left sidepanel, toggle off **Prescriptive Overreach**. Click on **New Session**.
 
-![alt text](/images/image-81.png)
+![alt text](/images/image-82.png)
 
 Send a similiar prompt. Compliant responses are not blocked.
 
-![alt text](/images/image-82.png)
+![alt text](/images/image-83.png)
 
 ## Outcome
 
