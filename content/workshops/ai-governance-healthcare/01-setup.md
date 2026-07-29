@@ -8,7 +8,7 @@ aliases     = ["/setup.html", "/workshops/ai-governance/01-setup/"]
 
 ### 1. How to Access DemoBot
 
-Go to the  DemoBot instance and enter the access code provided by the facilitator.
+Go to the DemoBot instance and enter the access code provided by the facilitator.
 
 ### 2. How to Access Splunk Agent Observability
 
