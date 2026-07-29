@@ -29,6 +29,6 @@ aliases     = ["/wrap-up.html", "/workshops/ai-governance/07-wrap-up/"]
 | **Operational Excellence** | Reliable, cost-efficient AI; trace, don't guess | APM trace-to-root-cause (Part 3) |
 | **Accountability & Evidence** | End-to-end auditability; defensible, correlated evidence | Immutable audit trail for every event (Part 4) |
 
-**The ask.** The question is no longer *whether* to govern agentic AI — it's *whether you can prove you are.* One Cisco gives your governance board the visbility and control to move AI agents from prototype to production. **Capture once. Correlate across all four pillars.**
+**The ask.** The question is no longer *whether* to govern agentic AI — it's *whether you can prove you are.* One Cisco gives your governance board the visibility and control to move AI agents from prototype to production. **Capture once. Correlate across all four pillars.**
 
 Measured. Secured. Observable. Governed. **One Cisco, end to end.**
