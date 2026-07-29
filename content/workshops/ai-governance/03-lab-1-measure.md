@@ -142,6 +142,10 @@ Agent Cost — Translates that consumption into dollars. This is the line item l
 
 ### 9. Review Experiments
 
+{{% notice style="WARNING" title="KNOWN BUG" %}}
+**NOTE: There is a known bug with ranking of Experiments; SKIP Section 9 & 10, and proceed to Section 11**
+{{% /notice %}}
+
 Click on **Experiments**.
 
 Because Experiments can take 10+ minutes to execute, we have already executed an experiment for you to review the results.

@@ -1,6 +1,6 @@
 +++
 title       = "Agentic AI Governance Workshop"
-linkTitle   = "AI Governance"
+linkTitle   = "AI Governance - Healthcare"
 description = "Govern agentic AI end to end — measure, secure, observe, and govern every AI interaction on one governed dataset."
 duration    = "2.5 hours"
 difficulty  = "intermediate"

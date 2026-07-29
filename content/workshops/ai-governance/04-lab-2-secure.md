@@ -69,6 +69,8 @@ Click on Secure -> Runtime Policies.
 
 Click on **Yeack Protect**.
 
+![alt text](/images/image-19.png)
+
 This is where AI protection gets enforced — the Yeack Protect policy in Cisco AI Defense shows the live guardrails wrapped around our agentic system, turning security intent into specific rules that actively block threats in real time.
 
 Guardrail profiles — Organizes protection into the three dimensions that matter — keeping attackers out, keeping data private, and keeping responses appropriate. The value is comprehensive coverage in one policy, not a single narrow filter.
@@ -79,7 +81,7 @@ Action & Status (Block / Enabled) — Shows whether each guardrail is on and set
 
 Filter strength (Medium) — A tunable dial on how aggressively each rule fires. The value is balance — protection calibrated to the business's risk tolerance, tightenable where the stakes are higher.
 
-![alt text](/images/image-19.png)
+![alt text](/images/image-84.png)
 
 ### 6. Create Custom Prescriptive Overreach Guardrail
 
