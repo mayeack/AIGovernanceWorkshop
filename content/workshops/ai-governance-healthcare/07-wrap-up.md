@@ -12,22 +12,13 @@ aliases     = ["/wrap-up.html", "/workshops/ai-governance/07-wrap-up/"]
 
 **The value:** One Cisco captures every AI interaction **once** and correlates it — so security, operations, quality, and audit become **one investigation, not four.**
 
-| Pillar | What it does | Value |
-|---|---|---|
-| **Measure** (Splunk Agent Observability) | Scores clean vs. poisoned behavior, cost, and quality — continuously, affordably | Quality and risk become **SLA-governed metrics, not a vibe**; failures caught *before* they ship |
-| **Secure** (Cisco AI Defense) | Authors the guardrail from that finding, live | Non-compliant output **blocked at runtime** — policy tuned in real time, not a quarter-long change request |
-| **Observe** (Splunk Observability Cloud) | Traces the same turn end to end | Bottlenecks **found by tracing, not guessing** — reliable, cost-efficient AI |
-| **Govern** (Splunk Core / ES) | Immutable audit trail, injection surfaced, escalated | The audit is a **query, not a scramble** — defensible evidence on every turn |
-
-## Five Executive Outcomes
-
-| Outcome | What it means | Grounded in |
+| **Outcome** | **What it means** | **Grounded in** |
 | --- | --- | --- |
-| **Unified Visibility & Control** | The whole AI program on one screen; every KPI live, every number one click from its evidence | Single pane of glass (AI Governance Overview Dashboard) |
-| **Improved Outcomes** | Measurable quality, cost, and risk; optimized agent behavior, unknown unknowns surfaced | Evaluation, signals & continuous metrics (Part 1) |
-| **Trusted AI** | Safe, compliant responses; non-compliant output blocked at runtime | Exposed→compliant live (Part 2) |
-| **Operational Excellence** | Reliable, cost-efficient AI; trace, don't guess | APM trace-to-root-cause (Part 3) |
-| **Accountability & Evidence** | End-to-end auditability; defensible, correlated evidence | Immutable audit trail for every event (Part 4) |
+| **Unified Visibility & Control** | See the posture of your AI program at a glance, with every material signal traceable to the evidence behind it. | AI Governance Overview Dashboard |
+| **Improved Outcomes** | Turn AI quality, safety, and cost into measurable operating metrics, establish a baseline before release, identify emerging risks in production, and continuously improve against evidence. | Splunk Agent Observability |
+| **Trusted AI** | Move governance from written policy to machine-speed enforcement, detecting and blocking unsafe interactions before they create patient, regulatory, or reputational exposure. | Cisco AI Defense |
+| **Operational Excellence** | Move AI incidents faster from detection to root cause and resolution, reducing operational effort while protecting performance, user experience, and the economics of AI at scale. | Splunk Observability Cloud |
+| **Accountability & Evidence** | Make consequential AI interactions attributable, explainable, and actionable, with audit evidence available on demand and security findings flowing directly into AI-assisted investigation and response. | Splunk Enterprise Security |
 
 **The ask.** The question is no longer *whether* to govern agentic AI — it's *whether you can prove you are.* One Cisco gives your governance board the visibility and control to move AI agents from prototype to production. **Capture once. Correlate across all four pillars.**
 

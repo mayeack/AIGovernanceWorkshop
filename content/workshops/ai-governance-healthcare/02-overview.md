@@ -9,7 +9,7 @@ aliases     = ["/section-0-overview.html", "/workshops/ai-governance/02-overview
 ![alt text](/images/image-122.png)
 
 **Pillar:** AI Governance Overview<br>
-**Tool:** Splunk — AI Governance TA<br>
+**Tool:** Splunk<br>
 **Timing:** 15 minutes<br>
 **Outcome:** Unified Visibility & Control
 

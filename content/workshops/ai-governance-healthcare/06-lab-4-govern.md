@@ -9,6 +9,7 @@ aliases     = ["/lab-4-govern.html", "/workshops/ai-governance/06-lab-4-govern/"
 {{% notice style="warning"%}}
 This lab needs to be extended to include Enterprise Security AI agents / a response plan.
 {{% /notice %}}
+
 ![alt text](/images/image-126.png)
 
 **Pillar:** Govern<br>
