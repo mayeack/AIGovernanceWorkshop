@@ -1,12 +1,14 @@
 +++
-title       = "AI Governance Overview Dashboard"
+title       = "AI Governance Overview"
 description = "The single pane of glass: usage, cost, risk, and compliance — every number one click from its evidence."
 duration    = "15 min"
 weight      = 20
 aliases     = ["/section-0-overview.html", "/workshops/ai-governance/02-overview/"]
 +++
 
-**Pillar:** Overview<br>
+![alt text](/images/image-122.png)
+
+**Pillar:** AI Governance Overview<br>
 **Tool:** Splunk — AI Governance TA<br>
 **Timing:** 15 minutes<br>
 **Outcome:** Unified Visibility & Control
@@ -122,7 +124,7 @@ The takeaway: AI is no longer a black box trusted on faith. It's a measurable, a
 <!-- exec-outcome:start -->
 
 {{% notice style="info" title="Executive outcome" icon="star" %}}
-**Executive outcome.** The leader sees the posture of the AI program at a glance — and knows that any number on the screen is one click from the evidence behind it.
+**Executive outcome - Unified Visibility & Control.** You see the posture of the AI program at a glance — and know that any number on the screen is one click from the evidence behind it.
 {{% /notice %}}
 
 <!-- exec-outcome:end -->

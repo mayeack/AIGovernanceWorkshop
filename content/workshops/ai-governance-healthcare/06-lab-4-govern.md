@@ -6,6 +6,11 @@ weight      = 60
 aliases     = ["/lab-4-govern.html", "/workshops/ai-governance/06-lab-4-govern/"]
 +++
 
+{{% notice style="warning"%}}
+This lab needs to be extended to include Enterprise Security AI agents / a response plan.
+{{% /notice %}}
+![alt text](/images/image-126.png)
+
 **Pillar:** Govern<br>
 **Tool:** Splunk / Enterprise Security<br>
 **Timing:** 20 minutes<br>
@@ -130,7 +135,7 @@ The prompt injection turn is visible and flagged in the search results; the Prom
 <!-- exec-outcome:start -->
 
 {{% notice style="info" title="Executive outcome" icon="star" %}}
-**Executive outcome — Accountability & Evidence.** End-to-end auditability and defensible evidence — the audit is a query, not a fire drill, and findings flow straight into the security workflow.
+**Executive outcome — Accountability & Evidence.** You can make every consequential AI interaction attributable, explainable, and actionable. Audit evidence is available on demand, while security findings can move directly into AI-assisted investigation and response rather than ending in a governance report.
 {{% /notice %}}
 
 <!-- exec-outcome:end -->

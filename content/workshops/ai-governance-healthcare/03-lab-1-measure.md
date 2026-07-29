@@ -6,6 +6,8 @@ weight      = 30
 aliases     = ["/lab-1-measure.html", "/workshops/ai-governance/03-lab-1-measure/"]
 +++
 
+![alt text](/images/image-123.png)
+
 **Pillar:** Measure<br>
 **Tool:** Splunk Agent Observability<br>
 **Timing:** 30 minutes<br>
@@ -246,7 +248,7 @@ Now that we have identified the critical metric Prescriptive Overreach, let's op
 <!-- exec-outcome:start -->
 
 {{% notice style="info" title="Executive outcome" icon="star" %}}
-**Executive outcome — Improved Outcomes.** Quality, cost, and risk become measured, governed metrics with a baseline and an SLA — not a vibe. Poisoned behavior is caught before it ships, the cost of every behavior is visible, signals surface failures no one thought to test for, and continuous metrics keep the deployed agent honest over time.
+**Executive outcome — Improved Outcomes.** You turn AI quality, safety, and cost into measurable operating metrics rather than subjective judgments. You can establish a baseline before release, identify emerging risks in production, and continuously improve the agent against evidence.
 {{% /notice %}}
 
 <!-- exec-outcome:end -->

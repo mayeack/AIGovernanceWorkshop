@@ -6,6 +6,8 @@ weight      = 40
 aliases     = ["/lab-2-secure.html", "/workshops/ai-governance/04-lab-2-secure/"]
 +++
 
+![alt text](/images/image-124.png)
+
 **Pillar:** Secure<br>
 **Tool:** Cisco AI Defense<br>
 **Timing:** 45 minutes<br>
@@ -202,7 +204,7 @@ A risky medical response went from **non-compliant to governed**. The unsafe out
 <!-- exec-outcome:start -->
 
 {{% notice style="info" title="Executive outcome" icon="star" %}}
-**Executive outcome — Trusted AI.** Non-compliant output never reaches the user, and policy is authored and tuned in real time, then re-validated immediately against the live app — governance you can watch happen, not a quarter-long change request.
+**Executive outcome — Trusted AI.** You move governance from written policy to machine-speed enforcement. Unsafe interactions can be detected and blocked before they create patient, regulatory, or reputational exposure, while controls can be continuously tuned as requirements and risks evolve.
 {{% /notice %}}
 
 <!-- exec-outcome:end -->

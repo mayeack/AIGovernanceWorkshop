@@ -6,6 +6,8 @@ weight      = 50
 aliases     = ["/lab-3-observe.html", "/workshops/ai-governance/05-lab-3-observe/"]
 +++
 
+![alt text](/images/image-125.png)
+
 **Pillar:** Observe<br>
 **Tool:** Splunk Observability Cloud<br>
 **Timing:** 20 minutes<br>
@@ -171,7 +173,7 @@ APM detectors breach during the ~90s incident; the trace view isolates the slow 
 <!-- exec-outcome:start -->
 
 {{% notice style="info" title="Executive outcome" icon="star" %}}
-**Executive outcome — Operational Excellence.** Reliable, cost-efficient AI — performance problems are found by tracing, not guessing.
+**Executive outcome — Operational Excellence.** You move AI incidents faster from detection to root cause and resolution, reducing operational effort while protecting performance, user experience, and the economics of running AI at scale.
 {{% /notice %}}
 
 <!-- exec-outcome:end -->
