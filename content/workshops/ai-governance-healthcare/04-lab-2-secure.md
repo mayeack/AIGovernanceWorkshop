@@ -191,8 +191,6 @@ In the left sidepanel, toggle off **Prescriptive Overreach**. Click on **New Ses
 
 Send a similiar prompt. Compliant responses are not blocked.
 
-![alt text](/images/image-83.png)
-
 ## Outcome
 
 A risky medical response went from **non-compliant to governed**. The unsafe output never reached the user; the policy was authored and tuned on the spot; the fix was re-validated against the live app immediately.

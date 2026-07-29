@@ -87,6 +87,20 @@ Logs — The running ledger of real user interactions, capturing what went in an
 
 Automated scoring (such as Output Toxicity, Prescriptive Overreach, Completeness) — Every response is auto-graded against safety and quality measures, including custom risk checks tuned to this use case. This is the core value: thousands of interactions evaluated without human review, with weak responses surfaced automatically for attention. You can click on each metric to understand the cost. Notice the significant cost difference between metrics computed using Luna (SLM) and frontier lab models.
 
+{{% notice style="info" title="What is Luna?" icon="users" %}}
+Luna is Splunk Anent Observability's purpose-built small language model family for AI evaluation and runtime protection. Instead of using an expensive frontier LLM to judge every AI interaction, Luna provides specialized, low-latency scoring that can run continuously in production.
+
+The key advantages are:
+
+**Much lower cost:** Luna makes it economically practical to evaluate 100%, of production AI traffic rather than sampling. Luna costs pennies per million tokens, roughly 97% lower cost than GPT-style judges for guardrail workloads.
+**Real-time performance:** Luna returns evaluations in milliseconds. That allows evaluations to sit directly in the user request/response path without materially degrading experience.
+**Purpose-built accuracy:** Rather than being a general-purpose LLM prompted to act as a judge, Luna is specifically trained for evaluation tasks such as hallucination detection, context adherence, security, privacy, and agent behavior.
+**Continuous monitoring and protection:** The same evaluation approach can be used offline during development and online as a runtime guardrail, including blocking unsafe responses, detecting prompt injection, identifying PII leakage, or escalating to a human.
+**Customizable to enterprise requirements:** Luna can support custom metrics and can be tuned against an organization's own data and definition of acceptable AI behavior, making it more relevant than generic LLM-as-a-judge approaches.
+
+Luna changes AI governance from periodic sampling to continuous control. Its cost and latency profile makes it feasible to evaluate and protect AI interactions at production scale instead of relying primarily on expensive LLM judges or manual review.
+{{% /notice %}}
+
 ### 6. Review Signals
 
 ![alt text](/images/image-3.png)
