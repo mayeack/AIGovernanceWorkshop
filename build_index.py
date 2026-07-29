@@ -10,8 +10,9 @@ Introduction page,
 and everything else is generated from it:
 
   1. content/_index.md (Home)          — Home's `+++` front matter (hero, CTAs) is site UI and is
-                                         PRESERVED verbatim; only the body is replaced with the
-                                         Introduction body, so Home mirrors it exactly.
+                                         PRESERVED verbatim. The body is a LANDING PAGE, not the
+                                         whole narrative: the italic descriptor plus the opening
+                                         section ("The Problem") and nothing after it.
   2. ../collateral/1 - narrative.md    — the narrative export for decks/collateral. Home's front
                                          matter supplies the title block (`# `, `### `, pillars);
                                          the Executive-outcome notice callouts are unwrapped back
@@ -86,11 +87,6 @@ def fm_value(front: str, key: str) -> str:
 intro_front, body = split_front_matter(INTRO)
 home_front, _ = split_front_matter(HOME)
 
-# --- 1. Home: preserved front matter (hero + CTAs) + the Introduction body verbatim ---------
-HOME.write_text(home_front + "\n\n" + body + "\n", encoding="utf-8")
-print(f"wrote {HOME} (hero front matter preserved; body mirrors {INTRO.name})")
-
-# --- 2. Narrative export: title block from Home's front matter + de-Hugo-ified body ---------
 # The narrative's title block is the hero, flattened back into Markdown; everything from the
 # first '## ' heading on is the body. Any preamble before that first heading (the italic
 # descriptor) belongs above the '---' in the narrative, which is where it came from.
@@ -102,6 +98,21 @@ except StopIteration:
 
 preamble = [ln for ln in body_lines[:first_h2] if ln.strip()]
 rest = body_lines[first_h2:]
+
+# --- 1. Home: preserved front matter (hero + CTAs) + preamble + the FIRST section only ------
+# Home is a landing page, not the whole narrative: it carries the hero, the italic descriptor,
+# and the opening section ("The Problem") — then stops and hands off to the CTAs. The full
+# narrative lives on the Introduction page and in the collateral export. The section ends at
+# the next horizontal rule or '## ' heading, whichever comes first.
+first_section_end = next(
+    (i for i, ln in enumerate(rest[1:], start=1)
+     if ln.strip() == "---" or ln.startswith("## ")),
+    len(rest),
+)
+home_body = "\n".join(preamble + [""] + rest[:first_section_end]).strip("\n")
+HOME.write_text(home_front + "\n\n" + home_body + "\n", encoding="utf-8")
+print(f"wrote {HOME} (front matter preserved; body = descriptor + "
+      f"{rest[0].lstrip('# ').strip()!r})")
 
 # Unwrap the Executive-outcome callouts back to the bare paragraphs the narrative carries.
 unwrapped = []
