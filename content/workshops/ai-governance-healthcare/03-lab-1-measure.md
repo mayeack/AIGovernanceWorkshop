@@ -10,7 +10,6 @@ aliases     = ["/lab-1-measure.html", "/workshops/ai-governance/03-lab-1-measure
 
 **Pillar:** Measure<br>
 **Tool:** Splunk Agent Observability<br>
-**Timing:** 30 minutes<br>
 **Outcome:** Improved Outcomes
 
 <!-- persona:start -->

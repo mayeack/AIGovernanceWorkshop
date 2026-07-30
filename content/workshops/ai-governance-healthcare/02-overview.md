@@ -10,7 +10,6 @@ aliases     = ["/section-0-overview.html", "/workshops/ai-governance/02-overview
 
 **Pillar:** AI Governance Overview<br>
 **Tool:** Splunk<br>
-**Timing:** 15 minutes<br>
 **Outcome:** Unified Visibility & Control
 
 <!-- persona:start -->

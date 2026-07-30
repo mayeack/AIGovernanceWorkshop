@@ -1,7 +1,7 @@
 +++
 title       = "Lab 4 — Govern"
 description = "Splunk and Enterprise Security: immutable audit trail, prompt-injection detection, and accountable casework."
-duration    = "20 min"
+duration    = "45 min"
 weight      = 60
 aliases     = ["/lab-4-govern.html", "/workshops/ai-governance/06-lab-4-govern/"]
 +++
@@ -13,8 +13,7 @@ This lab needs to be extended to include Enterprise Security AI agents / a respo
 ![alt text](/images/image-126.png)
 
 **Pillar:** Govern<br>
-**Tool:** Splunk / Enterprise Security<br>
-**Timing:** 20 minutes<br>
+**Tool:** Splunk and Enterprise Security<br>
 **Outcome:** Accountability & Evidence
 
 <!-- persona:start -->

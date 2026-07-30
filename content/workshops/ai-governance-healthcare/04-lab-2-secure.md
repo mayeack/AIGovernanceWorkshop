@@ -10,7 +10,6 @@ aliases     = ["/lab-2-secure.html", "/workshops/ai-governance/04-lab-2-secure/"
 
 **Pillar:** Secure<br>
 **Tool:** Cisco AI Defense<br>
-**Timing:** 45 minutes<br>
 **Outcome:** Trusted AI
 
 <!-- persona:start -->
@@ -31,11 +30,13 @@ Cisco AI Defense is a live integration: it inspects the prompt (pre-LLM) and the
 
 ## Step by step
 
-### 1. Access DemoBot
+### Lab 2.1 Prompt Prescriptive Overreach in DemoBot
+
+#### 2.1.1 Access DemoBot
 
 Go to the  DemoBot instance and enter the access code provided by the facilitator.
 
-### 2. Prompt Prescriptive Overreach
+#### 2.1.2 Prompt Prescriptive Overreach
 
 ![alt text](/images/image-20.png)
 
@@ -47,11 +48,13 @@ Behavior injection toggles (Synthetic PII/PHI, Toxic Content, Hallucinated Conte
 
 Feel free to explore how the various toggles generate non-compliant behavior, and how that behavior is blocked when Cisco AI Defense is toggled on.
 
-### 3. Access Cisco AI Defense
+### Lab 2.2 Review Current Policies in Cisco AI Defense
+
+#### 2.2.1 Access Cisco AI Defense
 
 You should have received an email with instructions on how to access Cisco AI Defense at **https://security.cisco.com/dashboard?enterpriseId=d87a65f7-f4f1-47ad-bdab-593226c85f3d**.
 
-### 4. Review Dashboard
+#### 2.2.2 Review Dashboard
 
 ![alt text](/images/image-100.png)
 
@@ -67,7 +70,7 @@ Applications & Protection status — Inventories the AI applications in use and 
 
 AI Assets — A complete map of the AI attack surface: the agents, models, data, and third-party apps employees touch. This is asset discovery for AI — the foundation of any security program, surfacing shadow AI before it becomes a breach.
 
-### 5. Review Associated Policies
+#### 2.2.3 Review Current Policies
 
 ![alt text](/images/image-18.png)
 
@@ -91,7 +94,9 @@ Filter strength (Medium) — A tunable dial on how aggressively each rule fires.
 
 ![alt text](/images/image-84.png)
 
-### 6. Create Custom Prescriptive Overreach Guardrail
+### Lab 2.3 Create Probabilistic Policies
+
+#### 2.3.1 Create Prescriptive Overreach Guardrail
 
 ![alt text](/images/image-59.png)
 
@@ -139,7 +144,7 @@ Click on **Publish Policy**.
 
 Click on **Go to adpative guardrail profiles**.
 
-### 7. Apply the Custom Guardrail
+#### 2.3.2 Apply the Custom Guardrail
 
 ![alt text](/images/image-71.png)
 
@@ -169,9 +174,13 @@ Click on **Save changes**.
 
 ![alt text](/images/image-77.png)
 
-### 8. Validate Applied Guardrail
+#### 2.4 Validate Prescriptive Overreach Guardrail
+
+### 2.4.1 Access DemoBot
 
 Navigate back to DemoBot. In the left sidepanel, toggle on **Prescriptive Overreach**.
+
+#### 2.4.2 Prompt Prescriptive Overreach
 
 ![alt text](/images/image-78.png)
 
